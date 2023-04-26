@@ -1,0 +1,25 @@
+Si vuole creare un sistema per automatizzare la gestione di animatori turistici presso più villaggi/strutture di balneazione, il tutto gestito da un’unica agenzia. Lo scopo dell’agenzia è fare in modo che ogni villaggio sia coperto dal numero di animatori richiesto, per tutto il periodo estivo. L’agenzia assegnerà quindi i vari animatori ai rispettivi villaggi, secondo le disponibilità dei primi e le necessità dei secondi. Nella base di dati si vogliono memorizzare i dati degli animatori, con le indicazioni del villaggio in cui lavorano, tenendo traccia anche delle ore svolte per poter calcolare lo stipendio mensile di questi. Compito dei villaggi è indicare il numero degli animatori di cui hanno bisogno per ogni tipologia di animatore: animatore capo, resposabile, animatore semplice(fitness, sport, miniclub) ecc. , l’inizio e la durata del periodo di lavoro.
+
+Ipotesi aggiuntive:
+
+si ipotizza che un animatore possa svolgere parte del proprio periodo di disponibilità in un solo villaggio.
+si ipotizza che un animatore non debba necessariamente lavorare per tutto il proprio periodo di disponibilità.
+si ipotizza che in un villaggio sia necessario che ci sia sempre almeno un animatore capo e un animatore responsabile.
+si ipotizza che un animatore semplice possa avere la specializzazione in un'attività extra, come ad esempio schiuma party, spettacolo di ballo brasiliano, macchina dei pop corn, figure con i palloncini.
+si ipotizza che tutti gli animatori di qualsiasi tipo possano svolgere le attività di tipo normale.
+si ipotizza che se un villaggio desidera svolgere attività ti tipo extra, lo potrà fare solo se ha almeno un animatore semplice con quel tipo di specializzazione.
+si ipotizza che se un villaggio voglia fare un'attività di tipo extra, dovrà deciderlo al momento dell'assegnazione degli animatori.
+si ipotizza che in un giorno un animatore di tipo semplice lavora 8 ore
+si ipotizza che in un giorno un animatore di tipo responsabile lavora 6 ore al giorno
+si ipotizza che in un giorno un animatore di tipo capo lavora 5 ore al giorno
+si ipotizza che ogni animatore, indistintamente dal tipo abbia a disposizione un giorno libero a settimana 
+si ipotizza che nel calcolo dello stipendio non si differisca fra giorno feriale o giorno festivo, entrambi saranno pagati uguali
+
+
+NOTE DA DISCUTERE A VOCE
+definire tipi di attività normali
+definire attività extra
+scelta attivita extra da parte dei villaggi
+calcolo costo servizi extra? ha un budget? va fuori tema?calcoliamo solo quanto guadagnano gli animatori o anche quanto spendono i villaggi?
+quando si parla di giorno libero, noi non lo usiamo per la gestione dei turni(chi lavora quando), ma semplicemente per calcolare lo stipendio (quidni 6 giorni lavorativi su 7)
+vogliamo mettere lo storico degli anni precedenti per facilitare la collocazione degli animatori? come sarebbe gestita poi la cosa nell'assgnazione?
