@@ -13,3 +13,4 @@ si ipotizza che in un giorno un animatore di tipo capo lavora 5 ore al giorno
 si ipotizza che ogni animatore, indistintamente dal tipo abbia a disposizione un giorno libero a settimana 
 si ipotizza che nel calcolo dello stipendio non si differisca fra giorno feriale o giorno festivo, entrambi saranno pagati uguali
 si ipotizza che un villaggio abbia un budget illimitato per quanto riguarda le spese di attività extra e stipendio animatori
+
