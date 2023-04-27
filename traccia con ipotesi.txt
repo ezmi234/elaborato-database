@@ -23,3 +23,5 @@ scelta attivita extra da parte dei villaggi
 calcolo costo servizi extra? ha un budget? va fuori tema?calcoliamo solo quanto guadagnano gli animatori o anche quanto spendono i villaggi?
 quando si parla di giorno libero, noi non lo usiamo per la gestione dei turni(chi lavora quando), ma semplicemente per calcolare lo stipendio (quidni 6 giorni lavorativi su 7)
 vogliamo mettere lo storico degli anni precedenti per facilitare la collocazione degli animatori? come sarebbe gestita poi la cosa nell'assgnazione?
+
+budget illimitato
