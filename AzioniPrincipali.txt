@@ -1,0 +1,10 @@
+Principali azioni richieste:
+1.	Aggiungere un nuovo animatore
+2.	Aggiungere un nuovo villaggio
+3.	Assegnare animatori al villaggio
+4.	Aggiornare le ore lavorative di un animatore
+5.	Calcolare lo stipendio di un animatore
+6.  Richiesta da parte di un villaggio di attività extra
+7.	Calcolo costi servizi al villaggio: animatori+att extra
+8.  Riassagnare un animatore ad un nuovo villaggio(periodoAnimatore>necessità villaggio)
+9.	Assegnare un nuovo animatore ad un villaggio nel caso smetta o la sua disponibiltà<necessità villaggio 
