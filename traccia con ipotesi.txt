@@ -1,16 +1,19 @@
-Si vuole creare un sistema per automatizzare la gestione di animatori turistici presso più villaggi/strutture di balneazione, il tutto gestito da un’unica agenzia. Lo scopo dell’agenzia è fare in modo che ogni villaggio sia coperto dal numero di animatori richiesto, per tutto il periodo estivo. L’agenzia assegnerà quindi i vari animatori ai rispettivi villaggi, secondo le disponibilità dei primi e le necessità dei secondi. Nella base di dati si vogliono memorizzare i dati degli animatori e le eventuali passate stagioni lavorative, con le indicazioni del villaggio in cui lavorano, tenendo traccia anche delle ore svolte per poter calcolare lo stipendio mensile di questi. Compito dei villaggi è indicare il numero degli animatori di cui hanno bisogno per ogni tipologia di animatore: animatore capo, resposabile, animatore semplice(fitness, sport, miniclub) ecc. , l’inizio e la durata del periodo di lavoro.
+Una casa automobilistica, per assicurare l’assistenza alla propria clientela, ha costituito, su tutto il territorio nazionale, una rete di officine.
+L’officina centrale ha il compito di gestire tutte le altre: archivia le informazioni di ogni singola officina (codice officina, denominazione, indirizzo) e memorizza in particolare i dati:
+• sui pezzi di ricambio (codice pezzo, descrizione, costo unitario, quantità,...);
+• sui servizi offerti (codice servizio, descrizione, costo orario,...);
+• sugli accessori in vendita (codice articolo, descrizione, costo unitario,...).
+I clienti prenotano l'intervento presso l'officina scelta indicando:
+1. i dati dell'autoveicolo (targa, numero telaio, anno di costruzione, ecc);
+2. i dati propri (cognome, nome, telefono, ecc);
+3. l’intervento richiesto (tagliando, freni, gomme, ecc)
 
-Ipotesi aggiuntive:
-
-si ipotizza che un animatore possa svolgere parte del proprio periodo di disponibilità in più villaggi nella stessa stagione.
-si ipotizza che un animatore non debba necessariamente lavorare per tutto il proprio periodo di disponibilità.
-si ipotizza che in un villaggio sia necessario che ci sia sempre almeno un animatore capo e un animatore responsabile.
-si ipotizza che tutti gli animatori di qualsiasi tipo possano svolgere le attività di tipo normale.
-si ipotizza che l'attività extra è un pacchetto a parte che il villaggio puo richiedere in cui è "tutto compreso" (es per una cena chiamo il catering e pensano loro a tutto)
-si ipotizza che in un giorno un animatore di tipo semplice lavora 8 ore
-si ipotizza che in un giorno un animatore di tipo responsabile lavora 6 ore al giorno
-si ipotizza che in un giorno un animatore di tipo capo lavora 5 ore al giorno
-si ipotizza che ogni animatore, indistintamente dal tipo abbia a disposizione un giorno libero a settimana 
-si ipotizza che nel calcolo dello stipendio non si differisca fra giorno feriale o giorno festivo, entrambi saranno pagati uguali
-si ipotizza che un villaggio abbia un budget illimitato per quanto riguarda le spese di attività extra e stipendio animatori
-
+inoltre si vuole tenere traccia dei dipendenti e delle loro interazioni
+Di ogni dipendente si vogliono memorizzare: codice fiscale, nome, cognome e data di
+nascita. I dipendenti si differenziano in base al reparto di appartenenza: reparto riparazioni e reparto compravendita. Il primo è formato da meccanici, il secondo da agenti automobilistici. Di ciascuno di essi si vuole memorizzare la retribuzione oraria.
+Nel reparto riparazioni, ogni riparazione riguarda un veicolo e viene effettuata da uno o più meccanici. Di ciascuna riparazione è importante tener traccia del numero di ore dedicate da ogni meccanico e di eventuali pezzi di ricambio utilizzati. Inoltre, si vogliono memorizzare la data di inizio e fine riparazione, nonché il costo totale della riparazione (essendo
+quest’ultimo derivabile dalla retribuzione oraria di ogni meccanico che ha contributo alla riparazione in oggetto, dal relativo numero di ore impiegate e dal costo di ciascun pezzo di ricambio).
+Nel reparto compravendita, ogni transazione di compravendita è effettuata da un agente automobilistico con un cliente e riguarda un veicolo. Di ogni transazione si vuole memorizzare se questa sia di acquisto o di vendita, e il prezzo contrattato.
+Inoltre, un veicolo può essere oggetto di molteplici attestati di proprietà (data inizio, data fine), ognuno che specifica la relazione di proprietà tra il veicolo e il suo attuale proprietario
+(cittadino). Chiaramente, la data di fine non è specificata nell’attestato attualmente in vigore (l’ultimo
+realizzato)
