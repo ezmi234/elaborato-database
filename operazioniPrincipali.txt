@@ -1,0 +1,35 @@
+1	Aggiungere una nuova officina
+	1 all'anno
+
+2	Calcolare i guadagni delle officine
+	1 al giorno
+
+3	Aggiungere un cliente
+	50 al giorno
+
+4	Richiesta di un servizio di compra/vendita
+	10 al giorno
+
+5 	Richiesta di un servizio di acquisto in store
+	100 al giorno
+
+6	Richiesta di un servizio di intervento
+	40 al giorno
+
+7	Aggiungere un nuovo dipendente
+	2 al mese
+
+8	Aggiunta recensione
+	30 al giorno
+
+9	Visualizzazione dipendenti in base a particolari filtri
+	100 al giorno
+
+10  Calcolo stipendio dipendenti
+	1 al mese
+
+11	Visualizzazione	clienti in base a particolari filtri
+	200 al giorno
+
+12	Visualizzazione accessori venduti
+	10 al giorno
