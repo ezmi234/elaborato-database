@@ -44,6 +44,7 @@ Secondaria			E 				1 						S
 Totale: 1S -> 2 all'anno
 
 Op2 Calcolare i guadagni delle officine
+si ipotizza che l'officina centrale sia identica ad un'officina secondaria con l'aggiunta della gestione delle altre officine
 Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
 Centrale			E 				1 				| 		S 		|
 Gestice				R 			|	41				|		L 		|
