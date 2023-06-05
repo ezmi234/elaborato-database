@@ -1,19 +1,19 @@
-1	Aggiungere una nuova officina
+1	Aggiungere una nuova officina secondaria
 	1 all'anno
 
-2	Calcolare i guadagni delle officine
+2	Calcolare il bilancio totale
 	1 al giorno
 
 3	Aggiungere un cliente
 	50 al giorno
 
-4	Richiesta di un servizio di compra/vendita
-	10 al giorno
+4	Esecuzione di un servizio di compra/vendita
+	5 al giorno
 
 5 	Richiesta di un servizio di acquisto in store
 	100 al giorno
 
-6	Richiesta di un servizio di intervento
+6	Preventivo di un servizio di intervento
 	40 al giorno
 
 7	Aggiungere un nuovo dipendente
@@ -28,16 +28,116 @@
 10	Calcolo stipendio dipendenti
 	1 al mese
 
-11	Visualizzazione	clienti in base a particolari filtri
-	200 al giorno
-
 12	Visualizzazione accessori venduti
-	10 al giorno
+	1 a settimana
 
 13	inserimento di un nuovo accessorio
 	3 al mese
 
 14	inserimento di un nuovo pezzo di ricambio
 	3 al mese
+
+
+Op1 Aggiungere una nuova officina
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Secondaria			E 				1 						S
+Totale: 1S -> 2 all'anno
+
+Op2 Calcolare i guadagni delle officine
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Centrale			E 				1 				| 		S 		|
+Gestice				R 			|	41				|		L 		|
+Secondaria			E 			| 	41 				| 		L 		|
+Totale: 1S+82L -> 84 al gg
+
+Op3 Aggiungere un cliente
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Cliente				E 				1 						S
+Totale: 1S -> 2 all'anno
+
+Op4 Esecuzione di un servizio di compra/vendita
+in media la richiesta di compravendita effettuata dai clienti è 1
+
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Cliente			| 	E 			|	1 				| 		S 		|
+Richiede 		| 	R 			|	1 				| 		S 		|
+Compra/Vendita 	| 	E 			| 	1 				|		S 		|
+Finalizzata 	| 	R 			| 	1 				|		S 		|
+Consulente 		| 	E 			| 	1 				|		S 		|
+Totale: 5S -> 50 al giorno
+
+Op5 Effuttuazione di un servizio di acquisto in store
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Cliente 		| 	E 			|	1 				|		S 		|
+Richiede		|   R 			|	10				|		S 		|
+AcquistoInStore	| 	E 			|	10				|		S 		|
+Vende			|	R 			|	1 				|		S 		|
+Carrello		|	E 			|	1 				|		S 		|
+Contiene		|	R 			|	5 				|		S 		|
+Accessorio		|	E 			|	5 				|		S 		|
+Totale: 28S -> 5600 al giorno
+
+Op6 Costo di un servizio di intervento
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Intervento 		|	E 			| 		1			|		S
+Svolto 			| 	R 			|		2			|		S
+Meccanico 		| 	E 			| 		2 			|		L
+Su 				| 	R 			| 		1			|		S
+Veicolo 		|	E 			| 		1			|		S
+Necessita		|	R 			| 		10			|		L
+PezzoDiRicambio | 	E 			| 		10			|		L
+Totale: 5S+22L -> 1280 al gg
+
+Op7 Aggiungere un nuovo dipendente
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Dipendente 		| 	E 			| 	1 				| 		S
+Totale: 1S -> 4 al mese
+
+Op8 Aggiunta recensione
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Recensione 		| 	E 			| 	1 				| 		S
+Totale: 1S -> 60 al gg
+
+Op9 Visualizzazione meccanici in base a particolari filtri
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Meccanico		|	E 			|	500 			|		L
+Percepisce		|	R 			|	60				|		L
+Stipendio		|	E 			|	60 				|		L
+Svolto			|	R 			|	16000			|		L
+Intervento		|	E 			|   16000			|		L
+Al 				|	R 			|	1 				|		L
+Servizio		|	E 			|	1 				|		L
+Totale: 326220L -> 3262200 al gg
+
+Op 10 Calcolo stipendio dipendenti
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Stipendio		|	E 			| 	600 			| 		S
+Percepisce		|	R 			| 	600  			|		S
+Meccanico		|	E 			| 	500 	 		| 		L
+Consulente		|	E 			| 	100 			| 		L
+Totale 1200S + 600L -> 3000 al mese
+
+
+Op12 Visualizzazione accessori venduti
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Carrello		|	E 			|	1 000 000 		| 		L
+Contiene		|	R 			| 	5 000 000 		| 		L
+Accessorio		|	E 			| 	5 000 000 		| 		L
+Totale 11 000 000L -> 11 000 000 a settimana
+
+13	inserimento di un nuovo accessorio
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Accessorio 		| 		E 		| 	1 				| 		S
+totale 1S -> 6 al mese
+
+14	inserimento di un nuovo pezzo di ricambio
+Concetto		|	Construtto	|	Accessi 		|		Tipo 	|
+Ricambio 		| 		E 		| 	1 				| 		S
+	
+
+
+
+
+
 
 
