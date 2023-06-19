@@ -1,3 +1,4 @@
+https://www.youtube.com/watch?v=Y4Dq_TpzklA&t=6s
 1	Aggiungere una nuova officina secondaria					ko
 	1 all'anno
 
@@ -19,22 +20,22 @@
 7	Aggiungere un nuovo dipendente 							ok
 	2 al mese
 
-8	Aggiunta recensione
+8	Aggiunta recensione								OK
 	30 al giorno
 
-9	Visualizzazione dipendenti in base a particolari filtri
+9	Visualizzazione dipendenti in base a particolari filtri				OK
 	100 al giorno
 
-10	Calcolo stipendio dipendenti
+10	Calcolo stipendio dipendenti 							ok
 	1 al mese
 
-12	Visualizzazione accessori venduti
+12	Visualizzazione accessori venduti						ok
 	1 a settimana
 
-13	inserimento di un nuovo accessorio
+13	inserimento di un nuovo accessorio						OK
 	3 al mese
 
-14	inserimento di un nuovo pezzo di ricambio
+14	inserimento di un nuovo pezzo di ricambio					OK
 	3 al mese
 
 
