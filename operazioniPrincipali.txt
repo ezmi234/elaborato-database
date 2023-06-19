@@ -1,22 +1,22 @@
-1	Aggiungere una nuova officina secondaria
+1	Aggiungere una nuova officina secondaria					ko
 	1 all'anno
 
-2	Calcolare il bilancio totale
+2	Calcolare il bilancio totale 							ok
 	1 al giorno
 
-3	Aggiungere un cliente
+3	Aggiungere un cliente 								ok
 	50 al giorno
 
-4	Esecuzione di un servizio di compra/vendita
+4	Esecuzione di un servizio di compra/vendita 					ok
 	5 al giorno
 
-5 	Richiesta di un servizio di acquisto in store
+5 	Richiesta di un servizio di acquisto in store 					ok
 	100 al giorno
 
-6	Preventivo di un servizio di intervento
+6	Preventivo di un servizio di intervento 					ok
 	40 al giorno
 
-7	Aggiungere un nuovo dipendente
+7	Aggiungere un nuovo dipendente 							ok
 	2 al mese
 
 8	Aggiunta recensione
