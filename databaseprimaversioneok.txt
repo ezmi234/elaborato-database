@@ -1,0 +1,418 @@
+
+create database AZIENDA_AUTOMOBILISTICA;
+use AZIENDA_AUTOMOBILISTICA;
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `accessorio`
+--
+
+CREATE TABLE `accessorio` (
+  `codiceAccessorio` int(11) NOT NULL,
+  `nome` char(20) NOT NULL,
+  `costo` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `acquisto_in_store`
+--
+
+CREATE TABLE `acquisto_in_store` (
+  `codiceAcquisto` int(11) NOT NULL,
+  `costo` float NOT NULL,
+  `descrizione` varchar(1000) NOT NULL,
+  `data` date NOT NULL,
+  `codiceOfficina` int(11) NOT NULL,
+  `CF_Cliente` char(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `cliente`
+--
+
+CREATE TABLE `cliente` (
+  `CF` char(16) NOT NULL,
+  `nome` char(50) NOT NULL,
+  `cognome` char(50) NOT NULL,
+  `nascita` date NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `buonoAcquisto` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `compravendita_auto`
+--
+
+CREATE TABLE `compravendita_auto` (
+  `codiceCV` int(11) NOT NULL,
+  `costo` float NOT NULL,
+  `descrizione` varchar(1000) NOT NULL,
+  `data` date NOT NULL,
+  `tipo` char(1) NOT NULL,
+  `codiceOfficina` int(11) NOT NULL,
+  `CF_Cliente` char(16) NOT NULL,
+  `CF_Consulente` char(16) NOT NULL,
+  `numeroDiSerie` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `comprende`
+--
+
+CREATE TABLE `comprende` (
+  `codiceAcquisto` int(11) NOT NULL,
+  `codiceAccessorio` int(11) NOT NULL,
+  `quantità` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `cosulente`
+--
+
+CREATE TABLE `cosulente` (
+  `CF` char(16) NOT NULL,
+  `nome` char(50) NOT NULL,
+  `cognome` char(50) NOT NULL,
+  `nascita` date NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `bonusRecensione` float NOT NULL,
+  `mediaVoto` int(11) NOT NULL,
+  `percentualeProvvigione` float NOT NULL,
+  `provvigioneTotale` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `intervento`
+--
+
+CREATE TABLE `intervento` (
+  `codiceIntervento` int(11) NOT NULL,
+  `costo` float NOT NULL,
+  `descrizione` varchar(1000) NOT NULL,
+  `data` date NOT NULL,
+  `dataFine` date DEFAULT NULL,
+  `costoRicambi` float NOT NULL,
+  `costoManodopera` float NOT NULL,
+  `codiceOfficina` int(11) NOT NULL,
+  `CF_Cliente` char(16) NOT NULL,
+  `numeroDiSerie` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `meccanico`
+--
+
+CREATE TABLE `meccanico` (
+  `CF` char(16) NOT NULL,
+  `nome` char(50) NOT NULL,
+  `cognome` char(50) NOT NULL,
+  `nascita` date NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `bonusRecensione` float NOT NULL,
+  `mediaVoto` int(11) NOT NULL,
+  `pagaOraria` float NOT NULL,
+  `totaleOreSvolte` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `necessita`
+--
+
+CREATE TABLE `necessita` (
+  `codicePezzo` int(11) NOT NULL,
+  `codiceIntervento` int(11) NOT NULL,
+  `quantità` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `officina`
+--
+
+CREATE TABLE `officina` (
+  `codiceOfficina` int(11) NOT NULL,
+  `nome` char(50) NOT NULL,
+  `sede_città` char(50) NOT NULL,
+  `sede_via` char(50) NOT NULL,
+  `sede_civico` int(11) NOT NULL,
+  `bilancioOfficina` float NOT NULL,
+  `tipo` char(1) NOT NULL,
+  `PRINCIPALE_` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `pezzo_di_ricambio`
+--
+
+CREATE TABLE `pezzo_di_ricambio` (
+  `codicePezzo` int(11) NOT NULL,
+  `nome` char(50) NOT NULL,
+  `prezzo` float NOT NULL,
+  `modello` char(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `recensione`
+--
+
+CREATE TABLE `recensione` (
+  `codiceRecensione` int(11) NOT NULL,
+  `codiceIntervento` int(11) NOT NULL,
+  `codiceCV` int(11) NOT NULL,
+  `codiceAcquisto` int(11) NOT NULL,
+  `data` date NOT NULL,
+  `voto` int(11) NOT NULL,
+  `messaggio` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `stipendio`
+--
+
+CREATE TABLE `stipendio` (
+  `CF_Meccanico` char(16) NOT NULL,
+  `mese` int(11) NOT NULL,
+  `anno` int(11) NOT NULL,
+  `CF_Consulente` char(16) NOT NULL,
+  `retribuzione` float NOT NULL,
+  `codiceOfficina` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `svolto`
+--
+
+CREATE TABLE `svolto` (
+  `CF_Meccanico` char(16) NOT NULL,
+  `codiceIntervento` int(11) NOT NULL,
+  `oreDiLavoro` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `veicolo`
+--
+
+CREATE TABLE `veicolo` (
+  `numeroDiSerie` int(11) NOT NULL,
+  `targa` char(7) NOT NULL,
+  `modello` char(50) NOT NULL,
+  `anno` int(11) NOT NULL,
+  `colore` char(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indici per le tabelle scaricate
+--
+
+--
+-- Indici per le tabelle `accessorio`
+--
+ALTER TABLE `accessorio`
+  ADD PRIMARY KEY (`codiceAccessorio`);
+
+--
+-- Indici per le tabelle `acquisto_in_store`
+--
+ALTER TABLE `acquisto_in_store`
+  ADD PRIMARY KEY (`codiceAcquisto`),
+  ADD KEY `FKoffreAS` (`codiceOfficina`),
+  ADD KEY `FKrichiedeAS` (`CF_Cliente`);
+
+--
+-- Indici per le tabelle `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`CF`);
+
+--
+-- Indici per le tabelle `compravendita_auto`
+--
+ALTER TABLE `compravendita_auto`
+  ADD PRIMARY KEY (`codiceCV`),
+  ADD KEY `FKoffreCA` (`codiceOfficina`),
+  ADD KEY `FKrichiedeCA` (`CF_Cliente`),
+  ADD KEY `FKfinalizzataCA` (`CF_Consulente`),
+  ADD KEY `FKdel` (`numeroDiSerie`);
+
+--
+-- Indici per le tabelle `comprende`
+--
+ALTER TABLE `comprende`
+  ADD PRIMARY KEY (`codiceAcquisto`,`codiceAccessorio`),
+  ADD KEY `FKcom_ACC` (`codiceAccessorio`);
+
+--
+-- Indici per le tabelle `cosulente`
+--
+ALTER TABLE `cosulente`
+  ADD PRIMARY KEY (`CF`);
+
+--
+-- Indici per le tabelle `intervento`
+--
+ALTER TABLE `intervento`
+  ADD PRIMARY KEY (`codiceIntervento`),
+  ADD KEY `FKoffreI` (`codiceOfficina`),
+  ADD KEY `FKrichiedeI` (`CF_Cliente`),
+  ADD KEY `FKsuI` (`numeroDiSerie`);
+
+--
+-- Indici per le tabelle `meccanico`
+--
+ALTER TABLE `meccanico`
+  ADD PRIMARY KEY (`CF`);
+
+--
+-- Indici per le tabelle `necessita`
+--
+ALTER TABLE `necessita`
+  ADD PRIMARY KEY (`codicePezzo`,`codiceIntervento`),
+  ADD KEY `FKnec_INT` (`codiceIntervento`);
+
+--
+-- Indici per le tabelle `officina`
+--
+ALTER TABLE `officina`
+  ADD PRIMARY KEY (`codiceOfficina`),
+  ADD KEY `FKgestisceI` (`PRINCIPALE_`);
+
+--
+-- Indici per le tabelle `pezzo_di_ricambio`
+--
+ALTER TABLE `pezzo_di_ricambio`
+  ADD PRIMARY KEY (`codicePezzo`);
+
+--
+-- Indici per le tabelle `recensione`
+--
+ALTER TABLE `recensione`
+  ADD PRIMARY KEY (`codiceRecensione`),
+  ADD UNIQUE KEY `FKal_ID` (`codiceIntervento`),
+  ADD UNIQUE KEY `FKal_IDD` (`codiceCV`),
+  ADD UNIQUE KEY `FKal_IDDD` (`codiceAcquisto`);
+
+--
+-- Indici per le tabelle `stipendio`
+--
+ALTER TABLE `stipendio`
+  ADD PRIMARY KEY (`CF_Meccanico`,`mese`,`anno`),
+  ADD UNIQUE KEY `IDSTIPENDIO_1` (`CF_Consulente`,`mese`,`anno`),
+  ADD KEY `FKpaga` (`codiceOfficina`);
+
+--
+-- Indici per le tabelle `svolto`
+--
+ALTER TABLE `svolto`
+  ADD PRIMARY KEY (`CF_Meccanico`,`codiceIntervento`),
+  ADD KEY `FKsvo_INT` (`codiceIntervento`);
+
+--
+-- Indici per le tabelle `veicolo`
+--
+ALTER TABLE `veicolo`
+  ADD PRIMARY KEY (`numeroDiSerie`);
+
+--
+-- Limiti per le tabelle scaricate
+--
+
+--
+-- Limiti per la tabella `acquisto_in_store`
+--
+ALTER TABLE `acquisto_in_store`
+  ADD CONSTRAINT `FKoffreAS` FOREIGN KEY (`codiceOfficina`) REFERENCES `officina` (`codiceOfficina`),
+  ADD CONSTRAINT `FKrichiedeAS` FOREIGN KEY (`CF_Cliente`) REFERENCES `cliente` (`CF`);
+
+--
+-- Limiti per la tabella `compravendita_auto`
+--
+ALTER TABLE `compravendita_auto`
+  ADD CONSTRAINT `FKdel` FOREIGN KEY (`numeroDiSerie`) REFERENCES `veicolo` (`numeroDiSerie`),
+  ADD CONSTRAINT `FKfinalizzataCA` FOREIGN KEY (`CF_Consulente`) REFERENCES `cosulente` (`CF`),
+  ADD CONSTRAINT `FKoffreCA` FOREIGN KEY (`codiceOfficina`) REFERENCES `officina` (`codiceOfficina`),
+  ADD CONSTRAINT `FKrichiedeCA` FOREIGN KEY (`CF_Cliente`) REFERENCES `cliente` (`CF`);
+
+--
+-- Limiti per la tabella `comprende`
+--
+ALTER TABLE `comprende`
+  ADD CONSTRAINT `FKcom_ACC` FOREIGN KEY (`codiceAccessorio`) REFERENCES `accessorio` (`codiceAccessorio`),
+  ADD CONSTRAINT `FKcom_ACQ` FOREIGN KEY (`codiceAcquisto`) REFERENCES `acquisto_in_store` (`codiceAcquisto`);
+
+--
+-- Limiti per la tabella `intervento`
+--
+ALTER TABLE `intervento`
+  ADD CONSTRAINT `FKoffreI` FOREIGN KEY (`codiceOfficina`) REFERENCES `officina` (`codiceOfficina`),
+  ADD CONSTRAINT `FKrichiedeI` FOREIGN KEY (`CF_Cliente`) REFERENCES `cliente` (`CF`),
+  ADD CONSTRAINT `FKsuI` FOREIGN KEY (`numeroDiSerie`) REFERENCES `veicolo` (`numeroDiSerie`);
+
+--
+-- Limiti per la tabella `necessita`
+--
+ALTER TABLE `necessita`
+  ADD CONSTRAINT `FKnec_INT` FOREIGN KEY (`codiceIntervento`) REFERENCES `intervento` (`codiceIntervento`),
+  ADD CONSTRAINT `FKnec_PEZ` FOREIGN KEY (`codicePezzo`) REFERENCES `pezzo_di_ricambio` (`codicePezzo`);
+
+--
+-- Limiti per la tabella `officina`
+--
+ALTER TABLE `officina`
+  ADD CONSTRAINT `FKgestisceI` FOREIGN KEY (`PRINCIPALE_`) REFERENCES `officina` (`codiceOfficina`);
+
+--
+-- Limiti per la tabella `recensione`
+--
+ALTER TABLE `recensione`
+  ADD CONSTRAINT `FKal_FK` FOREIGN KEY (`codiceIntervento`) REFERENCES `intervento` (`codiceIntervento`),
+  ADD CONSTRAINT `FKal_FKAC` FOREIGN KEY (`codiceAcquisto`) REFERENCES `acquisto_in_store` (`codiceAcquisto`),
+  ADD CONSTRAINT `FKal_FKCV` FOREIGN KEY (`codiceCV`) REFERENCES `compravendita_auto` (`codiceCV`);
+
+--
+-- Limiti per la tabella `stipendio`
+--
+ALTER TABLE `stipendio`
+  ADD CONSTRAINT `FKpaga` FOREIGN KEY (`codiceOfficina`) REFERENCES `officina` (`codiceOfficina`),
+  ADD CONSTRAINT `FKpercepisceC` FOREIGN KEY (`CF_Consulente`) REFERENCES `cosulente` (`CF`),
+  ADD CONSTRAINT `FKpercepisceM` FOREIGN KEY (`CF_Meccanico`) REFERENCES `meccanico` (`CF`);
+
+--
+-- Limiti per la tabella `svolto`
+--
+ALTER TABLE `svolto`
+  ADD CONSTRAINT `FKsvo_INT` FOREIGN KEY (`codiceIntervento`) REFERENCES `intervento` (`codiceIntervento`),
+  ADD CONSTRAINT `FKsvo_MEC` FOREIGN KEY (`CF_Meccanico`) REFERENCES `meccanico` (`CF`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
