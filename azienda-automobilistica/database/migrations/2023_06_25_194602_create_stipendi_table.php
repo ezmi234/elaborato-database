@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('data');
             $table->string('CF_meccanico')->nullable();
             $table->string('CF_consulente')->nullable();
-            $table->bigInteger('codice_officina');
+            $table->unsignedBigInteger('codice_officina');
 
             $table->foreign('CF_meccanico')->references('CF')
                 ->on('meccanici')->onDelete('cascade');

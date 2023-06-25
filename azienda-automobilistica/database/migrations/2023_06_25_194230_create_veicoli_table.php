@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('veicoli', function (Blueprint $table) {
             $table->bigInteger('numero_telaio')->primary();
+            $table->timestamps();
             $table->string('marca');
             $table->string('modello');
             $table->string('targa');
             $table->integer('anno_immatricolazione');
             $table->string('colore');
 
-            $table->string('codice_intervento')->nullable();
-            $table->string('codice_compra_vendita')->nullable();
+            $table->unsignedBigInteger('codice_intervento')->nullable();
+            $table->unsignedBigInteger('codice_compra_vendita')->nullable();
 
             $table->foreign('codice_intervento')->references('codice_intervento')
                 ->on('interventi')->onDelete('cascade');

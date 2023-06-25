@@ -17,10 +17,12 @@ return new class extends Migration
             $table->string('cognome');
             $table->date('data_nascita');
             $table->integer('telefono');
-            $table->decimal('percentuale_provvigione', 0, 2);
+            $table->decimal('percentuale_provvigione', 3, 2);
             $table->decimal('totale_provvigione', 10, 2);
             $table->decimal('bonus_recensione', 10, 2);
-            $table->decimal('media_recensione', 1, 1);
+            $table->decimal('media_recensione', 2, 1);
+
+            $table->timestamps();
         });
     }
 

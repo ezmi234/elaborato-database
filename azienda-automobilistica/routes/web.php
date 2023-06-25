@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+//store mefthod cliente
+Route::get('/create', [ClienteController::class, 'create'])->name('create');
+Route::post('/store', [ClienteController::class, 'store'])->name('store');

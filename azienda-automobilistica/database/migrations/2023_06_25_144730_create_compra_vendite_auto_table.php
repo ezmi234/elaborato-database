@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('compra_vendite_auto', function (Blueprint $table) {
             $table->id('codice_compra_vendita');
-            $table->timestamps('data');
+            $table->timestamps();
             $table->boolean('tipo_vendita');
             $table->decimal('costo_totale', 10, 2);
             $table->string('metodo_pagamento');
 
             $table->string('CF_cliente');
-            $table->bigInteger('codice_officina');
+            $table->unsignedBigInteger('codice_officina');
             $table->string('CF_consulente');
 
             $table->foreign('CF_cliente')->references('CF')
