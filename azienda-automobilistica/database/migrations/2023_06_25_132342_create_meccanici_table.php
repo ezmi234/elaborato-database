@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('meccanini', function (Blueprint $table) {
+        Schema::create('meccanici', function (Blueprint $table) {
             $table->string('CF')->primary();
+            $table->timestamps();
             $table->string('nome');
             $table->string('cognome');
             $table->date('data_nascita');
@@ -20,8 +21,7 @@ return new class extends Migration
             $table->decimal('paga_oraria', 10, 2);
             $table->decimal('totale_ore_svolte', 10, 2);
             $table->decimal('bonus_recensione', 10, 2);
-            $table->decimal('media_recensione', 1, 1);
-
+            $table->decimal('media_recensione', 2, 1);
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('meccanini');
+        Schema::dropIfExists('meccanici');
     }
 };

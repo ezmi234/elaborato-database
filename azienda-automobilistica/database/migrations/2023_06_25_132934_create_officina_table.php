@@ -19,10 +19,6 @@ return new class extends Migration
             $table->integer('sede_civico');
             $table->decimal('bilancio', 10, 2);
             $table->boolean('centrale');
-
-            $table->bigInteger('codice_officina_centrale')->nullable();
-            $table->foreign('codice_officina_centrale')->references('codice_officina')
-                ->on('officina')->onDelete('cascade');
         });
     }
 

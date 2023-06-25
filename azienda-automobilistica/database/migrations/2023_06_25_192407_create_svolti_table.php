@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('ore_svolte');
 
             $table->foreign('CF')->references('CF')
-                ->on('meccanini')->onDelete('cascade');
+                ->on('meccanici')->onDelete('cascade');
             $table->foreign('codice_intervento')->references('codice_intervento')
                 ->on('interventi')->onDelete('cascade');
 

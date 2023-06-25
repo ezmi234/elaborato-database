@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('interventi', function (Blueprint $table) {
             $table->id('codice_intervento');
-            $table->timestamps('data');
+            $table->timestamps();
             $table->decimal('costo_totale', 10, 2);
             $table->decimal('costo_ricambi', 10, 2);
             $table->decimal('costo_ore_di_lavoro', 10, 2);
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->time('data_fine')->nullable();
 
             $table->string('CF_cliente');
-            $table->bigInteger('codice_officina');
+            $table->unsignedBigInteger('codice_officina');
 
             $table->foreign('CF_cliente')->references('CF')
                 ->on('clienti')->onDelete('cascade');

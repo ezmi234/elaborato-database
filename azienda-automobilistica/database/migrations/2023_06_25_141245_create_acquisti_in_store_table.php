@@ -13,18 +13,22 @@ return new class extends Migration
     {
         Schema::create('acquisti_in_store', function (Blueprint $table) {
             $table->id('codice_acquisto');
-            $table->timestamps('data');
+            $table->timestamps();
             $table->decimal('costo_totale', 10, 2);
             $table->string('metodo_pagamento');
 
             $table->string('CF_cliente');
-            $table->bigInteger('codice_officina');
+            $table->unsignedBigInteger('codice_officina');
 
-            $table->foreign('CF_cliente')->references('CF')
-                ->on('clienti')->onDelete('cascade');
-            $table->foreign('codice_officina')->references('codice_officina')
-                ->on('officina')->onDelete('cascade');
+            $table->foreign('CF_cliente')
+                ->references('CF')
+                ->on('clienti')
+                ->onDelete('cascade');
 
+            $table->foreign('codice_officina')
+                ->references('codice_officina')
+                ->on('officina')
+                ->onDelete('cascade');
         });
     }
 
