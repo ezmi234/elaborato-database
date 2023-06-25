@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accessori', function (Blueprint $table) {
-            $table->id();
-            $table->string("nome");
-            $table->float("costo");
+        Schema::create('acessori', function (Blueprint $table) {
+            $table->id('codice_acessorio');
+            $table->string('nome');
+            $table->decimal('prezzo', 10, 2);
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accessori');
+        Schema::dropIfExists('acessori');
     }
 };
