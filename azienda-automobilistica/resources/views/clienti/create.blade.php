@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Clients'])
+@extends('layouts.app')
 
 @extends('layouts.sidebar')
 @section('content')
@@ -31,5 +31,18 @@
     </div>
     <button type="submit" class="btn btn-primary">Aggiungi Cliente</button>
 </form>
+
+@if ($errors->clienti->any())
+    <div class="alert alert-danger mt-4">
+        <ul>
+            @foreach ($errors->clienti->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+
 @endsection
 
