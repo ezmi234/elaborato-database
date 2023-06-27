@@ -9,6 +9,8 @@ class Cliente extends Model
 {
     use HasFactory;
     protected $table = 'clienti';
+    protected $primaryKey = 'CF';
+    public $incrementing = false;
     protected $fillable = [
         'CF',
         'nome',
