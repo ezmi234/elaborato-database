@@ -19,4 +19,6 @@ class Cliente extends Model
         'telefono',
         'buono_acquisto',
     ];
+
+
 }
