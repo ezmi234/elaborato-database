@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('officina', function (Blueprint $table) {
+        Schema::create('officine', function (Blueprint $table) {
             $table->id('codice_officina');
             $table->string('nome');
             $table->string('sede_città');
@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('sede_civico');
             $table->decimal('bilancio', 10, 2);
             $table->boolean('centrale');
+            $table->unsignedInteger('gestita_da')->nullable();
+            $table->foreign('gestita_da')->references('id')->on('officine');
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('officina');
+        Schema::dropIfExists('officine');
     }
 };

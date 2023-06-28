@@ -55,8 +55,22 @@ class ClienteController extends Controller
 
     public function update(Request $request, Cliente $cliente)
     {
-        $cliente->update($request->all());
-        return redirect()->route('clienti.index');
+        $validatedData = $request->validateWithBag('clienti', [
+            'CF',
+            'nome' => ['required', 'max:255'],
+            'cognome' => ['required', 'max:255'],
+            'data_nascita' => ['required', 'date', 'before:today', 'after:1900-01-01' , 'date_format:Y-m-d'],
+            'telefono' => ['required', 'numeric', 'digits_between:8,10'],
+            'buono_acquisto' => ['required', 'numeric', 'min:0',],
+        ]);
+
+        try {
+            $cliente->update($validatedData);
+        } catch (\Exception $e) {
+            return redirect()->route('clienti.index')->with('error', 'Errore durante la modifica del cliente!')
+                ->with('message', $e->getMessage());
+        }
+        return redirect()->route('clienti.index')->with('success', 'Cliente modificato con successo!');
     }
 
     public function destroy(Cliente $cliente)

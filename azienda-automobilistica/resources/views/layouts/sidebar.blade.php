@@ -5,6 +5,8 @@
             <div class="sidebar-heading border-bottom bg-light p-2" style="height: 57px; display:flex; justify-content:center; align-items:center">Azienda automobilistica</div>
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
+                 {{ request()->is('officine*') ? 'active' : '' }}" href="{{ route('officine.index') }}">Officine</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('clienti*') ? 'active' : '' }}" href="{{ route('clienti.index') }}">Clienti</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>

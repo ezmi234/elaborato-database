@@ -8,7 +8,7 @@
     @method('PUT')
     <div class="form-group" style="margin-bottom: 10px;">
         <label for="CF">CF cliente</label>
-        <input type="text" name="CF" id="CF" class="form-control" placeholder="CF cliente" aria-describedby="helpId" value="{{ $cliente->CF }}">
+        <input type="text" name="CF" id="CF" class="form-control" placeholder="CF cliente" aria-describedby="helpId" value="{{ $cliente->CF }}" readonly>
     </div>
     <div class="form-group" style="margin-bottom: 10px;">
         <label for="name">Nome Cliente</label>
@@ -32,4 +32,15 @@
     </div>
     <button type="submit" class="btn btn-primary">Aggiorna Cliente</button>
 </form>
+
+@if ($errors->clienti->any())
+    <div class="alert alert-danger mt-4">
+        <ul>
+            @foreach ($errors->clienti->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 @endsection

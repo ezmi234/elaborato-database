@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+//officine methods
+Route::get('officine/index', [OfficinaController::class, 'index'])->name('officine.index');
+
 // client methods
 Route::get('clienti/index', [ClienteController::class, 'index'])->name('clienti.index');
 Route::get('clienti/create', [ClienteController::class, 'create'])->name('clienti.create');
