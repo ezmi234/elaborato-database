@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AccessorioController;
 use App\Http\Controllers\OfficinaController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\AcquistoInStoreController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,7 @@ use App\Http\Controllers\ClienteController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('/');
 
 //officine methods
 Route::get('officine/index', [OfficinaController::class, 'index'])->name('officine.index');
@@ -37,3 +39,32 @@ Route::get('clienti/edit/{cliente}', [ClienteController::class, 'edit'])->name('
 Route::put('clienti/update/{cliente}', [ClienteController::class, 'update'])->name('clienti.update');
 Route::delete('clienti/destroy/{cliente}', [ClienteController::class, 'destroy'])->name('clienti.destroy');
 
+//meccanici methods
+Route::get('meccanici/index', [MeccanicoController::class, 'index'])->name('meccanici.index');
+
+
+//consulenti methods
+Route::get('consulenti/index', [ConsulenteController::class, 'index'])->name('consulenti.index');
+
+
+//accessori methods
+Route::get('accessori/index', [AccessorioController::class, 'index'])->name('accessori.index');
+Route::get('accessori/create', [AccessorioController::class, 'create'])->name('accessori.create');
+Route::post('accessori/store', [AccessorioController::class, 'store'])->name('accessori.store');
+Route::get('accessori/show/{accessorio}', [AccessorioController::class, 'show'])->name('accessori.show');
+Route::get('accessori/edit/{accessorio}', [AccessorioController::class, 'edit'])->name('accessori.edit');
+Route::put('accessori/update/{accessorio}', [AccessorioController::class, 'update'])->name('accessori.update');
+Route::delete('accessori/destroy/{accessorio}', [AccessorioController::class, 'destroy'])->name('accessori.destroy');
+
+//acquisti_in_store methods
+Route::get('acquisti_in_store/index', [AcquistoInStoreController::class, 'index'])->name('acquisti_in_store.index');
+Route::get('acquisti_in_store/create', [AcquistoInStoreController::class, 'create'])->name('acquisti_in_store.create');
+Route::post('acquisti_in_store/store', [AcquistoInStoreController::class, 'store'])->name('acquisti_in_store.store');
+Route::get('acquisti_in_store/show/{acquisto_in_store}', [AcquistoInStoreController::class, 'show'])->name('acquisti_in_store.show');
+Route::get('acquisti_in_store/edit/{acquisto_in_store}', [AcquistoInStoreController::class, 'edit'])->name('acquisti_in_store.edit');
+Route::put('acquisti_in_store/update/{acquisto_in_store}', [AcquistoInStoreController::class, 'update'])->name('acquisti_in_store.update');
+Route::delete('acquisti_in_store/destroy/{acquisto_in_store}', [AcquistoInStoreController::class, 'destroy'])->name('acquisti_in_store.destroy');
+
+
+//recensioni methods
+Route::get('recensioni/index', [RecensioneController::class, 'index'])->name('recensioni.index');

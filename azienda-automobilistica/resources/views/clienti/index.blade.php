@@ -73,6 +73,11 @@
         <div class="alert alert-danger mt-4">
             {{ session('error') }}
         </div>
+        @if(session('message'))
+            <div class="alert alert-danger mt-4">
+                {{ session('message') }}
+            </div>
+        @endif
     @elseif (session('message'))
         <div class="alert alert-danger mt-4">
             {{ session('message') }}

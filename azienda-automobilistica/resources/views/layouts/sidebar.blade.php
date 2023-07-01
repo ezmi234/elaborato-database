@@ -2,17 +2,25 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light p-2" style="height: 57px; display:flex; justify-content:center; align-items:center">Azienda automobilistica</div>
+            <div class="sidebar-heading border-bottom bg-light p-2" style="height: 57px; display:flex; justify-content:center; align-items:center">
+                <a href="{{ route('/') }}" style="color: inherit; text-decoration: none; ">Azienda automobilistica</a>
+            </div>
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('officine*') ? 'active' : '' }}" href="{{ route('officine.index') }}">Officine</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('clienti*') ? 'active' : '' }}" href="{{ route('clienti.index') }}">Clienti</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3
+                 {{ request()->is('meccanici*') ? 'active' : '' }}" href="{{ route('meccanici.index') }}">Meccanici</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3
+                 {{ request()->is('consulenti*') ? 'active' : '' }}" href="{{ route('consulenti.index') }}">Consulenti</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3
+                 {{ request()->is('acecssori*') ? 'active' : '' }}" href="{{ route('accessori.index') }}">Accessori</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3
+                 {{ request()->is('acquisti_in_store*') ? 'active' : '' }}" href="{{ route('acquisti_in_store.index') }}">Acquisti in store</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3
+                 {{ request()->is('recensioni*') ? 'active' : '' }}" href="{{ route('recensioni.index') }}">Recensioni</a>
+
             </div>
         </div>
         <!-- Page content wrapper-->
