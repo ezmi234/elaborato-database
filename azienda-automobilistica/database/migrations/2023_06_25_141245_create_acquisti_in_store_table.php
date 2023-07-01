@@ -27,7 +27,7 @@ return new class extends Migration
 
             $table->foreign('codice_officina')
                 ->references('codice_officina')
-                ->on('officina')
+                ->on('officine')
                 ->onDelete('cascade');
         });
     }
