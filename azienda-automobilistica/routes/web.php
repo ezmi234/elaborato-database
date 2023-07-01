@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OfficinaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 
@@ -20,6 +21,12 @@ Route::get('/', function () {
 
 //officine methods
 Route::get('officine/index', [OfficinaController::class, 'index'])->name('officine.index');
+Route::get('officine/create', [OfficinaController::class, 'create'])->name('officine.create');
+Route::post('officine/store', [OfficinaController::class, 'store'])->name('officine.store');
+Route::get('officine/show/{officina}', [OfficinaController::class, 'show'])->name('officine.show');
+Route::get('officine/edit/{officina}', [OfficinaController::class, 'edit'])->name('officine.edit');
+Route::put('officine/update/{officina}', [OfficinaController::class, 'update'])->name('officine.update');
+Route::delete('officine/destroy/{officina}', [OfficinaController::class, 'destroy'])->name('officine.destroy');
 
 // client methods
 Route::get('clienti/index', [ClienteController::class, 'index'])->name('clienti.index');

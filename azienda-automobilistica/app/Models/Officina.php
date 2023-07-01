@@ -10,6 +10,7 @@ class Officina extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = 'officine';
+    protected $primaryKey = 'codice_officina';
     protected $fillable = [
         'codice_officina',
         'nome',
@@ -17,6 +18,7 @@ class Officina extends Model
         'sede_via',
         'sede_civico',
         'bilancio',
-        'centrale'
+        'centrale',
+        'gestita_da' => 'nullable',
     ];
 }

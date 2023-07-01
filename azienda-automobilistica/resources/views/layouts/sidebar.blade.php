@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <!-- Page content wrapper-->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="width: 100%;">
             <!-- Top navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"  style="height: 57px;">
                 <div class="container-fluid">

@@ -5,25 +5,25 @@
 @section('content')
     <h1>Clienti</h1>
 
-<!-- Filters -->
-<div class="mb-3 form-inline d-flex align-items-center">
-    <form action="{{ route('clienti.index') }}" method="GET" class="d-flex align-items-center">
-        <label for="sort_by" style="margin-right: 10px;  width:200px;">Sort by:</label>
-        <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
-            <option value="CF" {{ request('sort_by') === 'CF' ? 'selected' : '' }}>CF</option>
-            <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome Cliente</option>
-            <option value="cognome" {{ request('sort_by') === 'cognome' ? 'selected' : '' }}>Cognome Cliente</option>
-            <option value="data_nascita" {{ request('sort_by') === 'data_nascita' ? 'selected' : '' }}>Data di nascita</option>
-            <option value="telefono" {{ request('sort_by') === 'telefono' ? 'selected' : '' }}>Telefono</option>
-            <option value="buono_acquisto" {{ request('sort_by') === 'buono_acquisto' ? 'selected' : '' }}>Buono d'acquisto</option>
-        </select>
-        <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
-            <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
-            <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Descending</option>
-        </select>
-        <button type="submit" class="btn btn-primary">Apply</button>
-    </form>
-</div>
+    <!-- Filters -->
+    <div class="mb-3 form-inline d-flex align-items-center">
+        <form action="{{ route('clienti.index') }}" method="GET" class="d-flex align-items-center">
+            <label for="sort_by" style="margin-right: 10px;  width:200px;">Sort by:</label>
+            <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
+                <option value="CF" {{ request('sort_by') === 'CF' ? 'selected' : '' }}>CF</option>
+                <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome Cliente</option>
+                <option value="cognome" {{ request('sort_by') === 'cognome' ? 'selected' : '' }}>Cognome Cliente</option>
+                <option value="data_nascita" {{ request('sort_by') === 'data_nascita' ? 'selected' : '' }}>Data di nascita</option>
+                <option value="telefono" {{ request('sort_by') === 'telefono' ? 'selected' : '' }}>Telefono</option>
+                <option value="buono_acquisto" {{ request('sort_by') === 'buono_acquisto' ? 'selected' : '' }}>Buono d'acquisto</option>
+            </select>
+            <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
+                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
+                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Descending</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Apply</button>
+        </form>
+    </div>
 
 
 
