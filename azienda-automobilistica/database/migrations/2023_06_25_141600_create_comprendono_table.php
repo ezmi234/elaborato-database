@@ -12,16 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comprendono', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('codice_acquisto');
-            $table->unsignedBigInteger('codice_acessorio');
-
+            $table->foreignId('codice_accessorio')
+                ->constrained('accessori', 'codice_accessorio')->onDelete('cascade');
+            $table->foreignId('codice_acquisto')
+                ->constrained('acquisti_in_store', 'codice_acquisto')->onDelete('cascade');
             $table->integer('quantita');
-
-            $table->foreign('codice_acquisto')->references('codice_acquisto')
-                ->on('acquisti_in_store')->onDelete('cascade');
-            $table->foreign('codice_acessorio')->references('codice_acessorio')
-                ->on('acessori')->onDelete('cascade');
         });
     }
 
