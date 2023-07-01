@@ -19,8 +19,8 @@ return new class extends Migration
             $table->integer('sede_civico');
             $table->decimal('bilancio', 10, 2);
             $table->boolean('centrale');
-            $table->unsignedInteger('gestita_da')->nullable();
-            $table->foreign('gestita_da')->references('id')->on('officine');
+            $table->unsignedBigInteger('gestita_da')->nullable();
+            $table->foreign('gestita_da')->references('codice_officina')->on('officine');
         });
     }
 

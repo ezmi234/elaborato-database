@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Officina extends Model
 {
     use HasFactory;
-
+    public $timestamps = false;
+    protected $table = 'officine';
     protected $fillable = [
         'codice_officina',
         'nome',
