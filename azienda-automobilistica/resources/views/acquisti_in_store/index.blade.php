@@ -46,7 +46,6 @@
                     <td>{{ $acquisto->officina->codice_officina }}</td>
                     <td>
                         <a href="{{ route('acquisti_in_store.show', $acquisto->codice_acquisto) }}" class="btn btn-primary">Show</a>
-                        <a href="{{ route('acquisti_in_store.edit', $acquisto->codice_acquisto) }}" class="btn btn-success">Edit</a>
                         <form action="{{ route('acquisti_in_store.destroy', $acquisto->codice_acquisto) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')

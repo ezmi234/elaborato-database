@@ -18,4 +18,9 @@ class Accessorio extends Model
         'nome',
         'prezzo'
     ];
+
+    public function acquisti()
+    {
+        return $this->belongsToMany(AcquistoInStore::class, 'comprendono', 'codice_accessorio', 'codice_acquisto');
+    }
 }

@@ -10,6 +10,8 @@ class AcquistoInStore extends Model
     use HasFactory;
     protected $table = 'acquisti_in_store';
 
+    protected $primaryKey = 'codice_acquisto';
+
     protected $fillable = [
         'costo_totale',
         'metodo_pagamento',
@@ -29,7 +31,8 @@ class AcquistoInStore extends Model
 
     public function accessori()
     {
-        return $this->belongsToMany(Accessorio::class, 'comprendono', 'codice_acquisto', 'codice_accessorio');
+        return $this->belongsToMany(Accessorio::class, 'comprendono', 'codice_acquisto', 'codice_accessorio')
+            ->withPivot('quantita');
     }
 
 }
