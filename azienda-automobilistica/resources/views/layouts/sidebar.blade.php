@@ -15,7 +15,7 @@
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('consulenti*') ? 'active' : '' }}" href="{{ route('consulenti.index') }}">Consulenti</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
-                 {{ request()->is('acecssori*') ? 'active' : '' }}" href="{{ route('accessori.index') }}">Accessori</a>
+                 {{ request()->is('accessori*') ? 'active' : '' }}" href="{{ route('accessori.index') }}">Accessori</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('acquisti_in_store*') ? 'active' : '' }}" href="{{ route('acquisti_in_store.index') }}">Acquisti in store</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3

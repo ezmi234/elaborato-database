@@ -43,10 +43,6 @@
             </tr>
         </thead>
         <tbody>
-            @php
-                assert($officine instanceof Collection)
-                /** @var Collection  */
-            @endphp
             @foreach ($officine as $officina)
                 <tr>
                     <td>{{ $officina->codice_officina }}</td>

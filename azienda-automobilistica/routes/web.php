@@ -60,10 +60,8 @@ Route::delete('accessori/destroy/{accessorio}', [AccessorioController::class, 'd
 Route::get('acquisti_in_store/index', [AcquistoInStoreController::class, 'index'])->name('acquisti_in_store.index');
 Route::get('acquisti_in_store/create', [AcquistoInStoreController::class, 'create'])->name('acquisti_in_store.create');
 Route::post('acquisti_in_store/store', [AcquistoInStoreController::class, 'store'])->name('acquisti_in_store.store');
-Route::get('acquisti_in_store/show/{acquisto_in_store}', [AcquistoInStoreController::class, 'show'])->name('acquisti_in_store.show');
-Route::get('acquisti_in_store/edit/{acquisto_in_store}', [AcquistoInStoreController::class, 'edit'])->name('acquisti_in_store.edit');
-Route::put('acquisti_in_store/update/{acquisto_in_store}', [AcquistoInStoreController::class, 'update'])->name('acquisti_in_store.update');
-Route::delete('acquisti_in_store/destroy/{acquisto_in_store}', [AcquistoInStoreController::class, 'destroy'])->name('acquisti_in_store.destroy');
+Route::get('acquisti_in_store/show/{acquisto}', [AcquistoInStoreController::class, 'show'])->name('acquisti_in_store.show');
+Route::delete('acquisti_in_store/destroy/{acquisto}', [AcquistoInStoreController::class, 'destroy'])->name('acquisti_in_store.destroy');
 Route::post('acquisti_in_store/storeAccessori', [AcquistoInStoreController::class, 'storeAccessori'])->name('acquisti_in_store.storeAccessori');
 
 
