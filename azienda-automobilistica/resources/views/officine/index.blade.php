@@ -43,6 +43,10 @@
             </tr>
         </thead>
         <tbody>
+            @php
+                assert($officine instanceof Collection)
+                /** @var Collection  */
+            @endphp
             @foreach ($officine as $officina)
                 <tr>
                     <td>{{ $officina->codice_officina }}</td>
@@ -52,7 +56,7 @@
                     <td>{{ $officina->sede_civico }}</td>
                     <td>{{ $officina->bilancio }}</td>
                     <td>{{ $officina->centrale ? 'Sì' : 'No' }}</td>
-                    <td>{{ $officina->gestita_da }}</td>
+                    <td>{{ $officine->keyBy('codice_officina')->get($officina->gestita_da)?->nome}}</td>
                     <td>
                         <a href="{{ route('officine.show', $officina->codice_officina) }}" class="btn btn-primary">Show</a>
                         <a href="{{ route('officine.edit', $officina->codice_officina) }}" class="btn btn-success">Edit</a>

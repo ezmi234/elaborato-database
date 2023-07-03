@@ -5,7 +5,7 @@
 @section('content')
     <h1>Create Acquisto in Store</h1>
 
-    <form action="{{ route('acquisti_in_store.store') }}" method="POST">
+    <form action="{{ route('acquisti_in_store.storeAccessori') }}" method="POST">
         @csrf
 
         <!-- Cliente -->
@@ -23,8 +23,18 @@
             <label for="codice_officina">Officina:</label>
             <select name="codice_officina" id="codice_officina" class="form-control" required>
                 @foreach ($officine as $officina)
-                    <option value="{{ $officina->codice_officina }}">{{ $officina->codice_officina }}</option>
+                    <option value="{{ $officina->codice_officina }}">{{ $officina->nome }}</option>
                 @endforeach
+            </select>
+        </div>
+
+        <!-- Metedo di pagamento -->
+        <div class="form-group">
+            <label for="metodo_pagamento">Metodo di pagamento:</label>
+            <select name="metodo_pagamento" id="metodo_pagamento" class="form-control" required>
+                <option value="Contanti">Contanti</option>
+                <option value="Carta di credito">Carta di credito</option>
+                <option value="Bonifico">Bonifico</option>
             </select>
         </div>
 
@@ -45,7 +55,7 @@
                             <td>{{ $accessorio->nome }}</td>
                             <td>{{ $accessorio->prezzo }}</td>
                             <td>
-                                <input type="number" name="accessori[{{ $accessorio->id }}]" class="form-control">
+                                <input type="number" value="0" name="accessori[{{ $accessorio->codice_accessorio }}]" class="form-control" required>
                             </td>
                         </tr>
                     @endforeach
@@ -55,17 +65,26 @@
 
         <!-- Total Cost -->
     <div class="form-group">
-        <label for="total_cost">Total Cost:</label>
-        <input type="text" id="total_cost" name="total_cost" class="form-control" readonly>
+        <label for="costo_totale">Costo Totale:</label>
+        <input type="text" id="costo_totale" name="costo_totale" class="form-control" readonly>
     </div>
 
     <button type="submit" class="btn btn-primary mt-2">Aggiungi acquisto</button>
     </form>
 
+    @if ($errors->accessorio->any())
+    <div class="alert alert-danger mt-4">
+        <ul>
+            @foreach ($errors->accessorio->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <script>
         // Calculate total cost
 const accessoriInputs = document.querySelectorAll('input[name^="accessori"]');
-const totalCostInput = document.getElementById('total_cost');
+const totalCostInput = document.getElementById('costo_totale');
 
 accessoriInputs.forEach(input => {
     input.addEventListener('input', updateTotalCost);

@@ -26,15 +26,7 @@ class AcquistoInStoreController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'costo_totale' => 'required|numeric',
-            'metodo_pagamento' => 'required|string',
-            'CF_cliente' => 'required|string',
-            'codice_officina' => 'required|numeric'
-        ]);
-
-        AcquistoInStore::create($request->all());
-        return redirect()->route('acquisti_in_store.index');
+        $this->storeAccessory($request);
     }
 
     public function show(AcquistoInStore $acquisto)
@@ -66,19 +58,38 @@ class AcquistoInStoreController extends Controller
         return redirect()->route('acquisti_in_store.index');
     }
 
-    public function addAccessory(AcquistoInStore $acquisto)
+    public function storeAccessori(Request $request)
     {
-        return view('acquisti_in_store.add_accessory', compact('acquisto'));
-    }
-
-    public function storeAccessory(Request $request, AcquistoInStore $acquisto)
-    {
-        $request->validate([
-            'codice_accessorio' => 'required|numeric',
-            'quantita' => 'required|numeric|min:1'
+        $validatedData = $request->validateWithBag('acquisto', [
+            'CF_cliente' => 'required|string',
+            'codice_officina' => 'required|numeric',
+            'costo_totale' => 'required|numeric',
+            'metodo_pagamento' => 'required|string',
+            'accessori' => 'required|array',
+            'accessori.*' => 'required|numeric'
         ]);
 
-        $acquisto->accessori()->attach($request->codice_accessorio);
-        return redirect()->route('acquisti_in_store.show', $acquisto);
+
+        try {
+            $acquisto = AcquistoInStore::create([
+                'CF_cliente' => $validatedData['CF_cliente'],
+                'codice_officina' => $validatedData['codice_officina'],
+                'costo_totale' => $validatedData['costo_totale'],
+                'metodo_pagamento' => $validatedData['metodo_pagamento']
+            ]);
+        } catch (\ErrorException $e) {
+            return redirect()->route('acquisti_in_store.create')
+            ->with('error', $e->getMessage());
+        }
+
+        foreach ($validatedData['accessori'] as $accessorioCodice=>$accessorioQuantita) {
+            if($accessorioQuantita > 0) {
+                $acquisto->accessori()->attach($accessorioCodice, ['quantita' => $accessorioQuantita]);
+            }
+        }
+
+        return redirect()->route('acquisti_in_store.index')
+            ->with('success', 'Acquisto creato con successo');
+
     }
 }

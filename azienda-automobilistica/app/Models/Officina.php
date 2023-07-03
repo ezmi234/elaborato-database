@@ -19,6 +19,6 @@ class Officina extends Model
         'sede_civico',
         'bilancio',
         'centrale',
-        'gestita_da' => 'nullable',
+        'gestita_da',
     ];
 }
