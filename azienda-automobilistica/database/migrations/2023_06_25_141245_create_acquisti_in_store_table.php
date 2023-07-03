@@ -17,18 +17,8 @@ return new class extends Migration
             $table->decimal('costo_totale', 10, 2);
             $table->string('metodo_pagamento');
 
-            $table->string('CF_cliente');
-            $table->unsignedBigInteger('codice_officina');
-
-            $table->foreign('CF_cliente')
-                ->references('CF')
-                ->on('clienti')
-                ->onDelete('cascade');
-
-            $table->foreign('codice_officina')
-                ->references('codice_officina')
-                ->on('officine')
-                ->onDelete('cascade');
+            $table->foreignIdFor(\App\Models\Cliente::class, 'CF_cliente')->onCascade('delete');
+            $table->foreignIdFor(\App\Models\Officina::class, 'codice_officina')->onCascade('delete');
         });
     }
 

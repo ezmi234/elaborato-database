@@ -27,9 +27,8 @@ class OfficinaController extends Controller
             'sede_civico' => ['required', 'numeric', 'digits_between:1,5'],
             'bilancio' => ['required', 'numeric', 'min:0',],
             'centrale' => ['required', 'boolean'],
-            'gestita_da',
+            'gestita_da' => ['sometimes'],
         ]);
-
         try {
             Officina::create($validatedData);
         } catch (\Exception $e) {
