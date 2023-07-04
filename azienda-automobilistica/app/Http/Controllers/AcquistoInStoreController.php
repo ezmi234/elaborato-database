@@ -10,9 +10,12 @@ use Illuminate\Http\Request;
 
 class AcquistoInStoreController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $acquisti = AcquistoInStore::all();
+        $sortColumn = $request->input('sort_by', 'codice_acquisto');
+        $sortOrder = $request->input('sort_order', 'asc');
+
+        $acquisti = AcquistoInStore::orderBy($sortColumn, $sortOrder)->get();
         return view('acquisti_in_store.index', compact('acquisti'));
     }
 
@@ -77,6 +80,7 @@ class AcquistoInStoreController extends Controller
                 'costo_totale' => $validatedData['costo_totale'],
                 'metodo_pagamento' => $validatedData['metodo_pagamento']
             ]);
+            Officina::find($validatedData['codice_officina'])->increment('bilancio', $validatedData['costo_totale']);
         } catch (\ErrorException $e) {
             return redirect()->route('acquisti_in_store.create')
             ->with('error', $e->getMessage());

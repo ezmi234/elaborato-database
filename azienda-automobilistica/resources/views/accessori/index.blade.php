@@ -13,6 +13,7 @@
                 <option value="codice_accessorio" {{ request('sort_by') === 'codice_accessorio' ? 'selected' : '' }}>Codice Accessorio</option>
                 <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome Accessorio</option>
                 <option value="prezzo" {{ request('sort_by') === 'prezzo' ? 'selected' : '' }}>Prezzo</option>
+                <option value="quantita_venduta" {{ request('sort_by') === 'quantita_venduta' ? 'selected' : '' }}>Quantità Venduta</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
                 <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
@@ -29,6 +30,7 @@
                 <th>Codice Accessorio</th>
                 <th>Nome Accessorio</th>
                 <th>Prezzo</th>
+                <th>Quantità Venduta</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -38,6 +40,7 @@
                     <td>{{ $accessorio->codice_accessorio }}</td>
                     <td>{{ $accessorio->nome }}</td>
                     <td>{{ $accessorio->prezzo }}</td>
+                    <td>{{ $accessorio->acquisti->sum('pivot.quantita') }}</td>
                     <td>
                         <a href="{{ route('accessori.show', $accessorio->codice_accessorio) }}" class="btn btn-primary">Show</a>
                         <a href="{{ route('accessori.edit', $accessorio->codice_accessorio) }}" class="btn btn-success">Edit</a>
