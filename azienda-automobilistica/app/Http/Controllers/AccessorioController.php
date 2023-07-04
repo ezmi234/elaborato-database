@@ -7,9 +7,29 @@ use Illuminate\Http\Request;
 
 class AccessorioController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('accessori.index')->with('accessori', Accessorio::all());
+        if ($request->has('search')) {
+            $accessori = Accessorio::where('nome', 'like', '%' . $request->input('search') . '%')
+                ->orWhere('prezzo', 'like', '%' . $request->input('search') . '%')
+                ->get();
+            return view('accessori.index', compact('accessori'));
+        }else if ($request->sort_by == 'quantita_venduta') {
+            $accessori = Accessorio::withCount(['acquisti as total_quantita' => function ($query) {
+                $query->select(\DB::raw('coalesce(sum(quantita), 0)'));
+            }])
+            ->orderBy('total_quantita', $request->sort_order ?? 'asc')
+            ->get();
+
+            return view('accessori.index', compact('accessori'));
+        }
+
+        $sortColumn = $request->input('sort_by', 'codice_accessorio');
+        $sortOrder = $request->input('sort_order', 'asc');
+
+        $accessori = Accessorio::orderBy($sortColumn, $sortOrder)->get();
+
+        return view('accessori.index', compact('accessori'));
     }
 
     public function create()

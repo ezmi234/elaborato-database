@@ -21,6 +21,7 @@ class Accessorio extends Model
 
     public function acquisti()
     {
-        return $this->belongsToMany(AcquistoInStore::class, 'comprendono', 'codice_accessorio', 'codice_acquisto');
+        return $this->belongsToMany(AcquistoInStore::class, 'comprendono', 'codice_accessorio', 'codice_acquisto')
+            ->withPivot('quantita');
     }
 }
