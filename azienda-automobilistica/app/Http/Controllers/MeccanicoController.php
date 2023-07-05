@@ -40,5 +40,53 @@ class MeccanicoController extends Controller
         return redirect()->route('meccanici.index')->with('success', 'Meccanico creato con successo!');
     }
 
-    
+    public function show(Meccanico $meccanico)
+    {
+        return view('meccanici.show')->with('meccanico', $meccanico);
+    }
+
+    public function edit(Meccanico $meccanico)
+    {
+        return view('meccanici.edit')->with('meccanico', $meccanico);
+    }
+
+    public function update(Request $request, Meccanico $meccanico)
+    {
+        $validatedData = $request->validateWithBag('meccanici', [
+            'CF' => ['required', 'max:16', 'min:16', 'alpha_num'],
+            'nome' => ['required', 'max:255'],
+            'cognome' => ['required', 'max:255'],
+            'data_nascita' => ['required', 'date', 'before:today', 'after:1900-01-01' , 'date_format:Y-m-d'],
+            'telefono' => ['required', 'numeric', 'digits_between:8,10'],
+            'paga_oraria' => ['required', 'numeric', 'min:0',],
+            'totale_ore_svolte' => ['required', 'numeric', 'min:0',],
+            'bonus_recensione' => ['required', 'numeric', 'min:0',],
+            'media_recensione' => ['required', 'numeric', 'min:0', 'max:5',],
+        ]);
+
+        try {
+            $meccanico->update($validatedData);
+        } catch (\Exception $e) {
+            return redirect()->route('meccanici.index')->with('error', 'Errore durante la modifica del meccanico!')
+                ->with('message', $e->getMessage());
+        }
+        return redirect()->route('meccanici.index')->with('success', 'Meccanico modificato con successo!');
+    }
+
+    public function destroy(Meccanico $meccanico)
+    {
+        try {
+            $meccanico->delete();
+        } catch (\Exception $e) {
+            return redirect()->route('meccanici.index')->with('error', 'Errore durante l\'eliminazione del meccanico!')
+                ->with('message', $e->getMessage());
+        }
+        return redirect()->route('meccanici.index')->with('success', 'Meccanico eliminato con successo!');
+    }
+
+
+
+
+
+
 }

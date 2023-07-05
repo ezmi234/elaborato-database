@@ -44,6 +44,11 @@ Route::delete('clienti/destroy/{cliente}', [ClienteController::class, 'destroy']
 Route::get('meccanici/index', [MeccanicoController::class, 'index'])->name('meccanici.index');
 Route::get('meccanici/create', [MeccanicoController::class, 'create'])->name('meccanici.create');
 Route::post('meccanici/store', [MeccanicoController::class, 'store'])->name('meccanici.store');
+Route::get('meccanici/show/{meccanico}', [MeccanicoController::class, 'show'])->name('meccanici.show');
+Route::get('meccanici/edit/{meccanico}', [MeccanicoController::class, 'edit'])->name('meccanici.edit');
+Route::put('meccanici/update/{meccanico}', [MeccanicoController::class, 'update'])->name('meccanici.update');
+Route::delete('meccanici/destroy/{meccanico}', [MeccanicoController::class, 'destroy'])->name('meccanici.destroy');
+
 
 //acquisti methods
 Route::get('acquisti/index', [AcquistoInStoreController::class, 'index'])->name('acquisti.index');
