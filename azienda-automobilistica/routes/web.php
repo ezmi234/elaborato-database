@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccessorioController;
+use App\Http\Controllers\MeccanicoController;
 use App\Http\Controllers\OfficinaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AcquistoInStoreController;
@@ -41,6 +42,7 @@ Route::delete('clienti/destroy/{cliente}', [ClienteController::class, 'destroy']
 
 //meccanici methods
 Route::get('meccanici/index', [MeccanicoController::class, 'index'])->name('meccanici.index');
+Route::get('meccanici/create', [MeccanicoController::class, 'create'])->name('meccanici.create');
 
 
 //consulenti methods
