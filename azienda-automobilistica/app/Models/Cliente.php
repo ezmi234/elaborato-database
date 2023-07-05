@@ -25,5 +25,5 @@ class Cliente extends Model
         return $this->hasMany(AcquistoInStore::class, 'CF_cliente', 'CF');
     }
 
-
+    
 }
