@@ -26,6 +26,51 @@
         </form>
     </div>
 
+    <div class="card">
+        <div class="card-header">
+            <h5>Acquisti</h5>
+        </div>
+        <div class="card-body">
+            @if ($cliente->acquisti->isEmpty())
+                <p>No acquisti found for this cliente.</p>
+            @else
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Codice Acquisto</th>
+                            <th>Costo Totale</th>
+                            <th>Metodo di Pagamento</th>
+                            <th>Data Acquisto</th>
+                            <th>Officina</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($cliente->acquisti as $acquisto)
+                            <tr>
+                                <td>{{ $acquisto->codice_acquisto }}</td>
+                                <td>{{ $acquisto->costo_totale }}</td>
+                                <td>{{ $acquisto->metodo_pagamento }}</td>
+                                <td>{{ $acquisto->created_at }}</td>
+                                <td>{{ $acquisto->officina->nome }}</td>
+                                <td>
+                                    <a href="{{ route('acquisti_in_store.show', $acquisto->codice_acquisto) }}" class="btn btn-info">Dettagli Acquisto</a>
+                                    @if ($acquisto->recensione)
+                                        <a href="{{ route('recensioni.edit', $acquisto->recensione->codice_recensione) }}" class="btn btn-primary">Modifica Recensione</a>
+                                        <a href="{{ route('recensioni.show', $acquisto->recensione->codice_recensione) }}" class="btn btn-info">Vedi Recensione</a>
+                                    @else
+                                        <a href="{{ route('recensioni.create', ['acquisto' => $acquisto->codice_acquisto]) }}" class="btn btn-primary">Lascia Recensione</a>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @endif
+        </div>
+    </div>
+
+
     <!-- Session Messages -->
     @if (session('error'))
         <div class="alert alert-danger mt-4">
