@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,8 +18,17 @@ return new class extends Migration
             $table->decimal('costo_totale', 10, 2);
             $table->string('metodo_pagamento');
 
-            $table->foreignIdFor(\App\Models\Cliente::class, 'CF_cliente')->onCascade('delete');
-            $table->foreignIdFor(\App\Models\Officina::class, 'codice_officina')->onCascade('delete');
+            $table->foreignId('codice_officina')
+                ->constrained('officine', 'codice_officina')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string('CF_cliente', 16);
+
+            $table->foreign('CF_cliente')
+                ->references('CF')
+                ->on('clienti')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
