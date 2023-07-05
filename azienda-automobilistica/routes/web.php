@@ -5,6 +5,7 @@ use App\Http\Controllers\MeccanicoController;
 use App\Http\Controllers\OfficinaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\AcquistoInStoreController;
+use App\Http\Controllers\RecensioneController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,3 +84,10 @@ Route::post('acquisti_in_store/storeAccessori', [AcquistoInStoreController::clas
 
 //recensioni methods
 Route::get('recensioni/index', [RecensioneController::class, 'index'])->name('recensioni.index');
+Route::get('recensioni/create', [RecensioneController::class, 'create'])->name('recensioni.create');
+Route::post('recensioni/store', [RecensioneController::class, 'store'])->name('recensioni.store');
+Route::get('recensioni/show/{recensione}', [RecensioneController::class, 'show'])->name('recensioni.show');
+Route::get('recensioni/edit/{recensione}', [RecensioneController::class, 'edit'])->name('recensioni.edit');
+Route::put('recensioni/update/{recensione}', [RecensioneController::class, 'update'])->name('recensioni.update');
+Route::delete('recensioni/destroy/{recensione}', [RecensioneController::class, 'destroy'])->name('recensioni.destroy');
+

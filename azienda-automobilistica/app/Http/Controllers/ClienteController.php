@@ -80,15 +80,4 @@ class ClienteController extends Controller
     }
 
 
- //try to create a new Cliente else redirect to the index page with an error message
-        // try {
-        //     Cliente::create($request->all());
-        // } catch (\Exception $e) {
-        //     return redirect()->route('clienti.index')->with('error', 'Errore durante la creazione del cliente!')
-        //         ->with('message', $e->getMessage());
-        // }
-        // return redirect()->route('clienti.index')->with('success', 'Cliente creato con successo!');
-
-
-
 }
