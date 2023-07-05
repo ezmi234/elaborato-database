@@ -4,9 +4,11 @@ use App\Http\Controllers\AccessorioController;
 use App\Http\Controllers\MeccanicoController;
 use App\Http\Controllers\OfficinaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ConsulenteController;
 use App\Http\Controllers\AcquistoInStoreController;
 use App\Http\Controllers\RecensioneController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +64,12 @@ Route::delete('acquisti/destroy/{acquisto}', [AcquistoInStoreController::class, 
 
 //consulenti methods
 Route::get('consulenti/index', [ConsulenteController::class, 'index'])->name('consulenti.index');
-
+Route::get('consulenti/create', [ConsulenteController::class, 'create'])->name('consulenti.create');
+Route::post('consulenti/store', [ConsulenteController::class, 'store'])->name('consulenti.store');
+Route::get('consulenti/show/{consulente}', [ConsulenteController::class, 'show'])->name('consulenti.show');
+Route::get('consulenti/edit/{consulente}', [ConsulenteController::class, 'edit'])->name('consulenti.edit');
+Route::put('consulenti/update/{consulente}', [ConsulenteController::class, 'update'])->name('consulenti.update');
+Route::delete('consulenti/destroy/{consulente}', [ConsulenteController::class, 'destroy'])->name('consulenti.destroy');
 
 //accessori methods
 Route::get('accessori/index', [AccessorioController::class, 'index'])->name('accessori.index');
@@ -80,7 +87,6 @@ Route::post('acquisti_in_store/store', [AcquistoInStoreController::class, 'store
 Route::get('acquisti_in_store/show/{acquisto}', [AcquistoInStoreController::class, 'show'])->name('acquisti_in_store.show');
 Route::delete('acquisti_in_store/destroy/{acquisto}', [AcquistoInStoreController::class, 'destroy'])->name('acquisti_in_store.destroy');
 Route::post('acquisti_in_store/storeAccessori', [AcquistoInStoreController::class, 'storeAccessori'])->name('acquisti_in_store.storeAccessori');
-
 
 //recensioni methods
 Route::get('recensioni/index', [RecensioneController::class, 'index'])->name('recensioni.index');

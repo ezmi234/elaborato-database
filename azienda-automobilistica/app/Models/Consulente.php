@@ -20,4 +20,11 @@ class Consulente extends Model
         'percentuale_provvigione',
         'provvigione_totale',
     ];
+
+    public function acquisti()
+    {
+        return $this->hasMany(AcquistoInStore::class, 'CF_consulente', 'CF');
+    }    
+
+
 }

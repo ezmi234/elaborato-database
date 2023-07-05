@@ -26,4 +26,10 @@ class Meccanico extends Model
         'bonus_recensione',
         'media_recensione'
     ];
+
+    public function acquisti()
+    {
+        return $this->hasMany(AcquistoInStore::class, 'CF_meccanico', 'CF');
+    }
+
 }
