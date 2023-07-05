@@ -42,3 +42,4 @@
         {{ session('success') }}
     </div>
 @endif
+@endsection

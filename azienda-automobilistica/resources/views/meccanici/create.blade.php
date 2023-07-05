@@ -46,10 +46,10 @@
     <button type="submit" class="btn btn-primary">Aggiungi Meccanico</button>
 </form>
 
-@if ($errors->any())
+@if ($errors->meccanici->any())
  <div class="alert alert-danger">
     <ul>
-        @foreach ($errors->all() as $error)
+        @foreach ($errors->meccanici->all() as $error)
          <li>{{ $error }}</li>
         @endforeach
     </ul>
