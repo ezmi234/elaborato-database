@@ -34,5 +34,9 @@ class AcquistoInStore extends Model
         return $this->belongsToMany(Accessorio::class, 'comprendono', 'codice_acquisto', 'codice_accessorio')
             ->withPivot('quantita');
     }
+    public function recensione()
+    {
+        return $this->hasOne(Recensione::class, 'codice_acquisto', 'codice_acquisto');
+    }
 
 }

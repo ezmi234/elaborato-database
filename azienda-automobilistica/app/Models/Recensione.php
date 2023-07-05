@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Recensione extends Model
 {
     use HasFactory;
+
+    protected $table = 'recensioni';
+    protected $primaryKey = 'codice_recensione';
+
+    protected $fillable = [
+        'voto',
+        'messaggio',
+        'CF_cliente',
+        'codice_acquisto',
+        'codice_intervento',
+        'codice_compra_vendita',
+    ];
 }

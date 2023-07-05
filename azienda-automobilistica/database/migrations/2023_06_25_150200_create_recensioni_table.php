@@ -16,14 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('voto');
             $table->string('messaggio');
-
-            $table->string('CF_cliente');
             $table->unsignedBigInteger('codice_acquisto')->nullable();
             $table->unsignedBigInteger('codice_intervento')->nullable();
             $table->unsignedBigInteger('codice_compra_vendita')->nullable();
-
-            $table->foreign('CF_cliente')->references('CF')
-                ->on('clienti')->onDelete('cascade');
             $table->foreign('codice_acquisto')->references('codice_acquisto')
                 ->on('acquisti_in_store')->onDelete('cascade');
             $table->foreign('codice_intervento')->references('codice_intervento')
