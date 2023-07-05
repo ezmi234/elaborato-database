@@ -43,7 +43,16 @@ Route::delete('clienti/destroy/{cliente}', [ClienteController::class, 'destroy']
 //meccanici methods
 Route::get('meccanici/index', [MeccanicoController::class, 'index'])->name('meccanici.index');
 Route::get('meccanici/create', [MeccanicoController::class, 'create'])->name('meccanici.create');
+Route::post('meccanici/store', [MeccanicoController::class, 'store'])->name('meccanici.store');
 
+//acquisti methods
+Route::get('acquisti/index', [AcquistoInStoreController::class, 'index'])->name('acquisti.index');
+Route::get('acquisti/create', [AcquistoInStoreController::class, 'create'])->name('acquisti.create');
+Route::post('acquisti/store', [AcquistoInStoreController::class, 'store'])->name('acquisti.store');
+Route::get('acquisti/show/{acquisto}', [AcquistoInStoreController::class, 'show'])->name('acquisti.show');
+Route::get('acquisti/edit/{acquisto}', [AcquistoInStoreController::class, 'edit'])->name('acquisti.edit');
+Route::put('acquisti/update/{acquisto}', [AcquistoInStoreController::class, 'update'])->name('acquisti.update');
+Route::delete('acquisti/destroy/{acquisto}', [AcquistoInStoreController::class, 'destroy'])->name('acquisti.destroy');
 
 //consulenti methods
 Route::get('consulenti/index', [ConsulenteController::class, 'index'])->name('consulenti.index');
