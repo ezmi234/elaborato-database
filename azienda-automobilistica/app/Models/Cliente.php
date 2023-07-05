@@ -20,5 +20,10 @@ class Cliente extends Model
         'buono_acquisto',
     ];
 
+    public function acquisti()
+    {
+        return $this->hasMany(AcquistoInStore::class, 'CF_cliente', 'CF');
+    }
+
 
 }
