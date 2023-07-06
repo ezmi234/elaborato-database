@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccessorioController;
+use App\Http\Controllers\InterventoController;
 use App\Http\Controllers\MeccanicoController;
 use App\Http\Controllers\OfficinaController;
 use App\Http\Controllers\ClienteController;
@@ -107,4 +108,11 @@ Route::get('pezzi_di_ricambio/edit/{pezzo}', [PezzoDiRicambioController::class, 
 Route::put('pezzi_di_ricambio/update/{pezzo}', [PezzoDiRicambioController::class, 'update'])->name('pezzi_di_ricambio.update');
 Route::delete('pezzi_di_ricambio/destroy/{pezzo}', [PezzoDiRicambioController::class, 'destroy'])->name('pezzi_di_ricambio.destroy');
 
-
+//interventi methods
+Route::get('interventi/index', [InterventoController::class, 'index'])->name('interventi.index');
+Route::get('interventi/create', [InterventoController::class, 'create'])->name('interventi.create');
+Route::post('interventi/store', [InterventoController::class, 'store'])->name('interventi.store');
+Route::get('interventi/show/{intervento}', [InterventoController::class, 'show'])->name('interventi.show');
+Route::get('interventi/edit/{intervento}', [InterventoController::class, 'edit'])->name('interventi.edit');
+Route::put('interventi/update/{intervento}', [InterventoController::class, 'update'])->name('interventi.update');
+Route::delete('interventi/destroy/{intervento}', [InterventoController::class, 'destroy'])->name('interventi.destroy');

@@ -7,8 +7,8 @@
     <form action="{{ route('veicoli.store') }}" method="POST">
         @csrf
         <div class="form-group" style="margin-bottom: 10px;">
-            <label for="numero_di_serie">Numero di Serie</label>
-            <input type="text" name="numero_di_serie" id="numero_di_serie" class="form-control" placeholder="Numero di Serie" aria-describedby="helpId">
+            <label for="numero_telaio">Numero Telaio</label>
+            <input type="text" name="numero_telaio" id="numero_telaio" class="form-control" placeholder="Numero di Serie" aria-describedby="helpId">
         </div>
         <div class="form-group" style="margin-bottom: 10px;">
             <label for="targa">Targa</label>
