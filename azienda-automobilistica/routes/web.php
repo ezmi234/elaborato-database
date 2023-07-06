@@ -7,6 +7,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ConsulenteController;
 use App\Http\Controllers\AcquistoInStoreController;
 use App\Http\Controllers\RecensioneController;
+use App\Http\Controllers\VeicoloController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -96,4 +97,14 @@ Route::get('recensioni/show/{recensione}', [RecensioneController::class, 'show']
 Route::get('recensioni/edit/{recensione}', [RecensioneController::class, 'edit'])->name('recensioni.edit');
 Route::put('recensioni/update/{recensione}', [RecensioneController::class, 'update'])->name('recensioni.update');
 Route::delete('recensioni/destroy/{recensione}', [RecensioneController::class, 'destroy'])->name('recensioni.destroy');
+
+//veicoli methods
+Route::get('veicoli/index', [VeicoloController::class, 'index'])->name('veicoli.index');
+Route::get('veicoli/create', [VeicoloController::class, 'create'])->name('veicoli.create');
+Route::post('veicoli/store', [VeicoloController::class, 'store'])->name('veicoli.store');
+Route::get('veicoli/show/{veicolo}', [VeicoloController::class, 'show'])->name('veicoli.show');
+Route::get('veicoli/edit/{veicolo}', [VeicoloController::class, 'edit'])->name('veicoli.edit');
+Route::put('veicoli/update/{veicolo}', [VeicoloController::class, 'update'])->name('veicoli.update');
+Route::delete('veicoli/destroy/{veicolo}', [VeicoloController::class, 'destroy'])->name('veicoli.destroy');
+
 
