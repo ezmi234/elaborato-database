@@ -8,8 +8,8 @@ class PezzoDiRicambioController extends Controller
 {
     public function index()
     {
-        
-        return view('pezzi_di_ricambio.index')->with('pezzi_di_ricambio', PezzoDiRicambio::all());
+        $pezzi_di_ricambio = PezzoDiRicambio::all();
+        return view('pezzi_di_ricambio.index')->with('pezzi_di_ricambio', $pezzi_di_ricambio);
     }
 
     public function create()
