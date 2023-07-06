@@ -17,6 +17,8 @@
                  <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('veicoli*') ? 'active' : '' }}" href="{{ route('veicoli.index') }}">Veicoli</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
+                 {{ request()->is('pezzi_di_ricambio*') ? 'active' : '' }}" href="{{ route('pezzi_di_ricambio.index') }}">Pezzi di ricambio</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('accessori*') ? 'active' : '' }}" href="{{ route('accessori.index') }}">Accessori</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('acquisti_in_store*') ? 'active' : '' }}" href="{{ route('acquisti_in_store.index') }}">Acquisti in store</a>
