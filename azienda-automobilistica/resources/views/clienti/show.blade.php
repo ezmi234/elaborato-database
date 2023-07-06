@@ -56,8 +56,7 @@
                                 <td>
                                     <a href="{{ route('acquisti_in_store.show', $acquisto->codice_acquisto) }}" class="btn btn-info">Dettagli Acquisto</a>
                                     @if ($acquisto->recensione)
-                                        <a href="{{ route('recensioni.edit', $acquisto->recensione->codice_recensione) }}" class="btn btn-primary">Modifica Recensione</a>
-                                        <a href="{{ route('recensioni.show', $acquisto->recensione->codice_recensione) }}" class="btn btn-info">Vedi Recensione</a>
+                                        <a href="{{ route('recensioni.show', $acquisto->recensione->codice_recensione) }}" class="btn btn-primary">Vedi Recensione</a>
                                     @else
                                         <a href="{{ route('recensioni.create', ['acquisto' => $acquisto->codice_acquisto]) }}" class="btn btn-primary">Lascia Recensione</a>
                                     @endif
