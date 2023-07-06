@@ -14,6 +14,8 @@
                  {{ request()->is('meccanici*') ? 'active' : '' }}" href="{{ route('meccanici.index') }}">Meccanici</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('consulenti*') ? 'active' : '' }}" href="{{ route('consulenti.index') }}">Consulenti</a>
+                 <a class="list-group-item list-group-item-action list-group-item-light p-3
+                 {{ request()->is('veicoli*') ? 'active' : '' }}" href="{{ route('veicoli.index') }}">Veicoli</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('accessori*') ? 'active' : '' }}" href="{{ route('accessori.index') }}">Accessori</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3

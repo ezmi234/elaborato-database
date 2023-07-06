@@ -9,7 +9,7 @@
     <form action="{{ route('veicoli.index') }}" method="GET" class="d-flex align-items-center">
         <label for="sort_by" style="margin-right: 10px; width:200px;">Sort by:</label>
         <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
-            <option value="numero_di_serie" {{ request('sort_by') === 'numero_di_serie' ? 'selected' : '' }}>Numero di serie</option>
+            <option value="numero_telaio" {{ request('sort_by') === 'numero_telaio' ? 'selected' : '' }}>Numero di serie</option>
             <option value="targa" {{ request('sort_by') === 'targa' ? 'selected' : '' }}>Targa</option>
             <option value="modello" {{ request('sort_by') === 'modello' ? 'selected' : '' }}>Modello</option>
             <option value="anno" {{ request('sort_by') === 'anno' ? 'selected' : '' }}>Anno</option>
@@ -38,15 +38,15 @@
     <tbody>
         @foreach ($veicoli as $veicolo)
         <tr>
-            <td>{{ $veicolo->numero_di_serie }}</td>
+            <td>{{ $veicolo->numero_telaio }}</td>
             <td>{{ $veicolo->targa }}</td>
             <td>{{ $veicolo->modello }}</td>
             <td>{{ $veicolo->anno }}</td>
             <td>{{ $veicolo->colore }}</td>
             <td>
-                <a href="{{ route('veicoli.show', $veicolo->numero_di_serie) }}" class="btn btn-primary">Show</a>
-                <a href="{{ route('veicoli.edit', $veicolo->numero_di_serie) }}" class="btn btn-success">Edit</a>
-                <form action="{{ route('veicoli.destroy', $veicolo->numero_di_serie) }}" method="POST"
+                <a href="{{ route('veicoli.show', $veicolo->numero_telaio) }}" class="btn btn-primary">Show</a>
+                <a href="{{ route('veicoli.edit', $veicolo->numero_telaio) }}" class="btn btn-success">Edit</a>
+                <form action="{{ route('veicoli.destroy', $veicolo->numero_telaio) }}" method="POST"
                     style="display: inline-block;">
                     @csrf
                     @method('DELETE')
@@ -59,12 +59,11 @@
 
 </table>
 
-<a href="{{ route('veicoli.create') }}" class="btn btn-primary fixed-bottom-right">Add new</a
-    <i class="fas fa-plus">Add</i>
+<a href="{{ route('veicoli.create') }}" class="btn btn-primary fixed-bottom-right">Add</a>
 </a>
 
 <!--Session Messages-->
-@if (sesssion('error'))
+@if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
     </div>

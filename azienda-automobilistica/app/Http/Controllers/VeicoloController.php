@@ -9,7 +9,7 @@ class VeicoloController extends Controller
 {
     public function index(Request $request)
     {
-        $sortColumn = $request->input('sort_by', 'numero_di_serie');
+        $sortColumn = $request->input('sort_by', 'numero_telaio');
         $sortOrder = $request->input('sort_order', 'asc');
 
         $veicoli = Veicolo::orderBy($sortColumn, $sortOrder)->get();
@@ -25,7 +25,7 @@ class VeicoloController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validateWithBag('veicoli', [
-            'numero_di_serie' => ['required', 'unique:veicoli', 'max:255'],
+            'numero_telaio' => ['required', 'unique:veicoli', 'max:255'],
             'targa' => ['required', 'max:255'],
             'modello' => ['required', 'max:255'],
             'anno' => ['required', 'integer', 'min:1900'],
@@ -54,7 +54,7 @@ class VeicoloController extends Controller
     public function update(Request $request, Veicolo $veicolo)
     {
         $validatedData = $request->validateWithBag('veicoli', [
-            'numero_di_serie',
+            'numero_telaio',
             'targa' => ['required', 'max:255'],
             'modello' => ['required', 'max:255'],
             'anno' => ['required', 'integer', 'min:1900'],

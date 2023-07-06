@@ -53,16 +53,6 @@ Route::get('meccanici/edit/{meccanico}', [MeccanicoController::class, 'edit'])->
 Route::put('meccanici/update/{meccanico}', [MeccanicoController::class, 'update'])->name('meccanici.update');
 Route::delete('meccanici/destroy/{meccanico}', [MeccanicoController::class, 'destroy'])->name('meccanici.destroy');
 
-
-//acquisti methods
-Route::get('acquisti/index', [AcquistoInStoreController::class, 'index'])->name('acquisti.index');
-Route::get('acquisti/create', [AcquistoInStoreController::class, 'create'])->name('acquisti.create');
-Route::post('acquisti/store', [AcquistoInStoreController::class, 'store'])->name('acquisti.store');
-Route::get('acquisti/show/{acquisto}', [AcquistoInStoreController::class, 'show'])->name('acquisti.show');
-Route::get('acquisti/edit/{acquisto}', [AcquistoInStoreController::class, 'edit'])->name('acquisti.edit');
-Route::put('acquisti/update/{acquisto}', [AcquistoInStoreController::class, 'update'])->name('acquisti.update');
-Route::delete('acquisti/destroy/{acquisto}', [AcquistoInStoreController::class, 'destroy'])->name('acquisti.destroy');
-
 //consulenti methods
 Route::get('consulenti/index', [ConsulenteController::class, 'index'])->name('consulenti.index');
 Route::get('consulenti/create', [ConsulenteController::class, 'create'])->name('consulenti.create');
