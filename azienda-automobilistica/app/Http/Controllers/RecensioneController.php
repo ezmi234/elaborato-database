@@ -57,7 +57,17 @@ class RecensioneController extends Controller
 
     public function update(Request $request, Recensione $recensione)
     {
-
+        $validatedData = $request->validate([
+            'voto' => 'required|integer|min:1|max:5',
+            'messaggio' => 'required|string|max:255',
+        ]);
+        try {
+            $recensione->update($validatedData);
+        } catch (\Exception $e) {
+            return redirect()->route('recensioni.index')->with('error', 'Errore durante la modifica della recensione!')
+                ->with('message', $e->getMessage());
+        }
+        return redirect()->route('recensioni.index')->with('success', 'Recensione modificata con successo!');
     }
 
     public function destroy(Recensione $recensione)

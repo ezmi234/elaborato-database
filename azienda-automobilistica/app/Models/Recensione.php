@@ -20,4 +20,9 @@ class Recensione extends Model
         'codice_intervento',
         'codice_compra_vendita',
     ];
+
+    public function acquisto()
+    {
+        return $this->belongsTo(AcquistoInStore::class, 'codice_acquisto', 'codice_acquisto');
+    }
 }
