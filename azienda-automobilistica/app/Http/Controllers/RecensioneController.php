@@ -57,6 +57,7 @@ class RecensioneController extends Controller
 
     public function update(Request $request, Recensione $recensione)
     {
+
     }
 
     public function destroy(Recensione $recensione)
