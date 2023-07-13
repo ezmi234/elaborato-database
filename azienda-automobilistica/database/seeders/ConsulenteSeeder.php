@@ -26,7 +26,7 @@ class ClienteSeeder extends Seeder
 
         Cliente::create(
             [
-                'CF' => 'VQsDGPP00A00A000A',
+                'CF' => 'VRDGPP00A00A000A',
                 'nome' => 'Giuseppe',
                 'cognome' => 'Verdi',
                 'data_nascita' => '2000-01-02',
@@ -37,8 +37,8 @@ class ClienteSeeder extends Seeder
 
         Cliente::create(
             [
-                'CF' => 'BMCLCC00A00A000A',
-                'nome' => 'GLuca',
+                'CF' => 'BNCLCC00A00A000A',
+                'nome' => 'Luca',
                 'cognome' => 'Bianchi',
                 'data_nascita' => '2000-01-03',
                 'telefono' => '3331234569',
@@ -48,16 +48,13 @@ class ClienteSeeder extends Seeder
 
         Cliente::create(
             [
-                'CF' => 'GMCLCC00A00A000B',
-                'nome' => 'GMatteo',
+                'CF' => 'BNCLCC00A00A000B',
+                'nome' => 'Matteo',
                 'cognome' => 'Blu',
                 'data_nascita' => '2000-01-04',
                 'telefono' => '3331234570',
                 'buono_acquisto' => 0,
             ],
         );
-
-
-
     }
 }
