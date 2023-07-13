@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('anno_immatricolazione');
             $table->string('colore');
 
+
             $table->unsignedBigInteger('codice_intervento')->nullable();
             $table->unsignedBigInteger('codice_compra_vendita')->nullable();
 

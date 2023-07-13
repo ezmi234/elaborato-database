@@ -25,10 +25,11 @@ class VeicoloController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validateWithBag('veicoli', [
-            'numero_telaio' => ['required', 'unique:veicoli', 'max:255'],
-            'targa' => ['required', 'max:255'],
+            'numero_telaio' => ['required', 'unique:veicoli', 'max:16', 'min:16', 'alpha_num'],
+            'marca' => ['required', 'max:255'],
             'modello' => ['required', 'max:255'],
-            'anno' => ['required', 'integer', 'min:1900'],
+            'targa' => ['required', 'max:7', 'min:7', 'alpha_num'],
+            'anno_immatricolazione' => ['required', 'numeric', 'digits:4', 'min:1900', 'max:2023'],
             'colore' => ['required', 'max:255'],
         ]);
 
@@ -40,6 +41,7 @@ class VeicoloController extends Controller
         }
         return redirect()->route('veicoli.index')->with('success', 'Veicolo creato con successo!');
     }
+
 
     public function show(Veicolo $veicolo)
     {
@@ -55,10 +57,11 @@ class VeicoloController extends Controller
     {
         $validatedData = $request->validateWithBag('veicoli', [
             'numero_telaio',
-            'targa' => ['required', 'max:255'],
-            'modello' => ['required', 'max:255'],
-            'anno' => ['required', 'integer', 'min:1900'],
-            'colore' => ['required', 'max:255'],
+            'marca',
+            'modello',
+            'targa',
+            'anno_immatricolazione',
+            'colore',
         ]);
 
         try {
@@ -72,7 +75,15 @@ class VeicoloController extends Controller
 
     public function destroy(Veicolo $veicolo)
     {
-        $veicolo->delete();
-        return redirect()->route('veicoli.index');
+        try {
+            $veicolo->delete();
+        } catch (\Exception $e) {
+            return redirect()->route('veicoli.index')->with('error', 'Errore durante l\'eliminazione del veicolo!')
+                ->with('message', $e->getMessage());
+        }
+        return redirect()->route('veicoli.index')->with('success', 'Veicolo eliminato con successo!');
     }
+
+
+
 }
