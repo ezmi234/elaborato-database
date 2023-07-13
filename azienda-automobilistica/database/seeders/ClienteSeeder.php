@@ -26,7 +26,7 @@ class ClienteSeeder extends Seeder
 
         Cliente::create(
             [
-                'CF' => 'VQsDGPP00A00A000A',
+                'CF' => 'VQSDGPP00A00A000',
                 'nome' => 'Giuseppe',
                 'cognome' => 'Verdi',
                 'data_nascita' => '2000-01-02',

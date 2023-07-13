@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('cognome');
             $table->date('data_nascita');
-            $table->integer('telefono');
+            $table->integer('telefono', false, true);
             $table->decimal('percentuale_provvigione', 3, 2);
             $table->decimal('totale_provvigione', 10, 2);
             $table->decimal('bonus_recensione', 10, 2)->default(0.0);

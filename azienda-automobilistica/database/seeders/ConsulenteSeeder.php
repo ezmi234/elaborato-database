@@ -2,59 +2,60 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cliente;
+use App\Models\Consulente;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ClienteSeeder extends Seeder
+class ConsulenteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Cliente::create(
+        Consulente::create(
             [
                 'CF' => 'RSSMRA00A00A000A',
                 'nome' => 'Mario',
                 'cognome' => 'Rossi',
                 'data_nascita' => '2000-01-01',
                 'telefono' => '3331234567',
-                'buono_acquisto' => 0,
+                'percentuale_provvigione' => 4.50,
+                'totale_provvigione' => 1.10,
+                'bonus_recensione' => 1.10,
+                'media_recensione' => 1.2,
             ],
         );
 
-        Cliente::create(
+        Consulente::create(
             [
                 'CF' => 'VRDGPP00A00A000A',
                 'nome' => 'Giuseppe',
                 'cognome' => 'Verdi',
-                'data_nascita' => '2000-01-02',
-                'telefono' => '3331234568',
-                'buono_acquisto' => 0,
+                'data_nascita' => '2000-01-01',
+                'telefono' => '3331234467',
+                'percentuale_provvigione' => 3.50,
+                'totale_provvigione' => 1.10,
+                'bonus_recensione' => 1.10,
+                'media_recensione' => 1.3,
             ],
         );
 
-        Cliente::create(
+        Consulente::create(
             [
-                'CF' => 'BNCLCC00A00A000A',
-                'nome' => 'Luca',
+                'CF' => 'BNCLCA00A00A000A',
+                'nome' => 'Carlo',
                 'cognome' => 'Bianchi',
-                'data_nascita' => '2000-01-03',
-                'telefono' => '3331234569',
-                'buono_acquisto' => 0,
+                'data_nascita' => '2000-01-01',
+                'telefono' => '3331214567',
+                'percentuale_provvigione' => 0.50,
+                'totale_provvigione' => 1.10,
+                'bonus_recensione' => 1.10,
+                'media_recensione' => 1.3,
             ],
         );
 
-        Cliente::create(
-            [
-                'CF' => 'BNCLCC00A00A000B',
-                'nome' => 'Matteo',
-                'cognome' => 'Blu',
-                'data_nascita' => '2000-01-04',
-                'telefono' => '3331234570',
-                'buono_acquisto' => 0,
-            ],
-        );
+
+
     }
 }
