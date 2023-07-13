@@ -99,6 +99,7 @@ Route::get('veicoli/edit/{veicolo}', [VeicoloController::class, 'edit'])->name('
 Route::put('veicoli/update/{veicolo}', [VeicoloController::class, 'update'])->name('veicoli.update');
 Route::delete('veicoli/destroy/{veicolo}', [VeicoloController::class, 'destroy'])->name('veicoli.destroy');
 
+
 //pezzi_di_ricambio methods
 Route::get('pezzi_di_ricambio/index', [PezzoDiRicambioController::class, 'index'])->name('pezzi_di_ricambio.index');
 Route::get('pezzi_di_ricambio/create', [PezzoDiRicambioController::class, 'create'])->name('pezzi_di_ricambio.create');

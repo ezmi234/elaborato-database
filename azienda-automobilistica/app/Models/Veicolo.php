@@ -12,10 +12,23 @@
         public $incrementing = false;
         protected $fillable = [
             'numero_telaio',
-            'targa',
+            'marca',
             'modello',
-            'anno',
+            'targa',
+            'anno_immatricolazione',
             'colore',
         ];
+
+        public function intervento()
+        {
+            return $this->belongsTo(Intervento::class, 'codice_intervento', 'codice_intervento');
+        }
+
+        public function compra_vendita()
+        {
+            return $this->belongsTo(CompraVenditaAuto::class, 'codice_compra_vendita', 'codice_compra_vendita');
+        }
+
+
 
     }

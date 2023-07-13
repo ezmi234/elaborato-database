@@ -1,79 +1,117 @@
 @extends('layouts.app')
+
 @extends('layouts.sidebar')
 
 @section('content')
-<h1>veicoli</h1>
+    <h1>Dettagli Veicolo</h1>
 
-<!--Filters-->
-<div class="mb-3 form-inlinr d-flex align-items-center">
-    <form action="{{ route('veicoli.index') }}" method="GET" class="d-flex align-items-center">
-        <label for="sort_by" style="margin-right: 10px; width:200px;">Sort by:</label>
-        <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
-            <option value="numero_telaio" {{ request('sort_by') === 'numero_telaio' ? 'selected' : '' }}>Numero di serie</option>
-            <option value="targa" {{ request('sort_by') === 'targa' ? 'selected' : '' }}>Targa</option>
-            <option value="modello" {{ request('sort_by') === 'modello' ? 'selected' : '' }}>Modello</option>
-            <option value="anno" {{ request('sort_by') === 'anno' ? 'selected' : '' }}>Anno</option>
-            <option value="colore" {{ request('sort_by') === 'colore' ? 'selected' : '' }}>Colore</option>
-        </select>
-        <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
-            <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
-            <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Descending</option>
-        </select>
-        <button type="submit" class="btn btn-primary">Apply</button>
-    </form>
-</div>
-
-<!--veicoli Table-->
-<table class="table">
-    <thead>
-        <tr>
-            <th>Numero di serie</th>
-            <th>Targa</th>
-            <th>Modello</th>
-            <th>Anno</th>
-            <th>Colore</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($veicoli as $veicolo)
-        <tr>
-            <td>{{ $veicolo->numero_telaio }}</td>
-            <td>{{ $veicolo->targa }}</td>
-            <td>{{ $veicolo->modello }}</td>
-            <td>{{ $veicolo->anno }}</td>
-            <td>{{ $veicolo->colore }}</td>
-            <td>
-                <a href="{{ route('veicoli.show', $veicolo->numero_telaio) }}" class="btn btn-primary">Show</a>
-                <a href="{{ route('veicoli.edit', $veicolo->numero_telaio) }}" class="btn btn-success">Edit</a>
-                <form action="{{ route('veicoli.destroy', $veicolo->numero_telaio) }}" method="POST"
-                    style="display: inline-block;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-                @endforeach
-            </td>
-        </tr>
-    </tbody>
-
-</table>
-
-<a href="{{ route('veicoli.create') }}" class="btn btn-primary fixed-bottom-right">Add</a>
-</a>
-
-<!--Session Messages-->
-@if (session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Informazioni Veicolo</h5>
+            <p><strong>Numero Telaio:</strong> {{ $veicolo->numero_telaio }}</p>
+            <p><strong>Marca:</strong> {{ $veicolo->marca }}</p>
+            <p><strong>Modello:</strong> {{ $veicolo->modello }}</p>
+            <p><strong>Targa:</strong> {{ $veicolo->targa }}</p>
+            <p><strong>Anno Immatricolazione:</strong> {{ $veicolo->anno_immatricolazione }}</p>
+            <p><strong>Colore:</strong> {{ $veicolo->colore }}</p>
         </div>
-    @endif
-@elseif (session('message'))
-<div class="alert alert-danger mt-4">
+    </div>
+
+    <div class="mt-3">
+        <a href="{{ route('veicoli.edit', $veicolo->numero_telaio) }}" class="btn btn-success">Modifica</a>
+        <form action="{{ route('veicoli.destroy', $veicolo->numero_telaio) }}" method="POST" style="display: inline-block;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Elimina</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Interventi</h5>
+        </div>
+        <div class="card-body">
+            @if ($veicolo->intervento)
+                <p><strong>Codice Intervento:</strong> {{ $veicolo->intervento->codice_intervento }}</p>
+                <p><strong>Descrizione Intervento:</strong> {{ $veicolo->intervento->descrizione }}</p>
+                <!-- Altri dettagli dell'intervento -->
+            @else
+                <p>Nessun intervento trovato per questo veicolo.</p>
+            @endif
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Compra Vendita</h5>
+        </div>
+        <div class="card-body">
+            @if ($veicolo->compra_vendita)
+                <p><strong>Codice Compra Vendita:</strong> {{ $veicolo->compra_vendita->codice_compra_vendita }}</p>
+                <p><strong>Data Acquisto/Vendita:</strong> {{ $veicolo->compra_vendita->data_acquisto }}</p>
+                <!-- Altri dettagli della compra vendita -->
+            @else
+                <p>Nessuna compra vendita trovata per questo veicolo.</p>
+            @endif
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Recensione</h5>
+        </div>
+        <div class="card-body">
+            @if ($veicolo->recensione)
+                <p><strong>Codice Recensione:</strong> {{ $veicolo->recensione->codice_recensione }}</p>
+                <p><strong>Contenuto Recensione:</strong> {{ $veicolo->recensione->contenuto }}</p>
+                <!-- Altri dettagli della recensione -->
+            @else
+                <p>Nessuna recensione trovata per questo veicolo.</p>
+            @endif
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Accessori</h5>
+        </div>
+        <div class="card-body">
+            @if ($veicolo->accessori->isEmpty())
+                <p>Nessun accessorio trovato per questo veicolo.</p>
+            @else
+                <ul>
+                    @foreach ($veicolo->accessori as $accessorio)
+                        <li>{{ $accessorio->nome }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Meccanici</h5>
+        </div>
+        <div class="card-body">
+            @if ($veicolo->meccanici->isEmpty())
+                <p>Nessun meccanico trovato per questo veicolo.</p>
+            @else
+                <ul>
+                    @foreach ($veicolo->meccanici as $meccanico)
+                        <li>{{ $meccanico->nome }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+    </div>
+
+    <!-- Session Messages -->
+    @if (session('error'))
+        <div class="alert alert-danger mt-4">
+            {{ session('error') }}
+        </div>
+    @elseif (session('message'))
+        <div class="alert alert-danger mt-4">
             {{ session('message') }}
         </div>
     @elseif (session('success'))
