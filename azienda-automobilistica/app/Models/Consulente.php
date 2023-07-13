@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Models;
 
@@ -19,12 +19,14 @@ class Consulente extends Model
         'telefono',
         'percentuale_provvigione',
         'provvigione_totale',
+        'bonus_recensione',
+        'media_recensione',
     ];
 
     public function acquisti()
     {
         return $this->hasMany(AcquistoInStore::class, 'CF_consulente', 'CF');
-    }    
+    }
 
 
 }
