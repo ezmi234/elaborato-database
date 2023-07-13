@@ -19,9 +19,9 @@ return new class extends Migration
             $table->date('data_nascita');
             $table->integer('telefono');
             $table->decimal('paga_oraria', 10, 2);
-            $table->decimal('totale_ore_svolte', 10, 2);
-            $table->decimal('bonus_recensione', 10, 2);
-            $table->decimal('media_recensione', 2, 1);
+            $table->decimal('totale_ore_svolte', 10, 2)->default(0);
+            $table->decimal('bonus_recensione', 10, 2)->default(0);
+            $table->decimal('media_recensione', 2, 1)->default(0);
         });
     }
 

@@ -31,7 +31,8 @@ class ConsulenteController extends Controller
             'cognome' => ['required', 'max:255'],
             'data_nascita' => ['required', 'date'],
             'telefono' => ['required', 'max:255'],
-            'percentuale_provvigione' => ['required', 'decimal', 'min:0', 'max:100'],
+            'percentuale_provvigione' => ['required', 'numeric', 'min:0.00', 'max:1.00'],
+            'totale_provvigione' => ['required', 'numeric', 'min:0.00', 'max:9999999999.99'],
         ]);
 
         try {
