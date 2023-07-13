@@ -9,9 +9,9 @@ class PezzoDiRicambio extends Model
 {
     use HasFactory;
     protected $table = 'pezzi_di_ricambio';
-    protected $primaryKey = 'codicePezzo';
+    protected $primaryKey = 'codice_Pezzo';
     protected $fillable = [
-        'codicePezzo',
+        'codice_pezzo',
         'nome',
         'prezzo',
         'modello',

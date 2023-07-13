@@ -10,7 +10,7 @@
         <form action="{{ route('pezzi_di_ricambio.index') }}" method="GET" class="d-flex align-items-center">
             <label for="sort_by" style="margin-right: 10px;  width:200px;">Sort by:</label>
             <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
-                <option value="codicePezzo" {{ request('sort_by') === 'codicePezzo' ? 'selected' : '' }}>Codice Pezzo</option>
+                <option value="codice_Pezzo" {{ request('sort_by') === 'codice_pezzo' ? 'selected' : '' }}>Codice Pezzo</option>
                 <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome</option>
                 <option value="prezzo" {{ request('sort_by') === 'prezzo' ? 'selected' : '' }}>Prezzo</option>
                 <option value="modello" {{ request('sort_by') === 'modello' ? 'selected' : '' }}>Modello</option>
@@ -37,7 +37,7 @@
         <tbody>
             @foreach ($pezzi_di_ricambio as $pezzo)
                 <tr>
-                    <td>{{ $pezzo->codicePezzo }}</td>
+                    <td>{{ $pezzo->codice_pezzo }}</td>
                     <td>{{ $pezzo->nome }}</td>
                     <td>{{ $pezzo->prezzo }}</td>
                     <td>{{ $pezzo->modello }}</td>
