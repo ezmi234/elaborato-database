@@ -33,7 +33,7 @@ class PezzoDiRicambioSeeder extends Seeder
 
         PezzoDiRicambio::create(
             [
-                'codice_pezzo' => '1234567890',
+                'codice_pezzo' => '1234567812',
                 'nome' => 'Pneumatico',
                 'prezzo' => 100,
                 'modello' => 'Pirelli PZero',
@@ -42,7 +42,7 @@ class PezzoDiRicambioSeeder extends Seeder
 
         PezzoDiRicambio::create(
             [
-                'codice_pezzo' => '0987654321',
+                'codice_pezzo' => '0987654342',
                 'nome' => 'Candela',
                 'prezzo' => 200,
                 'modello' => 'Valvoline 1234',

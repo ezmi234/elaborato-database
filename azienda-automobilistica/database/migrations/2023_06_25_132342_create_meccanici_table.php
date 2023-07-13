@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('cognome');
             $table->date('data_nascita');
-            $table->integer('telefono');
+            $table->integer('telefono', false, true);
             $table->decimal('paga_oraria', 10, 2);
             $table->decimal('totale_ore_svolte', 10, 2)->default(0);
             $table->decimal('bonus_recensione', 10, 2)->default(0);
