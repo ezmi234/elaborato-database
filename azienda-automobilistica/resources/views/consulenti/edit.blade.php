@@ -31,8 +31,8 @@
         <input type="text" name="percentuale_provvigione" id="percentuale_provvigione" class="form-control" placeholder="Percentuale Provvigione" aria-describedby="helpId" value="{{ $consulente->percentuale_provvigione }}">
     </div>
     <div class="form-group" style="margin-bottom: 10px;">
-        <label for="provvigione_totale">Provvigione Totale</label>
-        <input type="text" name="provvigione_totale" id="provvigione_totale" class="form-control" placeholder="Provvigione Totale" aria-describedby="helpId" value="{{ $consulente->provvigione_totale }}">
+        <label for="totale_provvigione">Provvigione Totale</label>
+        <input type="text" name="totale_provvigione" id="totale_provvigione" class="form-control" placeholder="Provvigione Totale" aria-describedby="helpId" value="{{ $consulente->totale_provvigione }}">
     </div>
     <button type="submit" class="btn btn-primary">Aggiorna Consulente</button>
 </form>

@@ -18,7 +18,7 @@ class Consulente extends Model
         'data_nascita',
         'telefono',
         'percentuale_provvigione',
-        'provvigione_totale',
+        'totale_provvigione',
         'bonus_recensione',
         'media_recensione',
     ];
