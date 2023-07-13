@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Pezzo di Ricambio Information</h5>
-            <p><strong>Codice Pezzo:</strong> {{ $pezzo->codicePezzo }}</p>
+            <p><strong>Codice Pezzo:</strong> {{ $pezzo->codice_pezzo }}</p>
             <p><strong>Nome:</strong> {{ $pezzo->nome }}</p>
             <p><strong>Prezzo:</strong> {{ $pezzo->prezzo }}</p>
             <p><strong>Modello:</strong> {{ $pezzo->modello }}</p>

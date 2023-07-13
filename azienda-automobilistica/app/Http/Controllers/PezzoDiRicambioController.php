@@ -20,7 +20,7 @@ class PezzoDiRicambioController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'codicePezzo' => ['required', 'unique:pezzi_di_ricambio'],
+            'codice_pezzo' => ['required', 'unique:pezzi_di_ricambio'],
             'nome' => ['required', 'max:255'],
             'prezzo' => ['required', 'numeric', 'min:0'],
             'modello' => ['required', 'max:255'],
