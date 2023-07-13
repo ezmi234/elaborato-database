@@ -31,18 +31,6 @@
         <label for="paga_oraria">Paga Oraria</label>
         <input type="number" name="paga_oraria" id="paga_oraria" class="form-control" placeholder="Paga Oraria" aria-describedby="helpId">
     </div>
-    <div class="form-group" style="margin-bottom: 10px;">
-        <label for="totale_ore_svolte">Totale Ore Svolte</label>
-        <input type="number" name="totale_ore_svolte" id="totale_ore_svolte" class="form-control" placeholder="Totale Ore Svolte" aria-describedby="helpId">
-    </div>
-    <div class="form-group" style="margin-bottom: 10px;">
-        <label for="bonus_recensione">Bonus Recensione</label>
-        <input type="number" name="bonus_recensione" id="bonus_recensione" class="form-control" placeholder="Bonus Recensione" aria-describedby="helpId">
-    </div>
-    <div class="form-group" style="margin-bottom: 10px;">
-        <label for="media_recensione">Media Recensione</label>
-        <input type="number" name="media_recensione" id="media_recensione" class="form-control" placeholder="Media Recensione" aria-describedby="helpId">
-    </div>
     <button type="submit" class="btn btn-primary">Aggiungi Meccanico</button>
 </form>
 

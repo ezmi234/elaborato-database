@@ -14,7 +14,7 @@
             <p><strong>Data di nascita:</strong> {{ $consulente->data_nascita }}</p>
             <p><strong>Telefono:</strong> {{ $consulente->telefono }}</p>
             <p><strong>Percentuale Provvigione:</strong> {{ $consulente->percentuale_provvigione }}</p>
-            <p><strong>Provvigione Totale:</strong> {{ $consulente->provvigione_totale }}</p>
+            <p><strong>Provvigione Totale:</strong> {{ $consulente->totale_provvigione }}</p>
         </div>
     </div>
 
