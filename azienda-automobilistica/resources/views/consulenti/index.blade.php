@@ -16,7 +16,7 @@
                 <option value="data_nascita" {{ request('sort_by') === 'data_nascita' ? 'selected' : '' }}>Data di nascita</option>
                 <option value="telefono" {{ request('sort_by') === 'telefono' ? 'selected' : '' }}>Telefono</option>
                 <option value="percentuale_provvigione" {{ request('sort_by') === 'percentuale_provvigione' ? 'selected' : '' }}>Percentuale Provvigione</option>
-                <option value="provvigione_totale" {{ request('sort_by') === 'provvigione_totale' ? 'selected' : '' }}>Provvigione Totale</option>
+                <option value="totale_provvigione" {{ request('sort_by') === 'totale_provvigione' ? 'selected' : '' }}>Provvigione Totale</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
                 <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
@@ -49,7 +49,7 @@
                     <td>{{ $consulente->data_nascita }}</td>
                     <td>{{ $consulente->telefono }}</td>
                     <td>{{ $consulente->percentuale_provvigione }}</td>
-                    <td>{{ $consulente->provvigione_totale }}</td>
+                    <td>{{ $consulente->totale_provvigione }}</td>
                     <td>
                         <a href="{{ route('consulenti.show', $consulente->CF) }}" class="btn btn-primary">Show</a>
                         <a href="{{ route('consulenti.edit', $consulente->CF) }}" class="btn btn-success">Edit</a>

@@ -26,9 +26,6 @@ class MeccanicoController extends Controller
             'data_nascita' => ['required', 'date', 'before:today', 'after:1900-01-01' , 'date_format:Y-m-d'],
             'telefono' => ['required', 'numeric', 'digits_between:8,10'],
             'paga_oraria' => ['required', 'numeric', 'min:0',],
-            'totale_ore_svolte' => ['required', 'numeric', 'min:0',],
-            'bonus_recensione' => ['required', 'numeric', 'min:0',],
-            'media_recensione' => ['required', 'numeric', 'min:0', 'max:5',],
         ]);
 
         try {
