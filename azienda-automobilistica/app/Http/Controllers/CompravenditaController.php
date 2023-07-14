@@ -52,6 +52,7 @@ class CompraVenditaController extends Controller{
 
 
     public function show(Compravendita $compra_vendita){
+       // dd($compra_vendita);
         return view('compra_vendite.show', compact('compra_vendita'));
 
     }
@@ -102,5 +103,7 @@ class CompraVenditaController extends Controller{
 
         return redirect()->route('compra_vendite.index')->with('success', 'Compra_vendita eliminata correttamente');
     }
+
+
 
 }
