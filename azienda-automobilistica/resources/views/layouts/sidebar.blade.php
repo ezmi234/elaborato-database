@@ -26,7 +26,8 @@
                  {{ request()->is('interventi*') ? 'active' : '' }}" href="{{ route('interventi.index') }}">Interventi</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('recensioni*') ? 'active' : '' }}" href="{{ route('recensioni.index') }}">Recensioni</a>
-
+                <a class="list-group-item list-group-item-action list-group-item-light p-3
+                    {{ request()->is('compravendite*') ? 'active' : '' }}" href="{{ route('compravendite.index') }}">Compravendita</a>
             </div>
         </div>
         <!-- Page content wrapper-->

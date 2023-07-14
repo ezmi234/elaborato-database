@@ -10,6 +10,7 @@ use App\Http\Controllers\AcquistoInStoreController;
 use App\Http\Controllers\RecensioneController;
 use App\Http\Controllers\VeicoloController;
 use App\Http\Controllers\PezzoDiRicambioController;
+use App\Http\Controllers\CompravenditaController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -109,6 +110,7 @@ Route::get('pezzi_di_ricambio/edit/{pezzo}', [PezzoDiRicambioController::class, 
 Route::put('pezzi_di_ricambio/update/{pezzo}', [PezzoDiRicambioController::class, 'update'])->name('pezzi_di_ricambio.update');
 Route::delete('pezzi_di_ricambio/destroy/{pezzo}', [PezzoDiRicambioController::class, 'destroy'])->name('pezzi_di_ricambio.destroy');
 
+
 //interventi methods
 Route::get('interventi/index', [InterventoController::class, 'index'])->name('interventi.index');
 Route::get('interventi/create', [InterventoController::class, 'create'])->name('interventi.create');
@@ -117,3 +119,12 @@ Route::get('interventi/show/{intervento}', [InterventoController::class, 'show']
 Route::get('interventi/edit/{intervento}', [InterventoController::class, 'edit'])->name('interventi.edit');
 Route::put('interventi/update/{intervento}', [InterventoController::class, 'update'])->name('interventi.update');
 Route::delete('interventi/destroy/{intervento}', [InterventoController::class, 'destroy'])->name('interventi.destroy');
+
+//compravendita methods
+Route::get('compravendita/index', [CompravenditaController::class, 'index'])->name('compravendite.index');
+Route::get('compravendita/create', [CompravenditaController::class, 'create'])->name('compravendite.create');
+Route::post('compravendita/store', [CompravenditaController::class, 'store'])->name('compravendite.store');
+Route::get('compravendita/show/{compravendita}', [CompravenditaController::class, 'show'])->name('compravendite.show');
+Route::get('compravendita/edit/{compravendita}', [CompravenditaController::class, 'edit'])->name('compravendite.edit');
+Route::put('compravendita/update/{compravendita}', [CompravenditaController::class, 'update'])->name('compravendite.update');
+Route::delete('compravendita/destroy/{compravendita}', [CompravenditaController::class, 'destroy'])->name('compravendite.destroy');
