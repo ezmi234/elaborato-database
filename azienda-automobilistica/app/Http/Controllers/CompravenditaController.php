@@ -9,95 +9,32 @@ use App\Models\Officina;
 use App\Models\Veicolo;
 use Illuminate\Http\Request;
 
-class CompravenditaController extends Controller{
+class CompraVenditaController extends Controller{
 
-    public function index(Request $request)
-    {
-        $sortColumn = $request->input('sort_by', 'codice_compra_vendita');
-        $sortOrder = $request->input('sort_order', 'asc');
-
-        $compravendite = Compravendita::orderBy($sortColumn, $sortOrder)->get();
-        return view('compravendite.index', compact('compravendite'));
+    public function index(){
+        $compra_vendite = Compravendita::all();
+        return view('compra_vendite.index', compact('compra_vendite'));
     }
 
-    public function create()
-    {
-        $clienti = Cliente::all();
+    public function create(){
         $officine = Officina::all();
+        $clienti = Cliente::all();
         $consulenti = Consulente::all();
         $veicoli = Veicolo::all();
-        return view('compravendite.create', compact('clienti', 'officine', 'consulenti', 'veicoli'));
+        return view('compra_vendite.create', compact('officine', 'clienti', 'consulenti', 'veicoli'));
     }
 
-    public function store(Request $request)
-    {
-        $this->storeAccessory($request);
-    }
-
-    public function show(Compravendita $compravendita)
-    {
-        return view('compravendite.show', compact('compravendita'));
-    }
-
-    public function edit(Compravendita $compravendita)
-    {
-        return view('compravendite.edit', compact('compravendita'));
-    }
-
-    public function update(Request $request, Compravendita $compravendita)
-    {
+    public function store(Request $request){
         $request->validate([
-            'tipo_vendita' => 'required|string',
-            'costo_totale' => 'required|numeric',
-            'metodo_pagamento' => 'required|string',
-            'CF_cliente' => 'required|string',
-            'codice_officina' => 'required|numeric',
-            'CF_consulente' => 'required|string',
-            'numero_telaio' => 'required|string'
+            'tipo_vendita' => 'required',
+            'costo_totale' => 'required',
+            'metodo_pagamento' => 'required',
+            'CF_cliente' => 'required',
+            'codice_officina' => 'required',
+            'CF_consulente' => 'required',
+            'numero_telaio' => 'required',
         ]);
-
-        $compravendita->update($request->all());
-        return redirect()->route('compravendite.index');
+        Compravendita::create($request->all());
+        return redirect()->route('compra_vendite.index')->with('success', 'Compra vendita creata con successo.');
     }
-
-    public function destroy(Compravendita $compravendita)
-    {
-        $compravendita->delete();
-        return redirect()->route('compravendite.index');
-    }
-
-    private function storeAccessory(Request $request)
-    {
-        $validateData= $request->validateWithBag('compravendita',[
-            'tipo_vendita' => 'required|string',
-            'costo_totale' => 'required|numeric',
-            'metodo_pagamento' => 'required|string',
-            'CF_cliente' => 'required|string',
-            'codice_officina' => 'required|numeric',
-            'CF_consulente' => 'required|string',
-            'numero_telaio' => 'required|string'
-        ]);
-
-        try{
-            $compravendita = Compravendita::create([
-                'tipo_vendita' => $validateData['tipo_vendita'],
-                'costo_totale' => $validateData['costo_totale'],
-                'metodo_pagamento' => $validateData['metodo_pagamento'],
-                'CF_cliente' => $validateData['CF_cliente'],
-                'codice_officina' => $validateData['codice_officina'],
-                'CF_consulente' => $validateData['CF_consulente'],
-                'numero_telaio' => $validateData['numero_telaio']
-            ]);
-            Officina::find($validateData['codice_officina'])->increment('bilancio', $validateData['costo_totale']);
-        } catch (\ErrorException $e) {
-            return redirect()->route('acquisti_in_store.create')
-            ->with('error', $e->getMessage());
-        }
-
-        return redirect()->route('compravendite.index')
-            ->with('success', 'Compravendita creata con successo');
-
-
-    }
-
 }
