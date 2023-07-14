@@ -54,9 +54,9 @@
                     <td>{{ $compra_vendita->CF_consulente }}</td>
                     <td>{{ $compra_vendita->numero_telaio }}</td>
                     <td>
-                        <a href="{{ route('compra_vendite.show', $compra_vendita->id) }}" class="btn btn-primary">Show</a>
-                        <a href="{{ route('compra_vendite.edit', $compra_vendita->id) }}" class="btn btn-success">Edit</a>
-                        <form action="{{ route('compra_vendite.destroy', $compra_vendita->id) }}" method="POST"
+                        <a href="{{ route('compra_vendite.show', $compra_vendita->codice_compra_vendita) }}" class="btn btn-primary">Show</a>
+                        <a href="{{ route('compra_vendite.edit', $compra_vendita->codice_compra_vendita) }}" class="btn btn-success">Edit</a>
+                        <form action="{{ route('compra_vendite.destroy', $compra_vendita->codice_compra_vendita) }}" method="POST"
                             style="display: inline-block;">
                             @csrf
                             @method('DELETE')
