@@ -57,13 +57,6 @@ class CompraVenditaController extends Controller{
 
     }
 
-    public function edit (Compravendita $compra_vendita){
-        $officine = Officina::all();
-        $clienti = Cliente::all();
-        $consulenti = Consulente::all();
-        $veicoli = Veicolo::all();
-        return view('compra_vendite.edit', compact('compra_vendita', 'officine', 'clienti', 'consulenti', 'veicoli'));
-    }
 
     public function update(Request $request, Compravendita $compra_vendita){
         $validatedData = $request->validateWithBag('compra_vendite', [

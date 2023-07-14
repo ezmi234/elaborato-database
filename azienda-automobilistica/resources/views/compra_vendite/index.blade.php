@@ -55,7 +55,6 @@
                     <td>{{ $compra_vendita->numero_telaio }}</td>
                     <td>
                         <a href="{{ route('compra_vendite.show', $compra_vendita->codice_compra_vendita) }}" class="btn btn-primary">Show</a>
-                        <a href="{{ route('compra_vendite.edit', $compra_vendita->codice_compra_vendita) }}" class="btn btn-success">Edit</a>
                         <form action="{{ route('compra_vendite.destroy', $compra_vendita->codice_compra_vendita) }}" method="POST"
                             style="display: inline-block;">
                             @csrf
