@@ -25,16 +25,82 @@ class CompraVenditaController extends Controller{
     }
 
     public function store(Request $request){
-        $request->validate([
-            'tipo_vendita' => 'required',
-            'costo_totale' => 'required',
-            'metodo_pagamento' => 'required',
-            'CF_cliente' => 'required',
-            'codice_officina' => 'required',
-            'CF_consulente' => 'required',
-            'numero_telaio' => 'required',
+        $validatedData = $request->validateWithBag('compra_vendite', [
+            'tipo_vendita' => ['required', 'boolean'],
+            'costo_totale' => ['required', 'numeric'],
+            'metodo_pagamento' => ['required', 'string'],
+            'CF_cliente' => ['required', 'string'],
+            'codice_officina' => ['required', 'numeric'],
+            'CF_consulente' => ['required', 'string'],
+            'numero_telaio' => ['required', 'numeric'],
         ]);
-        Compravendita::create($request->all());
-        return redirect()->route('compra_vendite.index')->with('success', 'Compra vendita creata con successo.');
+
+        try {
+            $compra_vendita = Compravendita::create($validatedData);
+            if($validatedData['tipo_vendita'] == 0)
+                Officina::find($validatedData['codice_officina'])->decrement('bilancio', $validatedData['costo_totale']);
+            else if($validatedData['tipo_vendita'] == 1)
+                Officina::find($validatedData['codice_officina'])->increment('bilancio', $validatedData['costo_totale']);
+            $consulente=Consulente::find($validatedData['CF_consulente']);
+            $consulente->increment('totale_provvigione', $validatedData['costo_totale']*$consulente->percentuale_provvigione);
+        } catch (\Throwable $th) {
+            return redirect()->route('compra_vendite.create')->with('error', 'Errore durante la creazione della compra_vendita');
+        }
+
+        return redirect()->route('compra_vendite.index')->with('success', 'Compra_vendita creata correttamente');
     }
+
+
+    public function show(Compravendita $compra_vendita){
+        return view('compra_vendite.show', compact('compra_vendita'));
+
+    }
+
+    public function edit (Compravendita $compra_vendita){
+        $officine = Officina::all();
+        $clienti = Cliente::all();
+        $consulenti = Consulente::all();
+        $veicoli = Veicolo::all();
+        return view('compra_vendite.edit', compact('compra_vendita', 'officine', 'clienti', 'consulenti', 'veicoli'));
+    }
+
+    public function update(Request $request, Compravendita $compra_vendita){
+        $validatedData = $request->validateWithBag('compra_vendite', [
+            'tipo_vendita' => ['required', 'boolean'],
+            'costo_totale' => ['required', 'numeric'],
+            'metodo_pagamento' => ['required', 'string'],
+            'CF_cliente' => ['required', 'string'],
+            'codice_officina' => ['required', 'numeric'],
+            'CF_consulente' => ['required', 'string'],
+            'numero_telaio' => ['required', 'numeric'],
+        ]);
+
+        try {
+            $compra_vendita->update($validatedData);
+            if($validatedData['tipo_vendita'] == 0)
+                Officina::find($validatedData['codice_officina'])->decrement('bilancio', $validatedData['costo_totale']);
+            else if($validatedData['tipo_vendita'] == 1)
+                Officina::find($validatedData['codice_officina'])->increment('bilancio', $validatedData['costo_totale']);
+            $consulente=Consulente::find($validatedData['CF_consulente']);
+            $consulente->increment('totale_provvigione', $validatedData['costo_totale']*$consulente->percentuale_provvigione);
+
+        } catch (\Throwable $th) {
+            return redirect()->route('compra_vendite.edit', $compra_vendita)->with('error', 'Errore durante la modifica della compra_vendita');
+        }
+
+        return redirect()->route('compra_vendite.index')->with('success', 'Compra_vendita modificata correttamente');
+    }
+
+        public function destroy(Compravendita $compra_vendita){
+            //dd($compra_vendita);
+
+        try {
+            $compra_vendita->delete();
+        } catch (\Throwable $th) {
+            return redirect()->route('compra_vendite.index')->with('error', 'Errore durante l\'eliminazione della compra_vendita');
+        }
+
+        return redirect()->route('compra_vendite.index')->with('success', 'Compra_vendita eliminata correttamente');
+    }
+
 }

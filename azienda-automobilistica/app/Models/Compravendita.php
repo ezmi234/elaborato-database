@@ -30,7 +30,7 @@ class Compravendita extends Model
 
     public function officina()
     {
-        return $this->belongsTo(Officina::class, 'codice_officina', 'codice_officina');
+        return $this->hasOne(Officina::class, 'codice_officina', 'codice_officina');
     }
 
     public function consulente()
