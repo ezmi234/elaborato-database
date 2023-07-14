@@ -5,7 +5,7 @@
 @section('content')
     <h1>Create Acquisto in Store</h1>
 
-    <form action="{{ route('compravendita.store') }}" method="POST">
+    <form action="{{ route('compravendite.store') }}" method="POST">
         @csrf
 
         <!-- Cliente -->
