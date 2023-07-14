@@ -25,7 +25,7 @@ class VeicoloController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validateWithBag('veicoli', [
-            'numero_telaio' => ['required', 'unique:veicoli', 'max:16', 'min:16', 'alpha_num'],
+            'numero_telaio' => ['required', 'unique:veicoli', 'numeric', 'digits:16', 'min:1000000000000000', 'max:9999999999999999'],
             'marca' => ['required', 'max:255'],
             'modello' => ['required', 'max:255'],
             'targa' => ['required', 'max:7', 'min:7', 'alpha_num'],

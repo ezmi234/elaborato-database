@@ -66,7 +66,7 @@
         <!-- Total Cost -->
     <div class="form-group">
         <label for="costo_totale">Costo Totale:</label>
-        <input type="text" id="costo_totale" name="costo_totale" class="form-control" readonly>
+        <input type="text" id="costo_totale" name="costo_totale" value="0" class="form-control" readonly>
     </div>
 
     <button type="submit" class="btn btn-primary mt-2">Aggiungi acquisto</button>
@@ -76,6 +76,16 @@
     <div class="alert alert-danger mt-4">
         <ul>
             @foreach ($errors->accessorio->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+    @if ($errors->any())
+    <div class="alert alert-danger mt-4">
+        <ul>
+            @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>

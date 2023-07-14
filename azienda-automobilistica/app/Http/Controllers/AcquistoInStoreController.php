@@ -80,16 +80,25 @@ class AcquistoInStoreController extends Controller
                 'costo_totale' => $validatedData['costo_totale'],
                 'metodo_pagamento' => $validatedData['metodo_pagamento']
             ]);
+
+            $cont = 0;
+            foreach ($validatedData['accessori'] as $accessorioCodice=>$accessorioQuantita) {
+                if($accessorioQuantita > 0) {
+                    $acquisto->accessori()->attach($accessorioCodice, ['quantita' => $accessorioQuantita]);
+                    $cont++;
+                }
+            }
+
+            if($cont == 0) {
+                $acquisto->delete();
+                throw new \ErrorException('Devi selezionare almeno un accessorio');
+            }
+
             Officina::find($validatedData['codice_officina'])->increment('bilancio', $validatedData['costo_totale']);
         } catch (\ErrorException $e) {
             return redirect()->route('acquisti_in_store.create')
-            ->with('error', $e->getMessage());
-        }
-
-        foreach ($validatedData['accessori'] as $accessorioCodice=>$accessorioQuantita) {
-            if($accessorioQuantita > 0) {
-                $acquisto->accessori()->attach($accessorioCodice, ['quantita' => $accessorioQuantita]);
-            }
+                ->withErrors($e->getMessage())
+                ->withInput();
         }
 
         return redirect()->route('acquisti_in_store.index')
