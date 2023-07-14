@@ -121,10 +121,12 @@ Route::put('interventi/update/{intervento}', [InterventoController::class, 'upda
 Route::delete('interventi/destroy/{intervento}', [InterventoController::class, 'destroy'])->name('interventi.destroy');
 
 //compravendita methods
-Route::get('compravendita/index', [CompravenditaController::class, 'index'])->name('compravendite.index');
-Route::get('compravendita/create', [CompravenditaController::class, 'create'])->name('compravendite.create');
-Route::post('compravendita/store', [CompravenditaController::class, 'store'])->name('compravendite.store');
-Route::get('compravendita/show/{compravendita}', [CompravenditaController::class, 'show'])->name('compravendite.show');
-Route::get('compravendita/edit/{compravendita}', [CompravenditaController::class, 'edit'])->name('compravendite.edit');
-Route::put('compravendita/update/{compravendita}', [CompravenditaController::class, 'update'])->name('compravendite.update');
-Route::delete('compravendita/destroy/{compravendita}', [CompravenditaController::class, 'destroy'])->name('compravendite.destroy');
+Route::get('compra_vendite/index', [CompravenditaController::class, 'index'])->name('compra_vendite.index');
+Route::get('compra_vendite/create', [CompravenditaController::class, 'create'])->name('compra_vendite.create');
+Route::post('compra_vendite/store', [CompravenditaController::class, 'store'])->name('compra_vendite.store');
+Route::get('compra_vendite/show/{compravendita}', [CompravenditaController::class, 'show'])->name('compra_vendite.show');
+Route::get('compra_vendite/edit/{compravendita}', [CompravenditaController::class, 'edit'])->name('compra_vendite.edit');
+Route::put('compra_vendite/update/{compravendita}', [CompravenditaController::class, 'update'])->name('compra_vendite.update');
+Route::delete('compra_vendite/destroy/{compravendita}', [CompravenditaController::class, 'destroy'])->name('compra_vendite.destroy');
+
+

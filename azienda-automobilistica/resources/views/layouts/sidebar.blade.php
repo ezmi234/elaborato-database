@@ -27,7 +27,7 @@
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('recensioni*') ? 'active' : '' }}" href="{{ route('recensioni.index') }}">Recensioni</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
-                    {{ request()->is('compravendite*') ? 'active' : '' }}" href="{{ route('compravendite.index') }}">Compravendita</a>
+                    {{ request()->is('compra_vendite*') ? 'active' : '' }}" href="{{ route('compra_vendite.index') }}">Compravendita</a>
             </div>
         </div>
         <!-- Page content wrapper-->
