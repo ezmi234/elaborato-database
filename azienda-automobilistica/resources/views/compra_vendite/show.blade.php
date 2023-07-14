@@ -12,8 +12,8 @@
             <p class="card-text">Data e Ora: {{ $compra_vendita->created_at }}</p>
             <p class="card-text">Costo Totale: {{ $compra_vendita->costo_totale }}</p>
             <p class="card-text">Metodo di Pagamento: {{ $compra_vendita->metodo_pagamento }}</p>
-            <p class="card-text">Cliente: {{ $compra_vendita->clienteCF }}</p>
-            <p class="card-text">Consulente: {{ $compra_vendita->consulenteCF }}</p>
+            <p class="card-text">Cliente: {{ $compra_vendita->CF_cliente }}</p>
+            <p class="card-text">Consulente: {{ $compra_vendita->CF_consulente }}</p>
             <p class="card-text">Officina: {{ $compra_vendita->codice_officina}}</p>
             <p class="card-text">Veicolo: {{ $compra_vendita->numero_telaio }}</p>
             <p class="card-text">Tipo Vendita: {{ $compra_vendita->tipo_vendita ? 'Vendita' : 'Acquisto' }}</p>
