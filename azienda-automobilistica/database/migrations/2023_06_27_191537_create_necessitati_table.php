@@ -12,16 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('necessitati', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('codice_pezzo');
-            $table->unsignedBigInteger('codice_intervento');
+            $table->foreignIdFor(\App\Models\PezzoDiRicambio::class, 'codice_pezzo')->onCascade('delete');
+            $table->foreignIdFor(\App\Models\Intervento::class, 'codice_intervento')->onCascade('delete');
 
             $table->integer('quantita');
-
-            $table->foreign('codice_pezzo')->references('codice_pezzo')
-                ->on('pezzi_di_ricambio')->onDelete('cascade');
-            $table->foreign('codice_intervento')->references('codice_intervento')
-                ->on('interventi')->onDelete('cascade');
 
         });
     }

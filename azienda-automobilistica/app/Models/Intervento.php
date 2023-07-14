@@ -20,6 +20,7 @@ class Intervento extends Model
         'data_fine',
         'CF_cliente',
         'codice_officina',
+        'numero_telaio'
     ];
 
     public function cliente()
@@ -40,5 +41,17 @@ class Intervento extends Model
     public function veicolo()
     {
         return $this->belongsTo(Veicolo::class, 'numero_telaio', 'numero_telaio');
+    }
+
+    public function pezzi_di_ricambio()
+    {
+        return $this->belongsToMany(PezzoDiRicambio::class, 'necessitati', 'codice_intervento', 'codice_pezzo')
+            ->withPivot('quantita');
+    }
+
+    public function meccanici()
+    {
+        return $this->belongsToMany(Meccanico::class, 'svolti', 'codice_intervento', 'CF_meccanico')
+            ->withPivot('ore_svolte');
     }
 }

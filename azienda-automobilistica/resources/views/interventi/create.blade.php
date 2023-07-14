@@ -102,19 +102,19 @@
     <!-- Costo Pezzi di Ricambio -->
     <div class="form-group">
         <label for="costo_pezzi_ricambio">Costo Pezzi di Ricambio:</label>
-        <input type="text" id="costo_ricambi" name="costo_ricambi" class="form-control" readonly>
+        <input type="text" id="costo_ricambi" name="costo_ricambi" value="0" class="form-control" readonly>
     </div>
 
     <!-- Costo Totale Meccanici -->
     <div class="form-group">
         <label for="costo_totale_meccanici">Costo Totale Meccanici:</label>
-        <input type="text" id="costo_ore_di_lavoro" name="costo_ore_di_lavoro" class="form-control" readonly>
+        <input type="text" id="costo_ore_di_lavoro" name="costo_ore_di_lavoro" value="0" class="form-control" readonly>
     </div>
 
     <!-- Total Cost -->
     <div class="form-group">
         <label for="costo_totale">Costo Totale:</label>
-        <input type="text" id="costo_totale" name="costo_totale" class="form-control" readonly>
+        <input type="text" id="costo_totale" name="costo_totale" value="0" class="form-control" readonly>
     </div>
 
     <button type="submit" class="btn btn-primary mt-2">Aggiungi intervento</button>
@@ -134,8 +134,8 @@
         // Calculate total cost
         const pezziInputs = document.querySelectorAll('input[name^="pezzi_di_ricambio"]');
         const meccaniciInputs = document.querySelectorAll('input[name^="meccanici"]');
-        const costoPezziRicambioInput = document.getElementById('costo_pezzi_ricambio');
-        const costoTotaleMeccaniciInput = document.getElementById('costo_totale_meccanici');
+        const costoPezziRicambioInput = document.getElementById('costo_ricambi');
+        const costoTotaleMeccaniciInput = document.getElementById('costo_ore_di_lavoro');
         const costoTotaleInput = document.getElementById('costo_totale');
 
         pezziInputs.forEach(input => {

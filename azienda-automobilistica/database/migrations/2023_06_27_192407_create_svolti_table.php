@@ -12,16 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('svolti', function (Blueprint $table) {
-            $table->id();
-            $table->string('CF');
-            $table->unsignedBigInteger('codice_intervento');
-
+            $table->foreignIdFor(\App\Models\Meccanico::class, 'CF_meccanico')->onCascade('delete');
+            $table->foreignIdFor(\App\Models\Intervento::class, 'codice_intervento')->onCascade('delete');
             $table->integer('ore_svolte');
-
-            $table->foreign('CF')->references('CF')
-                ->on('meccanici')->onDelete('cascade');
-            $table->foreign('codice_intervento')->references('codice_intervento')
-                ->on('interventi')->onDelete('cascade');
 
         });
     }
