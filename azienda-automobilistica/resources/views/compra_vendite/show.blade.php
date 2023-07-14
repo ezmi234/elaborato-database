@@ -8,7 +8,7 @@
     <!-- Compra Vendita Auto Details -->
     <div class="card mb-4">
         <div class="card-body">
-            <h5 class="card-title">Codice Compra Vendita: {{ $compra_vendita->codice }}</h5>
+            <h5 class="card-title">Codice Compra Vendita: {{ $compra_vendita->codice_compra_vendita }}</h5>
             <p class="card-text">Data e Ora: {{ $compra_vendita->created_at }}</p>
             <p class="card-text">Costo Totale: {{ $compra_vendita->costo_totale }}</p>
             <p class="card-text">Metodo di Pagamento: {{ $compra_vendita->metodo_pagamento }}</p>

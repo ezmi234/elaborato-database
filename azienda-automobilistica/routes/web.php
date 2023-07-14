@@ -124,7 +124,7 @@ Route::delete('interventi/destroy/{intervento}', [InterventoController::class, '
 Route::get('compra_vendite/index', [CompraVenditaController::class, 'index'])->name('compra_vendite.index');
 Route::get('compra_vendite/create', [CompraVenditaController::class, 'create'])->name('compra_vendite.create');
 Route::post('compra_vendite/store', [CompraVenditaController::class, 'store'])->name('compra_vendite.store');
-Route::get('compra_vendite/show/{compravendita}', [CompraVenditaController::class, 'show'])->name('compra_vendite.show');
+Route::get('compra_vendite/show/{compra_vendita}', [CompraVenditaController::class, 'show'])->name('compra_vendite.show');
 Route::get('compra_vendite/edit/{compravendita}', [CompraVenditaController::class, 'edit'])->name('compra_vendite.edit');
 Route::put('compra_vendite/update/{compravendita}', [CompraVenditaController::class, 'update'])->name('compra_vendite.update');
 Route::delete('compra_vendite/destroy/{compravendita}', [CompraVenditaController::class, 'destroy'])->name('compra_vendite.destroy');
