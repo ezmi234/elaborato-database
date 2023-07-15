@@ -45,7 +45,7 @@
         <tbody>
             @foreach ($compra_vendite as $compra_vendita)
                 <tr>
-                    <td>{{ $compra_vendita->id }}</td>
+                    <td>{{ $compra_vendita->codice_compra_vendita }}</td>
                     <td>{{ $compra_vendita->tipo_vendita }}</td>
                     <td>{{ $compra_vendita->costo_totale }}</td>
                     <td>{{ $compra_vendita->metodo_pagamento }}</td>
