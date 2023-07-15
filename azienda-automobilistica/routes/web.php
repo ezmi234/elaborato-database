@@ -125,7 +125,6 @@ Route::get('compra_vendite/index', [CompraVenditaController::class, 'index'])->n
 Route::get('compra_vendite/create', [CompraVenditaController::class, 'create'])->name('compra_vendite.create');
 Route::post('compra_vendite/store', [CompraVenditaController::class, 'store'])->name('compra_vendite.store');
 Route::get('compra_vendite/show/{compra_vendita}', [CompraVenditaController::class, 'show'])->name('compra_vendite.show');
-Route::get('compra_vendite/edit/{compra_vendita}', [CompraVenditaController::class, 'edit'])->name('compra_vendite.edit');
 Route::put('compra_vendite/update/{compra_vendita}', [CompraVenditaController::class, 'update'])->name('compra_vendite.update');
 Route::delete('compra_vendite/destroy/{compra_vendita}', [CompraVenditaController::class, 'destroy'])->name('compra_vendite.destroy');
 
