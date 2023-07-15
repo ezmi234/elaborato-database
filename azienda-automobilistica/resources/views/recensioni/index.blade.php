@@ -63,6 +63,10 @@
         </tbody>
     </table>
 
+    <a href="{{ route('recensioni.create') }}" class="btn btn-primary fixed-bottom-right">
+        <i class="fas fa-plus"></i> Add
+    </a>
+
     <!-- SessionMessages -->
     @if (session('error'))
         <div class="alert alert-danger mt-4">

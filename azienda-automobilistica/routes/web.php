@@ -87,7 +87,6 @@ Route::get('recensioni/index', [RecensioneController::class, 'index'])->name('re
 Route::get('recensioni/create', [RecensioneController::class, 'create'])->name('recensioni.create');
 Route::post('recensioni/store', [RecensioneController::class, 'store'])->name('recensioni.store');
 Route::get('recensioni/show/{recensione}', [RecensioneController::class, 'show'])->name('recensioni.show');
-Route::get('recensioni/edit/{recensione}', [RecensioneController::class, 'edit'])->name('recensioni.edit');
 Route::put('recensioni/update/{recensione}', [RecensioneController::class, 'update'])->name('recensioni.update');
 Route::delete('recensioni/destroy/{recensione}', [RecensioneController::class, 'destroy'])->name('recensioni.destroy');
 
