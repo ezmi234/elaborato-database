@@ -64,9 +64,9 @@ class PezzoDiRicambioController extends Controller
         return redirect()->route('pezzi_di_ricambio.index')->with('success', 'Pezzo di ricambio modificato con successo!');
     }
 
-    public function destroy(PezzoDiRicambio $pezzoDiRicambio)
+    public function destroy(PezzoDiRicambio $pezzo_di_ricambio)
     {
-        $pezzoDiRicambio->delete();
+        $pezzo_di_ricambio->delete();
 
         return redirect()->route('pezzi_di_ricambio.index');
     }

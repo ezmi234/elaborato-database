@@ -104,10 +104,10 @@ Route::delete('veicoli/destroy/{veicolo}', [VeicoloController::class, 'destroy']
 Route::get('pezzi_di_ricambio/index', [PezzoDiRicambioController::class, 'index'])->name('pezzi_di_ricambio.index');
 Route::get('pezzi_di_ricambio/create', [PezzoDiRicambioController::class, 'create'])->name('pezzi_di_ricambio.create');
 Route::post('pezzi_di_ricambio/store', [PezzoDiRicambioController::class, 'store'])->name('pezzi_di_ricambio.store');
-Route::get('pezzi_di_ricambio/show/{pezzo}', [PezzoDiRicambioController::class, 'show'])->name('pezzi_di_ricambio.show');
-Route::get('pezzi_di_ricambio/edit/{pezzo}', [PezzoDiRicambioController::class, 'edit'])->name('pezzi_di_ricambio.edit');
-Route::put('pezzi_di_ricambio/update/{pezzo}', [PezzoDiRicambioController::class, 'update'])->name('pezzi_di_ricambio.update');
-Route::delete('pezzi_di_ricambio/destroy/{pezzo}', [PezzoDiRicambioController::class, 'destroy'])->name('pezzi_di_ricambio.destroy');
+Route::get('pezzi_di_ricambio/show/{pezzo_di_ricambio}', [PezzoDiRicambioController::class, 'show'])->name('pezzi_di_ricambio.show');
+Route::get('pezzi_di_ricambio/edit/{pezzo_di_ricambio}', [PezzoDiRicambioController::class, 'edit'])->name('pezzi_di_ricambio.edit');
+Route::put('pezzi_di_ricambio/update/{pezzo_di_ricambio}', [PezzoDiRicambioController::class, 'update'])->name('pezzi_di_ricambio.update');
+Route::delete('pezzi_di_ricambio/destroy/{pezzo_di_ricambio}', [PezzoDiRicambioController::class, 'destroy'])->name('pezzi_di_ricambio.destroy');
 
 
 //interventi methods

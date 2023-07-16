@@ -15,7 +15,11 @@
             <label for="messaggio">Messaggio:</label>
             <textarea class="form-control" id="messaggio" name="messaggio" rows="3" required></textarea>
         </div>
-        <input type="hidden" name="codice_acquisto" value="{{ $acquisto->codice_acquisto }}">
+        @if($acquisto)
+            <input type="hidden" name="codice_acquisto" value="{{ $acquisto->codice_acquisto }}">
+        @elseif ($intervento)
+            <input type="hidden" name="codice_intervento" value="{{ $intervento->codice_intervento }}">
+        @endif
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>
 @endsection

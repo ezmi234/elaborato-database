@@ -103,7 +103,12 @@
                                 <td>{{ $intervento->officina->nome }}</td>
                                 <td>{{ $intervento->numero_telaio }}</td>
                                 <td>
-                                    <!-- Add your actions for interventi here -->
+                                    <a href="{{ route('interventi.show', $intervento->codice_intervento) }}" class="btn btn-info">Dettagli Intervento</a>
+                                    @if ($intervento->recensione)
+                                        <a href="{{ route('recensioni.show', $intervento->recensione->codice_recensione) }}" class="btn btn-primary">Vedi Recensione</a>
+                                    @else
+                                        <a href="{{ route('recensioni.create', ['intervento' => $intervento->codice_intervento]) }}" class="btn btn-primary">Lascia Recensione</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
