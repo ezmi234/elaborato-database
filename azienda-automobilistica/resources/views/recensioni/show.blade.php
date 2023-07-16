@@ -17,7 +17,6 @@
     </div>
 
     <div>
-        <a href="{{ route('recensioni.edit', $recensione->codice_recensione) }}" class="btn btn-primary">Edit</a>
         <form action="{{ route('recensioni.destroy', $recensione->codice_recensione) }}" method="POST" style="display: inline-block;">
             @csrf
             @method('DELETE')

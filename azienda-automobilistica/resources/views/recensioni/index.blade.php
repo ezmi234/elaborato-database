@@ -50,7 +50,6 @@
                     </td>
                     <td>
                         <a href="{{ route('recensioni.show', $recensione->codice_recensione) }}" class="btn btn-primary">Show</a>
-                        <a href="{{ route('recensioni.edit', $recensione->codice_recensione) }}" class="btn btn-success">Edit</a>
                         <form action="{{ route('recensioni.destroy', $recensione->codice_recensione) }}" method="POST"
                             style="display: inline-block;">
                             @csrf
@@ -62,10 +61,6 @@
             @endforeach
         </tbody>
     </table>
-
-    <a href="{{ route('recensioni.create') }}" class="btn btn-primary fixed-bottom-right">
-        <i class="fas fa-plus"></i> Add
-    </a>
 
     <!-- SessionMessages -->
     @if (session('error'))
