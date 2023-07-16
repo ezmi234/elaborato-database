@@ -122,7 +122,7 @@ class InterventoController extends Controller
             foreach($validatedData['meccanici'] as $CF_meccanico=>$ore){
                 if($ore > 0){
                     $intervento->meccanici()->syncWithoutDetaching([$CF_meccanico => ['ore_svolte' => $ore]]);
-                    Cliente::find($CF_meccanico)->increment('totale_ore_svolte', $ore);
+                    Meccanico::find($CF_meccanico)->increment('totale_ore_svolte', $ore);
                     $cont++;
                 }
             }
