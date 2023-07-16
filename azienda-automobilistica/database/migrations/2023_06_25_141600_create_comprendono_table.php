@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comprendono', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\Accessorio::class, 'codice_accessorio')->onCascade('delete');
-            $table->foreignIdFor(\App\Models\AcquistoInStore::class, 'codice_acquisto')->onCascade('delete');
+            $table->foreignId('codice_accessorio')
+                ->constrained('accessori', 'codice_accessorio')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('codice_acquisto')
+                ->constrained('acquisti_in_store', 'codice_acquisto')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->integer('quantita');
         });
     }

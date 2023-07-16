@@ -69,6 +69,52 @@
         </div>
     </div>
 
+    <div class="card mt-2">
+        <div class="card-header">
+            <h5>Interventi</h5>
+        </div>
+        <div class="card-body">
+            @if ($cliente->interventi->isEmpty())
+                <p>No interventi found for this cliente.</p>
+            @else
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Codice Intervento</th>
+                            <th>Costo Totale</th>
+                            <th>Costo Ricambi</th>
+                            <th>Costo Ore di Lavoro</th>
+                            <th>Metodo di Pagamento</th>
+                            <th>Data Intervento</th>
+                            <th>Officina</th>
+                            <th>Numero Telaio</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($cliente->interventi as $intervento)
+                            <tr>
+                                <td>{{ $intervento->codice_intervento }}</td>
+                                <td>{{ $intervento->costo_totale }}</td>
+                                <td>{{ $intervento->costo_ricambi }}</td>
+                                <td>{{ $intervento->costo_ore_di_lavoro }}</td>
+                                <td>{{ $intervento->metodo_pagamento }}</td>
+                                <td>{{ $intervento->created_at }}</td>
+                                <td>{{ $intervento->officina->nome }}</td>
+                                <td>{{ $intervento->numero_telaio }}</td>
+                                <td>
+                                    <!-- Add your actions for interventi here -->
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @endif
+        </div>
+    </div>
+
+
+
 
     <!-- Session Messages -->
     @if (session('error'))
