@@ -64,7 +64,6 @@ class MeccanicoController extends Controller
             'paga_oraria' => ['required', 'numeric', 'min:0',],
             'totale_ore_svolte' => ['required', 'numeric', 'min:0',],
             'bonus_recensione' => ['required', 'numeric', 'min:0',],
-            'media_recensione' => ['required', 'numeric', 'min:0', 'max:5',],
         ]);
 
         try {
