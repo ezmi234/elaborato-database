@@ -15,7 +15,7 @@
         <p><strong>Paga Oraria:</strong> {{ $meccanico->paga_oraria }}</p>
         <p><strong>Totale Ore Svolte:</strong> {{ $meccanico->totale_ore_svolte }}</p>
         <p><strong>Bonus Recensione:</strong> {{ $meccanico->bonus_recensione }}</p>
-        <p><strong>Media Recensione:</strong> {{ $meccanico->media_recensione }}</p>
+        <p><strong>Media Recensione:</strong> {{ $meccanico->media_recensioni }}</p>
     </div>
 </div>
 
