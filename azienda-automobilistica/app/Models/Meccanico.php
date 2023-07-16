@@ -24,7 +24,8 @@ class Meccanico extends Model
         'paga_oraria',
         'totale_ore_svolte',
         'bonus_recensione',
-        'media_recensione'
+        'totale_recensioni',
+        'numero_recensioni',
     ];
 
     public function acquisti()

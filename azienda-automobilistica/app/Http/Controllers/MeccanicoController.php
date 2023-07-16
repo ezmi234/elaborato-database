@@ -7,10 +7,16 @@ use Illuminate\Http\Request;
 
 class MeccanicoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('meccanici.index')->with('meccanici', Meccanico::all());
+        $sortColumn = $request->input('sort_by', 'CF');
+        $sortOrder = $request->input('sort_order', 'asc');
+
+        $meccanici = Meccanico::orderBy($sortColumn, $sortOrder)->get();
+
+        return view('meccanici.index', compact('meccanici'));
     }
+
 
     public function create()
     {

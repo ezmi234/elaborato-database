@@ -16,6 +16,7 @@
                 <option value="data_nascita" {{ request('sort_by') === 'data_nascita' ? 'selected' : '' }}>Data di nascita</option>
                 <option value="telefono" {{ request('sort_by') === 'telefono' ? 'selected' : '' }}>Telefono</option>
                 <option value="paga_oraria" {{ request('sort_by') === 'paga_oraria' ? 'selected' : '' }}>Paga Oraria</option>
+                <option value="media_recensioni" {{ request('sort_by') === 'media_recensioni' ? 'selected' : '' }}>Media Recensioni</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
                 <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
@@ -35,6 +36,7 @@
                 <th>Data di nascita</th>
                 <th>Telefono</th>
                 <th>Paga Oraria</th>
+                <th>Media Recensioni</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -47,6 +49,7 @@
                     <td>{{ $meccanico->data_nascita }}</td>
                     <td>{{ $meccanico->telefono }}</td>
                     <td>{{ $meccanico->paga_oraria }}</td>
+                    <td>{{ $meccanico->media_recensioni }}</td>
                     <td>
                         <a href="{{ route('meccanici.show', $meccanico->CF) }}" class="btn btn-primary">Show</a>
                         <a href="{{ route('meccanici.edit', $meccanico->CF) }}" class="btn btn-success">Edit</a>
