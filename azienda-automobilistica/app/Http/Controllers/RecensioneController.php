@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\AcquistoInStore;
+use App\Models\Compravendita;
+use App\Models\Intervento;
 use App\Models\Recensione;
 use Illuminate\Http\Request;
 
@@ -20,10 +22,19 @@ class RecensioneController extends Controller
 
     public function create(Request $request)
     {
+        $acquisto = null;
+        $intervento = null;
+        $compra_vendita = null;
+
         if ($request->has('acquisto')) {
             $acquisto = AcquistoInStore::find($request->input('acquisto'));
-            return view('recensioni.create', compact('acquisto'));
+        } else if ($request->has('intervento')) {
+            $intervento = Intervento::find($request->input('intervento'));
+        } else if ($request->has('compra_vendita')) {
+            $compra_vendita = Compravendita::find($request->input('compra_vendita'));
         }
+        return view('recensioni.create', compact('acquisto', 'intervento', 'compra_vendita'));
+
     }
 
     public function store(Request $request)

@@ -9,7 +9,7 @@ class PezzoDiRicambio extends Model
 {
     use HasFactory;
     protected $table = 'pezzi_di_ricambio';
-    protected $primaryKey = 'codice_Pezzo';
+    protected $primaryKey = 'codice_pezzo';
 
     public $timestamps = false;
     protected $fillable = [
