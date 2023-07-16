@@ -52,6 +52,7 @@ class RecensioneController extends Controller
                 $intervento = Intervento::find($validatedData['codice_intervento']);
                 foreach ($intervento->meccanici as $meccanico) {
                     $media_recensioni = ($meccanico->totale_recensioni + $validatedData['voto']) / ($meccanico->numero_recensioni + 1);
+                    //dd($media_recensioni);
                     $meccanico->update([
                         'totale_recensioni' => $meccanico->totale_recensioni + $validatedData['voto'],
                         'numero_recensioni' => $meccanico->numero_recensioni + 1,

@@ -26,6 +26,7 @@ class Meccanico extends Model
         'bonus_recensione',
         'totale_recensioni',
         'numero_recensioni',
+        'media_recensioni',
     ];
 
     public function acquisti()
