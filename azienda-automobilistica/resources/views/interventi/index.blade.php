@@ -39,7 +39,7 @@
             @foreach ($interventi as $intervento)
                 <tr>
                     <td>{{ $intervento->codice_intervento }}</td>
-                    <td>{{ $intervento->data_fine }}</td>
+                    <td>{{ $intervento->created_at }}</td>
                     <td>{{ $intervento->costo_totale }}</td>
                     <td>{{ $intervento->metodo_pagamento }}</td>
                     <td>{{ $intervento->cliente->CF }}</td>

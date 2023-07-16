@@ -24,6 +24,10 @@ class Cliente extends Model
     {
         return $this->hasMany(AcquistoInStore::class, 'CF_cliente', 'CF');
     }
+    public function interventi()
+    {
+        return $this->hasMany(Intervento::class, 'CF_cliente', 'CF');
+    }
 
-    
+
 }

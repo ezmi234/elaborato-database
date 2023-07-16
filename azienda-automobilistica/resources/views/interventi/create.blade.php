@@ -65,7 +65,7 @@
                             <td>{{ $pezzo->nome }}</td>
                             <td>{{ $pezzo->prezzo }}</td>
                             <td>
-                                <input type="number" value="0" name="pezzi_di_ricambio[{{ $pezzo->id }}]" class="form-control" required>
+                                <input type="number" value="0" name="pezzi_di_ricambio[{{ $pezzo->codice_pezzo }}]" class="form-control" required>
                             </td>
                         </tr>
                     @endforeach
