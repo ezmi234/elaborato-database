@@ -62,6 +62,8 @@
         </tbody>
     </table>
 
+
+
     <!-- SessionMessages -->
     @if (session('error'))
         <div class="alert alert-danger mt-4">

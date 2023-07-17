@@ -42,7 +42,7 @@
                     <td>{{ $accessorio->prezzo }}</td>
                     <td>{{ $accessorio->acquisti->sum('pivot.quantita') }}</td>
                     <td>
-                        <a href="{{ route('accessori.show', $accessorio->codice_accessorio) }}" class="btn btn-primary">Show</a>
+
                         <a href="{{ route('accessori.edit', $accessorio->codice_accessorio) }}" class="btn btn-success">Edit</a>
                         <form action="{{ route('accessori.destroy', $accessorio->codice_accessorio) }}" method="POST"
                             style="display: inline-block;">
