@@ -58,6 +58,27 @@
             </div>
         </div>
 
+         <!-- Recensioni -->
+         <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Recensioni</h3>
+                <ul class="list-group">
+                    @if ($compra_vendita->recensione==null)
+                        <p>Non ci sono recensioni</p>
+                    @else
+                        <li class="list-group-item">
+                            <strong>Autore:</strong> {{ $compra_vendita->recensione->CF_cliente }}
+                            <br>
+                            <strong>Voto:</strong> {{ $compra_vendita->recensione->voto }}
+                            <br>
+                            <strong>Testo:</strong> {{ $compra_vendita->recensione->messaggio }}
+                        </li>
+                    @endif
+                </ul>
+            </div>
+        </div>
+
+
         <!-- Session Messages -->
         @if ($errors->any())
             <div class="alert alert-danger mt-4">
@@ -68,6 +89,8 @@
                 </ul>
             </div>
         @endif
+
+
 
         <!-- Actions -->
         <a href="{{ route('compra_vendite.index') }}" class="btn btn-primary">Back to List</a>
