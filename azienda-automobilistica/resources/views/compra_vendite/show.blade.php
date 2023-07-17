@@ -3,40 +3,80 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <h1>Dettagli Compra Vendita Auto</h1>
+    <div class="container">
+        <h1>Dettagli Compra Vendita Auto</h1>
 
-    <!-- Compra Vendita Auto Details -->
-    <div class="card mb-4">
-        <div class="card-body">
-            <h5 class="card-title">Codice Compra Vendita: {{ $compra_vendita->codice_compra_vendita }}</h5>
-            <p class="card-text">Data e Ora: {{ $compra_vendita->created_at }}</p>
-            <p class="card-text">Costo Totale: {{ $compra_vendita->costo_totale }}</p>
-            <p class="card-text">Metodo di Pagamento: {{ $compra_vendita->metodo_pagamento }}</p>
-            <p class="card-text">Cliente: {{ $compra_vendita->CF_cliente }}</p>
-            <p class="card-text">Consulente: {{ $compra_vendita->CF_consulente }}</p>
-            <p class="card-text">Officina: {{ $compra_vendita->codice_officina}}</p>
-            <p class="card-text">Veicolo: {{ $compra_vendita->numero_telaio }}</p>
-            <p class="card-text">Tipo Vendita: {{ $compra_vendita->tipo_vendita ? 'Vendita' : 'Acquisto' }}</p>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>General Information</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Codice Compra Vendita:</strong> {{ $compra_vendita->codice_compra_vendita }}</li>
+                    <li class="list-group-item"><strong>Data e Ora:</strong> {{ $compra_vendita->created_at }}</li>
+                    <li class="list-group-item"><strong>Costo Totale:</strong> {{ $compra_vendita->costo_totale }}</li>
+                    <li class="list-group-item"><strong>Metodo di Pagamento:</strong> {{ $compra_vendita->metodo_pagamento }}</li>
+                    <li class="list-group-item"><strong>Cliente:</strong> {{ $compra_vendita->cliente->CF }}</li>
+                    <li class="list-group-item"><strong>Consulente:</strong> {{ $compra_vendita->consulente->CF }}</li>
+                    <li class="list-group-item"><strong>Officina:</strong> {{ $compra_vendita->officina->nome }}</li>
+                    <li class="list-group-item"><strong>Veicolo:</strong> {{ $compra_vendita->veicolo->numero_telaio }}</li>
+                    <li class="list-group-item"><strong>Tipo Vendita:</strong> {{ $compra_vendita->tipo_vendita ? 'Vendita' : 'Acquisto' }}</li>
+                </ul>
+            </div>
         </div>
+
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Dettaglio cliente</h3>
+                <ul class="list-group">
+
+                        <li class="list-group-item">{{ $compra_vendita->cliente->CF }} - Cognome: {{ $compra_vendita->cliente->cognome }} - Nome: {{ $compra_vendita->cliente->nome }} - Telefono: {{ $compra_vendita->cliente->telefono }}</li>
+
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Dettaglio consulente</h3>
+                <ul class="list-group">
+
+                        <li class="list-group-item">{{ $compra_vendita->consulente->CF }} - Cognome: {{ $compra_vendita->consulente->cognome }} - Nome: {{ $compra_vendita->consulente->nome }}</li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Dettaglio veicolo</h3>
+                <ul class="list-group">
+
+                        <li class="list-group-item">{{ $compra_vendita->veicolo->numero_telaio }} - Targa: {{ $compra_vendita->veicolo->targa }} - Marca: {{ $compra_vendita->veicolo->marca }} -Modello: {{ $compra_vendita->veicolo->modello }} -Colore: {{ $compra_vendita->veicolo->colore }}</li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Session Messages -->
+        @if ($errors->any())
+            <div class="alert alert-danger mt-4">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <!-- Actions -->
+        <a href="{{ route('compra_vendite.index') }}" class="btn btn-primary">Back to List</a>
+
+        <!-- Delete Form -->
+        <form action="{{ route('compra_vendite.destroy', $compra_vendita) }}" method="POST" style="display: inline-block;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
     </div>
-
-    <!-- Session Messages -->
-    @if ($errors->any())
-        <div class="alert alert-danger mt-4">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-    <!-- Actions -->
-    <a href="{{ route('compra_vendite.index') }}" class="btn btn-primary">Back to List</a>
-
-    <!-- Delete Form -->
-    <form action="{{ route('compra_vendite.destroy', $compra_vendita) }}" method="POST" style="display: inline-block;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger">Delete</button>
 @endsection
