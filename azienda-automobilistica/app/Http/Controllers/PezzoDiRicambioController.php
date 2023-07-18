@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 
 class PezzoDiRicambioController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pezzi_di_ricambio = PezzoDiRicambio::all();
-        return view('pezzi_di_ricambio.index')->with('pezzi_di_ricambio', $pezzi_di_ricambio);
+        $sortColumn = $request->input('sort_by', 'codice_pezzo');
+        $sortOrder = $request->input('sort_order', 'asc');
+
+        $pezzi_di_ricambio = PezzoDiRicambio::orderBy($sortColumn, $sortOrder)->get();
+        return view('pezzi_di_ricambio.index', compact('pezzi_di_ricambio'));
     }
 
     public function create()
@@ -36,17 +39,17 @@ class PezzoDiRicambioController extends Controller
         return redirect()->route('pezzi_di_ricambio.index')->with('success', 'Pezzo di ricambio creato con successo!');
     }
 
-    public function show(PezzoDiRicambio $pezzoDiRicambio)
+    public function show(PezzoDiRicambio $pezzo_di_ricambio)
     {
-        return view('pezzi_di_ricambio.show')->with('pezzoDiRicambio', $pezzoDiRicambio);
+        return view('pezzi_di_ricambio.show')->with('pezzoDiRicambio', $pezzo_di_ricambio);
     }
 
-    public function edit(PezzoDiRicambio $pezzoDiRicambio)
+    public function edit(PezzoDiRicambio $pezzo_di_ricambio)
     {
-        return view('pezzi_di_ricambio.edit')->with('pezzoDiRicambio', $pezzoDiRicambio);
+        return view('pezzi_di_ricambio.edit')->with('pezzoDiRicambio', $pezzo_di_ricambio);
     }
 
-    public function update(Request $request, PezzoDiRicambio $pezzoDiRicambio)
+    public function update(Request $request, PezzoDiRicambio $pezzo_di_ricambio)
     {
         $validatedData = $request->validate([
             'nome' => ['required', 'max:255'],
@@ -55,7 +58,7 @@ class PezzoDiRicambioController extends Controller
         ]);
 
         try {
-            $pezzoDiRicambio->update($validatedData);
+            $pezzo_di_ricambio->update($validatedData);
         } catch (\Exception $e) {
             return redirect()->route('pezzi_di_ricambio.index')->with('error', 'Errore durante la modifica del pezzo di ricambio!')
                 ->with('message', $e->getMessage());
