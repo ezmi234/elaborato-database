@@ -8,7 +8,7 @@
         @csrf
         <div class="form-group" style="margin-bottom: 10px;">
             <label for="codicePezzo">Codice Pezzo</label>
-            <input type="text" name="codicePezzo" id="codicePezzo" class="form-control" placeholder="Codice Pezzo" aria-describedby="helpId">
+            <input type="text" name="codice_pezzo" id="codice_pezzo" class="form-control" placeholder="Codice Pezzo" aria-describedby="helpId">
         </div>
         <div class="form-group" style="margin-bottom: 10px;">
             <label for="nome">Nome</label>

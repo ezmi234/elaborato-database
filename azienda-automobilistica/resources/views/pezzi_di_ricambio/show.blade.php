@@ -8,16 +8,16 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Pezzo di Ricambio Information</h5>
-            <p><strong>Codice Pezzo:</strong> {{ $pezzo->codice_pezzo }}</p>
-            <p><strong>Nome:</strong> {{ $pezzo->nome }}</p>
-            <p><strong>Prezzo:</strong> {{ $pezzo->prezzo }}</p>
-            <p><strong>Modello:</strong> {{ $pezzo->modello }}</p>
+            <p><strong>Codice Pezzo:</strong> {{ $pezzo_di_ricambio->codice_pezzo }}</p>
+            <p><strong>Nome:</strong> {{ $pezzo_di_ricambio->nome }}</p>
+            <p><strong>Prezzo:</strong> {{ $pezzo_di_ricambio->prezzo }}</p>
+            <p><strong>Modello:</strong> {{ $pezzo_di_ricambio->modello }}</p>
         </div>
     </div>
 
     <div class="mt-3">
-        <a href="{{ route('pezzi_di_ricambio.edit', $pezzo->id) }}" class="btn btn-success">Edit</a>
-        <form action="{{ route('pezzi_di_ricambio.destroy', $pezzo->id) }}" method="POST" style="display: inline-block;">
+        <a href="{{ route('pezzo_di_ricambio.edit', $pezzo_di_ricambio->codice_pezzo) }}" class="btn btn-success">Edit</a>
+        <form action="{{ route('pezzo_di_ricambio.destroy', $pezzo_di_ricambio->codice_pezzo) }}" method="POST" style="display: inline-block;">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">Delete</button>
