@@ -38,10 +38,13 @@ class CompraVenditaController extends Controller{
             'codice_officina' => ['required', 'numeric'],
             'CF_consulente' => ['required', 'string'],
             'numero_telaio' => ['required', 'numeric'],
+            'descrizione' => ['sometimes'],
         ]);
+        if ($validatedData['descrizione'] == null)
+            $validatedData['descrizione'] = '';
 
         try {
-            $compra_vendita = Compravendita::create($validatedData);
+            Compravendita::create($validatedData);
             if($validatedData['tipo_vendita'] == 0)
                 Officina::find($validatedData['codice_officina'])->decrement('bilancio', $validatedData['costo_totale']);
             else if($validatedData['tipo_vendita'] == 1)

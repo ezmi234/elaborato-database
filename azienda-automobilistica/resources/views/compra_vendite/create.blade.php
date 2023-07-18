@@ -67,6 +67,12 @@
             </select>
         </div>
 
+        <!-- Descrizione -->
+        <div class="form-group">
+            <label for="descrizione">Descrizione:</label>
+            <textarea name="descrizione" id="descrizione" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+
         <!-- Costo Totale -->
         <div class="form-group">
             <label for="costo_totale">Costo Totale:</label>
@@ -77,10 +83,10 @@
     </form>
 
     <!-- Session Messages -->
-    @if ($errors->any())
+    @if ($errors->compra_vendite->any())
         <div class="alert alert-danger mt-4">
             <ul>
-                @foreach ($errors->all() as $error)
+                @foreach ($errors->compra_vendite->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>

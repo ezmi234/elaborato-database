@@ -16,7 +16,8 @@ class AcquistoInStore extends Model
         'costo_totale',
         'metodo_pagamento',
         'CF_cliente',
-        'codice_officina'
+        'codice_officina',
+        'descrizione'
     ];
 
     public function cliente()

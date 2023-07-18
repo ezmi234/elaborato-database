@@ -20,7 +20,8 @@ class Intervento extends Model
         'data_fine',
         'CF_cliente',
         'codice_officina',
-        'numero_telaio'
+        'numero_telaio',
+        'descrizione'
     ];
 
     public function cliente()

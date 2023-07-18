@@ -17,6 +17,7 @@ return new class extends Migration
             $table->boolean('tipo_vendita');
             $table->decimal('costo_totale', 10, 2);
             $table->string('metodo_pagamento');
+            $table->text('descrizione');
 
             $table->string('CF_cliente');
             $table->unsignedBigInteger('codice_officina');

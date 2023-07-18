@@ -20,7 +20,8 @@ class Compravendita extends Model
         'CF_cliente',
         'codice_officina',
         'CF_consulente',
-        'numero_telaio'
+        'numero_telaio',
+        'descrizione'
     ];
 
     public function cliente()

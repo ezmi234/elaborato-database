@@ -17,6 +17,7 @@ return new class extends Migration
             $table->timestamps();
             $table->decimal('costo_totale', 10, 2);
             $table->string('metodo_pagamento');
+            $table->text('descrizione');
 
             $table->foreignId('codice_officina')
                 ->constrained('officine', 'codice_officina')

@@ -19,6 +19,14 @@
             </div>
 
             <div class="col-md-6">
+                <h3>Descrizione</h3>
+                <p>{{ $intervento->descrizione }}</p>
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
                 <h3>Pezzi di ricambio</h3>
                 <ul class="list-group">
                     @foreach ($intervento->pezzi_di_ricambio as $pezzo)
@@ -26,10 +34,8 @@
                     @endforeach
                 </ul>
             </div>
-        </div>
 
-        <div class="row mt-4">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <h3>Meccanici</h3>
                 <ul class="list-group">
                     @foreach ($intervento->meccanici as $meccanico)
@@ -37,6 +43,7 @@
                     @endforeach
                 </ul>
             </div>
+
         </div>
 
         <!-- Recensioni -->
