@@ -21,6 +21,12 @@
                     <li class="list-group-item"><strong>Tipo Vendita:</strong> {{ $compra_vendita->tipo_vendita ? 'Vendita' : 'Acquisto' }}</li>
                 </ul>
             </div>
+
+            <div class="col-md-6">
+                <h3>Descrizione</h3>
+                <p>{{ $compra_vendita->descrizione }}</p>
+            </div>
+
         </div>
 
 

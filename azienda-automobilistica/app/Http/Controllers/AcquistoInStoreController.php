@@ -48,7 +48,8 @@ class AcquistoInStoreController extends Controller
             'costo_totale' => 'required|numeric',
             'metodo_pagamento' => 'required|string',
             'CF_cliente' => 'required|string',
-            'codice_officina' => 'required|numeric'
+            'codice_officina' => 'required|numeric',
+            'descrizione' => 'sometimes|text',
         ]);
 
         $acquisto->update($request->all());
@@ -69,16 +70,19 @@ class AcquistoInStoreController extends Controller
             'costo_totale' => 'required|numeric',
             'metodo_pagamento' => 'required|string',
             'accessori' => 'required|array',
-            'accessori.*' => 'required|numeric'
+            'accessori.*' => 'required|numeric',
+            'descrizione' => 'sometimes',
         ]);
-
+        if ($validatedData['descrizione'] == null)
+            $validatedData['descrizione'] = '';
 
         try {
             $acquisto = AcquistoInStore::create([
                 'CF_cliente' => $validatedData['CF_cliente'],
                 'codice_officina' => $validatedData['codice_officina'],
                 'costo_totale' => $validatedData['costo_totale'],
-                'metodo_pagamento' => $validatedData['metodo_pagamento']
+                'metodo_pagamento' => $validatedData['metodo_pagamento'],
+                'descrizione' => $validatedData['descrizione'] ?? null,
             ]);
 
             $cont = 0;

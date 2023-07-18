@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('costo_ricambi', 10, 2);
             $table->decimal('costo_ore_di_lavoro', 10, 2);
             $table->string('metodo_pagamento');
+            $table->text('descrizione');
 
             $table->string('CF_cliente');
             $table->unsignedBigInteger('codice_officina');

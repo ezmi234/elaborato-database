@@ -24,10 +24,10 @@
                  {{ request()->is('acquisti_in_store*') ? 'active' : '' }}" href="{{ route('acquisti_in_store.index') }}">Acquisti in store</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('interventi*') ? 'active' : '' }}" href="{{ route('interventi.index') }}">Interventi</a>
+                 <a class="list-group-item list-group-item-action list-group-item-light p-3
+                    {{ request()->is('compra_vendite*') ? 'active' : '' }}" href="{{ route('compra_vendite.index') }}">Compravendita</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3
                  {{ request()->is('recensioni*') ? 'active' : '' }}" href="{{ route('recensioni.index') }}">Recensioni</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3
-                    {{ request()->is('compra_vendite*') ? 'active' : '' }}" href="{{ route('compra_vendite.index') }}">Compravendita</a>
             </div>
         </div>
         <!-- Page content wrapper-->

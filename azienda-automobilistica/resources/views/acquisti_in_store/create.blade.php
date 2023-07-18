@@ -38,6 +38,12 @@
             </select>
         </div>
 
+        <!-- Descrizione -->
+        <div class="form-group">
+            <label for="descrizione">Descrizione:</label>
+            <textarea name="descrizione" id="descrizione" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+
         <!-- Accessori -->
         <div class="form-group">
             <h3>Accessori:</h3>

@@ -45,7 +45,10 @@ class InterventoController extends Controller
             'pezzi_di_ricambio.*' => 'required|numeric',
             'meccanici' => 'required|array',
             'meccanici.*' => 'required|numeric',
+            'descrizione' => 'sometimes',
         ]);
+        if ($validatedData['descrizione'] == null)
+            $validatedData['descrizione'] = '';
 
         try{
             $intervento = Intervento::create([
@@ -56,6 +59,7 @@ class InterventoController extends Controller
                 'CF_cliente' => $validatedData['CF_cliente'],
                 'codice_officina' => $validatedData['codice_officina'],
                 'numero_telaio' => $validatedData['numero_telaio'],
+                'descrizione' => $validatedData['descrizione'],
             ]);
 
             $cont = 0;

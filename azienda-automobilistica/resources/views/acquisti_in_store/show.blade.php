@@ -17,6 +17,14 @@
         </div>
     </div>
 
+    <!-- Descrizione -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Descrizione</h5>
+            <p class="card-text">{{ $acquisto->descrizione }}</p>
+        </div>
+    </div>
+
     <!-- Accessori Included -->
     <h2>Accessori Inclusi</h2>
 
