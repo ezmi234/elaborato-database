@@ -128,3 +128,4 @@ Route::put('compra_vendite/update/{compra_vendita}', [CompraVenditaController::c
 Route::delete('compra_vendite/destroy/{compra_vendita}', [CompraVenditaController::class, 'destroy'])->name('compra_vendite.destroy');
 
 
+

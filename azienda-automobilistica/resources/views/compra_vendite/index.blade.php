@@ -10,7 +10,6 @@
         <form action="{{ route('compra_vendite.index') }}" method="GET" class="d-flex align-items-center">
             <label for="sort_by" style="margin-right: 10px; width: 200px;">Sort by:</label>
             <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
-                <option value="id" {{ request('sort_by') === 'id' ? 'selected' : '' }}>ID</option>
                 <option value="tipo_vendita" {{ request('sort_by') === 'tipo_vendita' ? 'selected' : '' }}>Tipo Vendita</option>
                 <option value="costo_totale" {{ request('sort_by') === 'costo_totale' ? 'selected' : '' }}>Costo Totale</option>
                 <option value="metodo_pagamento" {{ request('sort_by') === 'metodo_pagamento' ? 'selected' : '' }}>Metodo di Pagamento</option>
@@ -26,6 +25,7 @@
             <button type="submit" class="btn btn-primary">Apply</button>
         </form>
     </div>
+
 
     <!-- Compra Vendite Table -->
     <table class="table">
