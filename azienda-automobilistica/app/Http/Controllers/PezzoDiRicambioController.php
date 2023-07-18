@@ -46,7 +46,7 @@ class PezzoDiRicambioController extends Controller
 
     public function edit(PezzoDiRicambio $pezzo_di_ricambio)
     {
-        return view('pezzi_di_ricambio.edit')->with('pezzoDiRicambio', $pezzo_di_ricambio);
+        return view('pezzi_di_ricambio.edit')->with('pezzo_di_ricambio', $pezzo_di_ricambio);
     }
 
     public function update(Request $request, PezzoDiRicambio $pezzo_di_ricambio)
