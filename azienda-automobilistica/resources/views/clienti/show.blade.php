@@ -118,6 +118,53 @@
         </div>
     </div>
 
+    <div class="card mt-2">
+        <div class="card-header">
+            <h5>Compravendita</h5>
+        </div>
+        <div class="card-body">
+            @if ($cliente->compra_vendite->isEmpty())
+                <p>No compravendite found for this cliente.</p>
+            @else
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Codice Compravendita</th>
+                            <th>Tipo vendita</th>
+                            <th>Costo Totale</th>
+                            <th>Metodo di Pagamento</th>
+                            <th>CF cliente</th>
+                            <th>Codice Officina</th>
+                            <th>CF consulente</th>
+                            <th>Numero Telaio</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($cliente->compra_vendite as $compra_vendita)
+                            <tr>
+                                <td>{{ $compra_vendita->codice_compra_vendita }}</td>
+                                <td>{{ $compra_vendita->costo_totale }}</td>
+                                <td>{{ $$compra_vendita->metodo_pagamento }}</td>
+                                <td>{{ $$compra_vendita->CF_cliente }}</td>
+                                <td>{{ $$compra_vendita->codice_officina }}</td>
+                                <td>{{ $compra_vendita->CF_consulente }}</td>
+                                <td>{{ $compra_vendita->numero_telaio }}</td>
+                                <td>
+                                    <a href="{{ route('compra_vendite.show', $compra_vendita->codice_compra_vendita) }}" class="btn btn-info">Dettagli Compravendita</a>
+                                    @if ($compra_vendita->recensione)
+                                        <a href="{{ route('compra_vendite.show', $compra_vendita->codice_compra_vendita) }}" class="btn btn-primary">Vedi Recensione</a>
+                                    @else
+                                        <a href="{{ route('compra_vendite.create', ['compra_vendita' => $compra_vendita->codice_compra_vendita]) }}" class="btn btn-primary">Lascia Recensione</a>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @endif
+        </div>
+    </div>
 
 
 
