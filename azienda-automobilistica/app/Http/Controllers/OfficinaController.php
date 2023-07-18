@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 class OfficinaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('officine.index')->with('officine', Officina::all());
+        $sortColumn = $request->input('sort_by', 'codice_officina');
+        $sortOrder = $request->input('sort_order', 'asc');
+
+        $officine = Officina::orderBy($sortColumn, $sortOrder)->get();
+
+        return view('officine.index', compact('officine'));
     }
 
     public function create()
@@ -30,6 +35,13 @@ class OfficinaController extends Controller
             'gestita_da' => ['sometimes'],
         ]);
         try {
+            if ($validatedData['centrale'] == 1) {
+                if (Officina::where('centrale', 1)->exists()) {
+                    return redirect()->route('officine.index')->with('error', 'Esiste già un\'officina centrale!');
+                }
+
+                $validatedData['gestita_da'] = null;
+            }
             Officina::create($validatedData);
         } catch (\Exception $e) {
             return redirect()->route('officine.index')->with('error', 'Errore durante la creazione dell\'officina!')

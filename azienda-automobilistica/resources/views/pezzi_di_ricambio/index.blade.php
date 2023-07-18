@@ -14,6 +14,7 @@
                 <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome</option>
                 <option value="prezzo" {{ request('sort_by') === 'prezzo' ? 'selected' : '' }}>Prezzo</option>
                 <option value="modello" {{ request('sort_by') === 'modello' ? 'selected' : '' }}>Modello</option>
+                <option value="quantita_utilizzata" {{ request('sort_by') === 'quantita_utilizzata' ? 'selected' : '' }}>Quantità utilizzata</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
                 <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
@@ -31,6 +32,7 @@
                 <th>Nome</th>
                 <th>Prezzo</th>
                 <th>Modello</th>
+                <th>Quantità utilizzata</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -41,6 +43,7 @@
                     <td>{{ $pezzo->nome }}</td>
                     <td>{{ $pezzo->prezzo }}</td>
                     <td>{{ $pezzo->modello }}</td>
+                    <td>{{ $pezzo->interventi->sum('pivot.quantita') }}</td>
                     <td>
                         <a href="{{ route('pezzi_di_ricambio.edit', $pezzo->codice_pezzo) }}" class="btn btn-success">Edit</a>
                         <form action="{{ route('pezzi_di_ricambio.destroy', $pezzo->codice_pezzo) }}" method="POST" style="display: inline-block;">

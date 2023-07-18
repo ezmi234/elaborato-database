@@ -8,6 +8,14 @@ class PezzoDiRicambioController extends Controller
 {
     public function index(Request $request)
     {
+        if($request->sort_by == 'quantita_utilizzata'){
+            $pezzi_di_ricambio = PezzoDiRicambio::withCount(['interventi as total_quantita' => function ($query) {
+                $query->select(\DB::raw('coalesce(sum(quantita), 0)'));
+            }])
+                ->orderBy('total_quantita', $request->sort_order ?? 'asc')
+                ->get();
+            return view('pezzi_di_ricambio.index', compact('pezzi_di_ricambio'));
+        }
         $sortColumn = $request->input('sort_by', 'codice_pezzo');
         $sortOrder = $request->input('sort_order', 'asc');
 
