@@ -22,6 +22,8 @@ return new class extends Migration
             $table->decimal('media_recensioni', 2, 1)->default(0);
             $table->integer('totale_recensioni')->default(0);
             $table->integer('numero_recensioni')->default(0);
+            $table->foreignId('codice_officina')->constrained('officine', 'codice_officina')
+                ->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

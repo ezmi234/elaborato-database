@@ -22,6 +22,7 @@ class ConsulenteSeeder extends Seeder
                 'telefono' => '3331234567',
                 'percentuale_provvigione' => 0.12,
                 'totale_provvigione' => 0,
+                'codice_officina' => '1',
             ],
         );
 
@@ -34,6 +35,7 @@ class ConsulenteSeeder extends Seeder
                 'telefono' => '3331234467',
                 'percentuale_provvigione' => 0.10,
                 'totale_provvigione' => 0,
+                'codice_officina' => '1',
             ],
         );
 
@@ -46,6 +48,7 @@ class ConsulenteSeeder extends Seeder
                 'telefono' => '3331214567',
                 'percentuale_provvigione' => 0.15,
                 'totale_provvigione' => 0,
+                'codice_officina' => '1',
             ],
         );
 

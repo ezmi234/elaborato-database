@@ -22,6 +22,7 @@ class MeccanicoSeeder extends Seeder
                 'telefono' => '3331234567',
                 'paga_oraria' => 10,
                 'totale_ore_svolte' => 0,
+                'codice_officina' => '1',
             ],
         );
 
@@ -34,6 +35,7 @@ class MeccanicoSeeder extends Seeder
                 'telefono' => '3331234567',
                 'paga_oraria' => 10,
                 'totale_ore_svolte' => 0,
+                'codice_officina' => '1',
             ],
         );
 
@@ -46,6 +48,7 @@ class MeccanicoSeeder extends Seeder
                 'telefono' => '3331234567',
                 'paga_oraria' => 10,
                 'totale_ore_svolte' => 0,
+                'codice_officina' => '1',
             ],
         );
 
