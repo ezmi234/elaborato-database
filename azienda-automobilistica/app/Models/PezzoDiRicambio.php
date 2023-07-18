@@ -22,17 +22,9 @@ class PezzoDiRicambio extends Model
 
     public function interventi()
     {
-        return $this->belongsToMany(Intervento::class, 'pezzi_di_ricambio_intervento', 'codice_pezzo', 'ID_intervento');
-    }
+        return $this->belongsToMany(Intervento::class, 'necessitati', 'codice_pezzo', 'codice_intervento')
+            ->withPivot('quantita');
 
-    public function acquisti()
-    {
-        return $this->belongsToMany(AcquistoInStore::class, 'pezzi_di_ricambio_acquisto', 'codice_pezzo', 'ID_acquisto');
-    }
-
-    public function fornitori()
-    {
-        return $this->belongsToMany(Fornitore::class, 'pezzi_di_ricambio_fornitore', 'codice_pezzo', 'ID_fornitore');
     }
 
 
