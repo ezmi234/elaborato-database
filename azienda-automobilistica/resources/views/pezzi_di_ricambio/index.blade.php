@@ -42,7 +42,6 @@
                     <td>{{ $pezzo->prezzo }}</td>
                     <td>{{ $pezzo->modello }}</td>
                     <td>
-                        <a href="{{ route('pezzi_di_ricambio.show', $pezzo->codice_pezzo) }}" class="btn btn-primary">Show</a>
                         <a href="{{ route('pezzi_di_ricambio.edit', $pezzo->codice_pezzo) }}" class="btn btn-success">Edit</a>
                         <form action="{{ route('pezzi_di_ricambio.destroy', $pezzo->codice_pezzo) }}" method="POST" style="display: inline-block;">
                             @csrf
