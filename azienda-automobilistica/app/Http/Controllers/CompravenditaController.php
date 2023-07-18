@@ -11,8 +11,13 @@ use Illuminate\Http\Request;
 
 class CompraVenditaController extends Controller{
 
-    public function index(){
-        $compra_vendite = Compravendita::all();
+    public function index(Request $request){
+
+        $sortColumn = $request->input('sort_by', 'codice_compra_vendita');
+        $sortOrder = $request->input('sort_order', 'asc');
+
+        $compra_vendite = Compravendita::orderBy($sortColumn, $sortOrder)->get();
+
         return view('compra_vendite.index', compact('compra_vendite'));
     }
 
