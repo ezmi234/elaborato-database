@@ -16,7 +16,7 @@
         </div>
         <div class="form-group" style="margin-bottom: 10px;">
             <label for="prezzo">Prezzo</label>
-            <input type="number" name="prezzo" id="prezzo" class="form-control" placeholder="Prezzo" aria-describedby="helpId">
+            <input type="number" step="0.01" name="prezzo" id="prezzo" class="form-control" placeholder="Prezzo" aria-describedby="helpId">
         </div>
         <div class="form-group" style="margin-bottom: 10px;">
             <label for="modello">Modello</label>
