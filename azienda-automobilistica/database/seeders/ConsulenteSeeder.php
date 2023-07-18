@@ -20,10 +20,8 @@ class ConsulenteSeeder extends Seeder
                 'cognome' => 'Rossi',
                 'data_nascita' => '2000-01-01',
                 'telefono' => '3331234567',
-                'percentuale_provvigione' => 4.50,
-                'totale_provvigione' => 1.10,
-                'bonus_recensione' => 1.10,
-                'media_recensione' => 1.2,
+                'percentuale_provvigione' => 0.12,
+                'totale_provvigione' => 0,
             ],
         );
 
@@ -34,10 +32,8 @@ class ConsulenteSeeder extends Seeder
                 'cognome' => 'Verdi',
                 'data_nascita' => '2000-01-01',
                 'telefono' => '3331234467',
-                'percentuale_provvigione' => 3.50,
-                'totale_provvigione' => 1.10,
-                'bonus_recensione' => 1.10,
-                'media_recensione' => 1.3,
+                'percentuale_provvigione' => 0.10,
+                'totale_provvigione' => 0,
             ],
         );
 
@@ -48,10 +44,8 @@ class ConsulenteSeeder extends Seeder
                 'cognome' => 'Bianchi',
                 'data_nascita' => '2000-01-01',
                 'telefono' => '3331214567',
-                'percentuale_provvigione' => 0.50,
-                'totale_provvigione' => 1.10,
-                'bonus_recensione' => 1.10,
-                'media_recensione' => 1.3,
+                'percentuale_provvigione' => 0.15,
+                'totale_provvigione' => 0,
             ],
         );
 

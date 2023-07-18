@@ -39,6 +39,26 @@
             </div>
         </div>
 
+        <!-- Recensioni -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Recensioni</h3>
+                <ul class="list-group">
+                    @if ($intervento->recensione==null)
+                        <p>Non ci sono recensioni</p>
+                    @else
+                        <li class="list-group-item">
+                            <strong>Autore:</strong> {{ $intervento->CF_cliente }}
+                            <br>
+                            <strong>Voto:</strong> {{ $intervento->recensione->voto }}
+                            <br>
+                            <strong>Testo:</strong> {{ $intervento->recensione->messaggio }}
+                        </li>
+                    @endif
+                </ul>
+            </div>
+        </div>
+
         <div class="row mt-4">
             <div class="col-md-12">
                 <form action="{{ route('interventi.destroy', $intervento->codice_intervento) }}" method="POST" style="display: inline-block">

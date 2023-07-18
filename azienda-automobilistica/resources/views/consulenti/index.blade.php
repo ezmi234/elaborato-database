@@ -37,6 +37,7 @@
                 <th>Telefono</th>
                 <th>Percentuale Provvigione</th>
                 <th>Provvigione Totale</th>
+                <th>Media Recensioni</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -50,6 +51,7 @@
                     <td>{{ $consulente->telefono }}</td>
                     <td>{{ $consulente->percentuale_provvigione }}</td>
                     <td>{{ $consulente->totale_provvigione }}</td>
+                    <td>{{ $consulente->media_recensioni }}</td>
                     <td>
                         <a href="{{ route('consulenti.show', $consulente->CF) }}" class="btn btn-primary">Show</a>
                         <a href="{{ route('consulenti.edit', $consulente->CF) }}" class="btn btn-success">Edit</a>

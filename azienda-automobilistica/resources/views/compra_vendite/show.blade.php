@@ -67,7 +67,7 @@
                         <p>Non ci sono recensioni</p>
                     @else
                         <li class="list-group-item">
-                            <strong>Autore:</strong> {{ $compra_vendita->recensione->CF_cliente }}
+                            <strong>Autore:</strong> {{ $compra_vendita->CF_cliente }}
                             <br>
                             <strong>Voto:</strong> {{ $compra_vendita->recensione->voto }}
                             <br>
@@ -93,13 +93,13 @@
 
 
         <!-- Actions -->
-        <a href="{{ route('compra_vendite.index') }}" class="btn btn-primary">Back to List</a>
+        <a href="{{ route('compra_vendite.index') }}" class="btn btn-primary mt-2">Back to List</a>
 
         <!-- Delete Form -->
         <form action="{{ route('compra_vendite.destroy', $compra_vendita) }}" method="POST" style="display: inline-block;">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger mt-2">Delete</button>
         </form>
     </div>
 @endsection

@@ -123,7 +123,7 @@
             <h5>Compravendita</h5>
         </div>
         <div class="card-body">
-            @if ($cliente->compra_vendite->isEmpty())
+            @if ($cliente->compravendite->isEmpty())
                 <p>No compravendite found for this cliente.</p>
             @else
                 <table class="table">
@@ -141,13 +141,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($cliente->compra_vendite as $compra_vendita)
+                        @foreach ($cliente->compravendite as $compra_vendita)
                             <tr>
                                 <td>{{ $compra_vendita->codice_compra_vendita }}</td>
+                                <td>{{ $compra_vendita->tipo_vendita ? 'Vendita' : 'Acquisto' }}</td>
                                 <td>{{ $compra_vendita->costo_totale }}</td>
-                                <td>{{ $$compra_vendita->metodo_pagamento }}</td>
-                                <td>{{ $$compra_vendita->CF_cliente }}</td>
-                                <td>{{ $$compra_vendita->codice_officina }}</td>
+                                <td>{{ $compra_vendita->metodo_pagamento }}</td>
+                                <td>{{ $compra_vendita->CF_cliente }}</td>
+                                <td>{{ $compra_vendita->codice_officina }}</td>
                                 <td>{{ $compra_vendita->CF_consulente }}</td>
                                 <td>{{ $compra_vendita->numero_telaio }}</td>
                                 <td>
@@ -155,7 +156,7 @@
                                     @if ($compra_vendita->recensione)
                                         <a href="{{ route('compra_vendite.show', $compra_vendita->codice_compra_vendita) }}" class="btn btn-primary">Vedi Recensione</a>
                                     @else
-                                        <a href="{{ route('compra_vendite.create', ['compra_vendita' => $compra_vendita->codice_compra_vendita]) }}" class="btn btn-primary">Lascia Recensione</a>
+                                        <a href="{{ route('recensioni.create', ['compra_vendita' => $compra_vendita->codice_compra_vendita]) }}" class="btn btn-primary">Lascia Recensione</a>
                                     @endif
                                 </td>
                             </tr>

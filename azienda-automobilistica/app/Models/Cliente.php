@@ -34,6 +34,11 @@ class Cliente extends Model
         return $this->hasMany(Veicolo::class, 'CF_cliente', 'CF');
     }
 
+    public function compravendite()
+    {
+        return $this->hasMany(Compravendita::class, 'CF_cliente', 'CF');
+    }
+
 
 
 }
