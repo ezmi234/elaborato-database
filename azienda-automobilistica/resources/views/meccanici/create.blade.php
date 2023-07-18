@@ -29,7 +29,7 @@
     </div>
     <div class="form-group" style="margin-bottom: 10px;">
         <label for="paga_oraria">Paga Oraria</label>
-        <input type="number" name="paga_oraria" id="paga_oraria" class="form-control" placeholder="Paga Oraria" aria-describedby="helpId">
+        <input type="number" step="0.01" name="paga_oraria" id="paga_oraria" class="form-control" placeholder="Paga Oraria" aria-describedby="helpId">
     </div>
     <button type="submit" class="btn btn-primary">Aggiungi Meccanico</button>
 </form>

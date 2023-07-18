@@ -43,5 +43,10 @@ class Compravendita extends Model
         return $this->belongsTo(Veicolo::class, 'numero_telaio', 'numero_telaio');
     }
 
+    public function recensione()
+    {
+        return $this->hasOne(Recensione::class, 'codice_compra_vendita', 'codice_compra_vendita');
+    }
+
 
 }

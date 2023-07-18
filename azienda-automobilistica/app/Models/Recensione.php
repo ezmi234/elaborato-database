@@ -15,7 +15,6 @@ class Recensione extends Model
     protected $fillable = [
         'voto',
         'messaggio',
-        'CF_cliente',
         'codice_acquisto',
         'codice_intervento',
         'codice_compra_vendita',
@@ -25,4 +24,5 @@ class Recensione extends Model
     {
         return $this->belongsTo(AcquistoInStore::class, 'codice_acquisto', 'codice_acquisto');
     }
+
 }

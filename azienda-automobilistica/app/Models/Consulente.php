@@ -19,13 +19,14 @@ class Consulente extends Model
         'telefono',
         'percentuale_provvigione',
         'totale_provvigione',
-        'bonus_recensione',
-        'media_recensione',
+        'totale_recensioni',
+        'numero_recensioni',
+        'media_recensioni',
     ];
 
-    public function acquisti()
+    public function compraVenditeAuto()
     {
-        return $this->hasMany(AcquistoInStore::class, 'CF_consulente', 'CF');
+        return $this->hasMany(CompraVenditaAuto::class, 'CF_consulente', 'CF');
     }
 
 

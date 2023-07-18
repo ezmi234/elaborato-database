@@ -14,7 +14,7 @@ class VeicoloController extends Controller
 
         $veicoli = Veicolo::orderBy($sortColumn, $sortOrder)->get();
 
-        return view('veicoli.index', compact('veicoli'));
+        return view('veicoli.index')->with('veicoli', $veicoli);
     }
 
     public function create()
@@ -56,12 +56,12 @@ class VeicoloController extends Controller
     public function update(Request $request, Veicolo $veicolo)
     {
         $validatedData = $request->validateWithBag('veicoli', [
-            'numero_telaio',
-            'marca',
-            'modello',
-            'targa',
-            'anno_immatricolazione',
-            'colore',
+            'numero_telaio' => ['required', 'numeric', 'digits:16', 'min:1000000000000000', 'max:9999999999999999'],
+            'marca' => ['required', 'max:255'],
+            'modello' => ['required', 'max:255'],
+            'targa' => ['required', 'max:7', 'min:7', 'alpha_num'],
+            'anno_immatricolazione' => ['required', 'numeric', 'digits:4', 'min:1900', 'max:2023'],
+            'colore' => ['required', 'max:255'],
         ]);
 
         try {

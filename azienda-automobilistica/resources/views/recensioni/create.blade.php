@@ -19,6 +19,8 @@
             <input type="hidden" name="codice_acquisto" value="{{ $acquisto->codice_acquisto }}">
         @elseif ($intervento)
             <input type="hidden" name="codice_intervento" value="{{ $intervento->codice_intervento }}">
+        @elseif ($compra_vendita)
+            <input type="hidden" name="codice_compra_vendita" value="{{ $compra_vendita->codice_compra_vendita }}">
         @endif
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>

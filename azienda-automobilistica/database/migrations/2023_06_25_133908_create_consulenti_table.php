@@ -19,8 +19,9 @@ return new class extends Migration
             $table->integer('telefono', false, true);
             $table->decimal('percentuale_provvigione', 3, 2);
             $table->decimal('totale_provvigione', 10, 2);
-            $table->decimal('bonus_recensione', 10, 2)->default(0.0);
-            $table->decimal('media_recensione', 2, 1)->default(0.0);
+            $table->decimal('media_recensioni', 2, 1)->default(0);
+            $table->integer('totale_recensioni')->default(0);
+            $table->integer('numero_recensioni')->default(0);
 
             $table->timestamps();
         });

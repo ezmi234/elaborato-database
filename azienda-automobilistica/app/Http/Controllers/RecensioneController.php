@@ -52,13 +52,20 @@ class RecensioneController extends Controller
                 $intervento = Intervento::find($validatedData['codice_intervento']);
                 foreach ($intervento->meccanici as $meccanico) {
                     $media_recensioni = ($meccanico->totale_recensioni + $validatedData['voto']) / ($meccanico->numero_recensioni + 1);
-                    //dd($media_recensioni);
                     $meccanico->update([
                         'totale_recensioni' => $meccanico->totale_recensioni + $validatedData['voto'],
                         'numero_recensioni' => $meccanico->numero_recensioni + 1,
                         'media_recensioni' => $media_recensioni,
                     ]);
                 }
+            }else if ($request->has('codice_compra_vendita')){
+                $compra_vendita = Compravendita::find($validatedData['codice_compra_vendita']);
+                $media_recensioni = ($compra_vendita->consulente->totale_recensioni + $validatedData['voto']) / ($compra_vendita->consulente->numero_recensioni + 1);
+                $compra_vendita->consulente->update([
+                    'totale_recensioni' => $compra_vendita->consulente->totale_recensioni + $validatedData['voto'],
+                    'numero_recensioni' => $compra_vendita->consulente->numero_recensioni + 1,
+                    'media_recensioni' => $media_recensioni,
+                ]);
             }
         } catch (\Exception $e) {
             return redirect()->route('recensioni.index')->with('error', 'Errore durante la creazione della recensione!')

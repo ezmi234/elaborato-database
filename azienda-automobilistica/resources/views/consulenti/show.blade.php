@@ -14,8 +14,7 @@
         <p><strong>Telefono:</strong> {{ $consulente->telefono }}</p>
         <p><strong>Percentuale Provvigione:</strong> {{ $consulente->percentuale_provvigione }}</p>
         <p><strong>Totale Provvigione:</strong> {{ $consulente->totale_provvigione }}</p>
-        <p><strong>Bonus Recensione:</strong> {{ $consulente->bonus_recensione }}</p>
-        <p><strong>Media Recensione:</strong> {{ $consulente->media_recensione }}</p>
+        <p><strong>Media Recensione:</strong> {{ $consulente->media_recensioni }}</p>
     </div>
 </div>
 
