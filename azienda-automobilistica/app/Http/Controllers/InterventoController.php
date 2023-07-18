@@ -12,9 +12,12 @@ use Illuminate\Http\Request;
 
 class InterventoController extends Controller
 {
-    public function index()
-    {
-        $interventi = Intervento::all();
+    public function index(Request $request){
+        $sortColumn = $request->input('sort_by', 'numero_telaio');
+        $sortOrder = $request->input('sort_order', 'asc');
+
+        $interventi = Intervento::orderBy($sortColumn, $sortOrder)->get();
+
         return view('interventi.index', compact('interventi'));
     }
 
