@@ -22,7 +22,7 @@ class Officina extends Model
         'gestita_da',
     ];
 
-    public function cosulenti()
+    public function consulenti()
     {
         return $this->hasMany(Consulente::class, 'codice_officina', 'codice_officina');
     }
@@ -31,4 +31,25 @@ class Officina extends Model
     {
         return $this->hasMany(Meccanico::class, 'codice_officina', 'codice_officina');
     }
+
+    public function interventi()
+    {
+        return $this->hasMany(Intervento::class, 'codice_officina', 'codice_officina');
+    }
+    public function acquisti()
+    {
+        return $this->hasMany(AcquistoInStore::class, 'codice_officina', 'codice_officina');
+    }
+
+    public function compravendite()
+    {
+        return $this->hasMany(Compravendita::class, 'codice_officina', 'codice_officina');
+    }
+
+    public function gestisce()
+    {
+        return $this->hasMany(Officina::class, 'codice_officina', 'codice_officina');
+    }
+
+
 }

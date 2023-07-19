@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Officina;
+use App\Models\Stipendio;
 use Illuminate\Http\Request;
 
 class OfficinaController extends Controller
@@ -52,7 +53,13 @@ class OfficinaController extends Controller
 
     public function show(Officina $officina)
     {
-        return view('officine.show')->with('officina', $officina);
+        return view('officine.show')->with('officina', $officina)->with('bilancioTotale', null);
+    }
+
+    public function showWithBilancioTotale(){
+        $officinaCentrale = Officina::where('centrale', 1)->first();
+        $bilancioTotale = Officina::sum('bilancio');
+        return view('officine.show')->with('officina', $officinaCentrale)->with('bilancioTotale', $bilancioTotale);
     }
 
     public function edit(Officina $officina)
@@ -83,6 +90,64 @@ class OfficinaController extends Controller
         $officina->delete();
 
         return redirect()->route('officine.index')->with('success', 'Officina eliminata con successo');
+    }
+
+    public function calcolaStipendiMeccanici(Officina $officina)
+    {
+        $meccanici = $officina->meccanici;
+        foreach ($meccanici as $meccanico) {
+            if(($meccanico->paga_oraria * $meccanico->totale_ore_svolte + $meccanico->media_recensioni * 100)>0){
+                $stipendio = Stipendio::create([
+                    'importo' => $meccanico->paga_oraria * $meccanico->totale_ore_svolte + $meccanico->media_recensioni * 100,
+                    'CF_meccanico' => $meccanico->CF,
+                    'CF_consulente' => null
+                ]);
+
+                $meccanico->update([
+                    'totale_ore_svolte' => 0,
+                    'totale_recensioni' => 0,
+                    'numero_recensioni' => 0,
+                    'media_recensioni' => 0,
+                ]);
+
+                $officina->update([
+                    'bilancio' => $officina->bilancio - $stipendio->importo
+                ]);
+            }
+
+        }
+    }
+
+    public function calcolaStipendiConsulenti(Officina $officina)
+    {
+        $consulenti = $officina->consulenti;
+        foreach ($consulenti as $consulente) {
+            if (($consulente->totale_provvigione + $consulente->media_recensioni * 100) > 0){
+                $stipendio = Stipendio::create([
+                    'importo' => $consulente->totale_provvigione + $consulente->media_recensioni * 100,
+                    'CF_meccanico' => null,
+                    'CF_consulente' => $consulente->CF
+                ]);
+
+                $consulente->update([
+                    'totale_provvigione' => 0,
+                    'totale_recensioni' => 0,
+                    'numero_recensioni' => 0,
+                    'media_recensioni' => 0,
+                ]);
+
+                $officina->update([
+                    'bilancio' => $officina->bilancio - $stipendio->importo
+                ]);
+            }
+        }
+    }
+
+    public function storeStipendi(Officina $officina)
+    {
+        $this->calcolaStipendiMeccanici($officina);
+        $this->calcolaStipendiConsulenti($officina);
+        return redirect()->route('officine.show', $officina)->with('success', 'Stipendi calcolati con successo');
     }
 
 }

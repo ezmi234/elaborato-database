@@ -35,5 +35,9 @@ class Consulente extends Model
         return $this->belongsTo(Officina::class, 'codice_officina', 'codice_officina');
     }
 
+    public function stipendi(){
+        return $this->hasMany(Stipendio::class, 'CF_consulente', 'CF');
+    }
+
 
 }
