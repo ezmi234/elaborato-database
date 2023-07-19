@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meccanico;
+use App\Models\Officina;
 use Illuminate\Http\Request;
 
 class MeccanicoController extends Controller
@@ -20,7 +21,8 @@ class MeccanicoController extends Controller
 
     public function create()
     {
-        return view('meccanici.create');
+        $officine = Officina::all();
+        return view('meccanici.create', compact('officine'));
     }
 
     public function store(Request $request)
@@ -32,6 +34,7 @@ class MeccanicoController extends Controller
             'data_nascita' => ['required', 'date', 'before:today', 'after:1900-01-01' , 'date_format:Y-m-d'],
             'telefono' => ['required', 'numeric', 'digits_between:8,10'],
             'paga_oraria' => ['required', 'numeric', 'min:0',],
+            'codice_officina' => ['required', 'exists:officine,codice_officina'],
         ]);
 
         try {

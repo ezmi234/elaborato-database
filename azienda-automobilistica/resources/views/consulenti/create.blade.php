@@ -17,6 +17,17 @@
         <label for="cognome">Cognome</label>
         <input type="text" name="cognome" id="cognome" class="form-control" placeholder="Cognome" aria-describedby="helpId">
     </div>
+
+    <!-- Officina -->
+    <div class="form-group">
+        <label for="codice_officina">Officina:</label>
+        <select name="codice_officina" id="codice_officina" class="form-control" required>
+            @foreach ($officine as $officina)
+                <option value="{{ $officina->codice_officina }}">{{ $officina->nome }}</option>
+            @endforeach
+        </select>
+    </div>
+
     <div class="form-group" style="margin-bottom: 10px;">
         <label for="birth">Data di nascita</label>
         <input type="date" name="data_nascita" id="data_nascita" class="form-control" placeholder="Data di nascita" aria-describedby="helpId">

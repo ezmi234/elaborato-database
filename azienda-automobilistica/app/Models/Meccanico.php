@@ -35,4 +35,9 @@ class Meccanico extends Model
         return $this->hasMany(AcquistoInStore::class, 'CF_meccanico', 'CF');
     }
 
+    public function officina()
+    {
+        return $this->belongsTo(Officina::class, 'codice_officina', 'codice_officina');
+    }
+
 }

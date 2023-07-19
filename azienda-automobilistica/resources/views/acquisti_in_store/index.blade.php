@@ -43,7 +43,7 @@
                     <td>{{ $acquisto->costo_totale }}</td>
                     <td>{{ $acquisto->metodo_pagamento }}</td>
                     <td>{{ $acquisto->cliente->CF }}</td>
-                    <td>{{ $acquisto->officina->codice_officina }}</td>
+                    <td>{{ $acquisto->officina->nome }}</td>
                     <td>
                         <a href="{{ route('acquisti_in_store.show', $acquisto->codice_acquisto) }}" class="btn btn-primary">Show</a>
                         <form action="{{ route('acquisti_in_store.destroy', $acquisto->codice_acquisto) }}" method="POST" style="display: inline-block;">

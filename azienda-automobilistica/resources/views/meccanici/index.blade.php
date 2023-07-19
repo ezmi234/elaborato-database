@@ -13,6 +13,7 @@
                 <option value="CF" {{ request('sort_by') === 'CF' ? 'selected' : '' }}>CF</option>
                 <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome Meccanico</option>
                 <option value="cognome" {{ request('sort_by') === 'cognome' ? 'selected' : '' }}>Cognome Meccanico</option>
+
                 <option value="data_nascita" {{ request('sort_by') === 'data_nascita' ? 'selected' : '' }}>Data di nascita</option>
                 <option value="telefono" {{ request('sort_by') === 'telefono' ? 'selected' : '' }}>Telefono</option>
                 <option value="paga_oraria" {{ request('sort_by') === 'paga_oraria' ? 'selected' : '' }}>Paga Oraria</option>
@@ -33,6 +34,7 @@
                 <th>CF Meccanico</th>
                 <th>Nome Meccanico</th>
                 <th>Cognome Meccanico</th>
+                <th>Officina di appartenenza</th>
                 <th>Data di nascita</th>
                 <th>Telefono</th>
                 <th>Paga Oraria</th>
@@ -46,6 +48,7 @@
                     <td>{{ $meccanico->CF }}</td>
                     <td>{{ $meccanico->nome }}</td>
                     <td>{{ $meccanico->cognome }}</td>
+                    <td>{{ $meccanico->officina->nome }}</td>
                     <td>{{ $meccanico->data_nascita }}</td>
                     <td>{{ $meccanico->telefono }}</td>
                     <td>{{ $meccanico->paga_oraria }}</td>

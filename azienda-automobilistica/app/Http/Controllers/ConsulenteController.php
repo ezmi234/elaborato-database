@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consulente;
+use App\Models\Officina;
 use Illuminate\Http\Request;
 
 
@@ -20,7 +21,8 @@ class ConsulenteController extends Controller
 
     public function create()
     {
-        return view('consulenti.create');
+        $officine = Officina::all();
+        return view('consulenti.create', compact('officine'));
     }
 
     public function store(Request $request)
@@ -33,6 +35,7 @@ class ConsulenteController extends Controller
             'telefono' => ['required', 'numeric', 'digits_between:8,10'],
             'percentuale_provvigione' => ['required', 'numeric', 'min:0.00', 'max:1.00'],
             'totale_provvigione' => ['required', 'numeric', 'min:0.00', 'max:9999999999.99'],
+            'codice_officina' => ['required', 'exists:officine,codice_officina'],
         ]);
 
         try {
@@ -63,6 +66,7 @@ class ConsulenteController extends Controller
             'data_nascita' => ['required', 'date'],
             'telefono' => ['required', 'max:255'],
             'percentuale_provvigione' => ['required', 'numeric', 'min:0', 'max:100'],
+            'totale_provvigione' => ['required', 'numeric', 'min:0', 'max:9999999999.99'],
         ]);
 
         try {

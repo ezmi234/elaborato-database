@@ -21,4 +21,14 @@ class Officina extends Model
         'centrale',
         'gestita_da',
     ];
+
+    public function cosulenti()
+    {
+        return $this->hasMany(Consulente::class, 'codice_officina', 'codice_officina');
+    }
+
+    public function meccanici()
+    {
+        return $this->hasMany(Meccanico::class, 'codice_officina', 'codice_officina');
+    }
 }

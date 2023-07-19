@@ -80,6 +80,7 @@
         </div>
 
         <!-- Meccanici -->
+        <!-- Meccanici -->
         <div class="form-group">
             <h3>Meccanici:</h3>
             <table class="table">
@@ -90,15 +91,15 @@
                         <th>Totale ore svolte</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="meccanici-table-body">
                     @foreach ($meccanici as $meccanico)
-                        <tr>
-                            <td>{{ $meccanico->nome }} {{ $meccanico->cognome }}</td>
-                            <td>{{ $meccanico->paga_oraria }}</td>
-                            <td>
-                                <input type="number" value="0" name="meccanici[{{ $meccanico->CF }}]" class="form-control" required>
-                            </td>
-                        </tr>
+                            <tr class="{{ $meccanico->codice_officina }}">
+                                <td>{{ $meccanico->nome }} {{ $meccanico->cognome }}</td>
+                                <td>{{ $meccanico->paga_oraria }}</td>
+                                <td>
+                                    <input type="number" value="0" name="meccanici[{{ $meccanico->CF }}]" class="form-control" required>
+                                </td>
+                            </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -137,6 +138,47 @@
     @endif
 
     <script>
+        // Add event listener to update mechanics when office selection changes
+        let officinaSelect = document.getElementById('codice_officina');
+        let meccaniciTableBody = document.getElementById('meccanici-table-body');
+        let selectedOfficinaId = officinaSelect.value;
+
+        //if tr class not equal to selectedOfficinaId hide
+        meccaniciTableBody.querySelectorAll('tr').forEach(tr => {
+            if (tr.classList[0] != selectedOfficinaId) {
+                tr.style.display = 'none';
+            }
+        });
+
+        officinaSelect.addEventListener('change', function () {
+            selectedOfficinaId = this.value;
+
+            // Hide tr elements that don't match the selectedOfficinaId
+            meccaniciTableBody.querySelectorAll('tr').forEach(tr => {
+                if (tr.classList[0] != selectedOfficinaId) {
+                    tr.style.display = 'none';
+                } else {
+                    tr.style.display = '';
+                }
+            });
+
+            // Make an AJAX request to the server to update the selectedOfficinaId
+            fetch('/updateSelectedOfficina', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}', // Assuming you are using Laravel's CSRF protection
+                },
+                body: JSON.stringify({ selectedOfficinaId }),
+            })
+            .then(response => response.json())
+            .then(responseData => {
+                // Handle the response if needed
+            })
+            .catch(error => {
+                console.error('Error updating selectedOfficinaId:', error);
+            });
+        });
         // Calculate total cost
         const pezziInputs = document.querySelectorAll('input[name^="pezzi_di_ricambio"]');
         const meccaniciInputs = document.querySelectorAll('input[name^="meccanici"]');
