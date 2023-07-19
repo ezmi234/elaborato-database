@@ -27,8 +27,22 @@ class InterventoController extends Controller
         $officine = Officina::all();
         $veicoli = Veicolo::all();
         $pezzi_di_ricambio = PezzoDiRicambio::all();
+        $selectedOfficinaId = $officine->first()->codice_officina;
         $meccanici = Meccanico::all();
-        return view('interventi.create', compact('clienti', 'officine', 'veicoli', 'pezzi_di_ricambio', 'meccanici'));
+        return view('interventi.create', compact('clienti', 'officine', 'veicoli', 'pezzi_di_ricambio', 'meccanici', 'selectedOfficinaId'));
+    }
+
+    public function updateSelectedOfficina(Request $request)
+    {
+        // Retrieve the selectedOfficinaId from the request
+        $selectedOfficinaId = $request->input('selectedOfficinaId');
+
+        // Perform any additional logic here if needed, like fetching mechanics for the selected office
+
+        // Store the selectedOfficinaId in the session or database if you want to persist it
+
+        // Return a response (optional)
+        return response()->json(['message' => 'Selected officina updated successfully']);
     }
 
     public function store(Request $request)

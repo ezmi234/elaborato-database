@@ -50,7 +50,7 @@
                     <td>{{ $compra_vendita->costo_totale }}</td>
                     <td>{{ $compra_vendita->metodo_pagamento }}</td>
                     <td>{{ $compra_vendita->CF_cliente }}</td>
-                    <td>{{ $compra_vendita->codice_officina }}</td>
+                    <td>{{ $compra_vendita->officina->nome }}</td>
                     <td>{{ $compra_vendita->CF_consulente }}</td>
                     <td>{{ $compra_vendita->numero_telaio }}</td>
                     <td>

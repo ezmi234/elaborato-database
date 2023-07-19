@@ -43,7 +43,7 @@
                     <td>{{ $intervento->costo_totale }}</td>
                     <td>{{ $intervento->metodo_pagamento }}</td>
                     <td>{{ $intervento->cliente->CF }}</td>
-                    <td>{{ $intervento->officina->codice_officina }}</td>
+                    <td>{{ $intervento->officina->nome }}</td>
                     <td>
                         <a href="{{ route('interventi.show', $intervento->codice_intervento) }}" class="btn btn-primary">Show</a>
                         <form action="{{ route('interventi.destroy', $intervento->codice_intervento) }}" method="POST" style="display: inline-block;">

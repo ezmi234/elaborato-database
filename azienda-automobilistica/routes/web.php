@@ -118,6 +118,7 @@ Route::get('interventi/show/{intervento}', [InterventoController::class, 'show']
 Route::get('interventi/edit/{intervento}', [InterventoController::class, 'edit'])->name('interventi.edit');
 Route::put('interventi/update/{intervento}', [InterventoController::class, 'update'])->name('interventi.update');
 Route::delete('interventi/destroy/{intervento}', [InterventoController::class, 'destroy'])->name('interventi.destroy');
+Route::post('/updateSelectedOfficina', [InterventoController::class, 'updateSelectedOfficina'])->name('updateSelectedOfficina');
 
 //compravendita methods
 Route::get('compra_vendite/index', [CompraVenditaController::class, 'index'])->name('compra_vendite.index');

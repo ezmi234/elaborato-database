@@ -9,7 +9,13 @@
         @csrf
         <div class="form-group">
             <label for="voto">Voto:</label>
-            <input type="number" class="form-control" id="voto" name="voto" min="1" max="5" required>
+            <select name="voto" id="voto" class="form-control" required>
+                <option value="1">1 Stella</option>
+                <option value="2">2 Stelle</option>
+                <option value="3">3 Stelle</option>
+                <option value="4">4 Stelle</option>
+                <option value="5">5 Stelle</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="messaggio">Messaggio:</label>

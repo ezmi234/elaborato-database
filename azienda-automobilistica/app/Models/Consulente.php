@@ -30,5 +30,10 @@ class Consulente extends Model
         return $this->hasMany(CompraVenditaAuto::class, 'CF_consulente', 'CF');
     }
 
+    public function officina()
+    {
+        return $this->belongsTo(Officina::class, 'codice_officina', 'codice_officina');
+    }
+
 
 }

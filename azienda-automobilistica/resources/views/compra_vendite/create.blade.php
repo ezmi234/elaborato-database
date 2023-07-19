@@ -18,22 +18,22 @@
             </select>
         </div>
 
-        <!-- Consulente -->
-        <div class="form-group">
-            <label for="CF_consulente">Consulente:</label>
-            <select name="CF_consulente" id="CF_consulente" class="form-control" required>
-                @foreach ($consulenti as $consulente)
-                    <option value="{{ $consulente->CF }}">{{ $consulente->CF }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <!-- Officina -->
+         <!-- Officina -->
         <div class="form-group">
             <label for="codice_officina">Officina:</label>
             <select name="codice_officina" id="codice_officina" class="form-control" required>
                 @foreach ($officine as $officina)
                     <option value="{{ $officina->codice_officina }}">{{ $officina->nome }}</option>
+                @endforeach
+            </select>
+        </div>
+
+         <!-- Consulente -->
+         <div class="form-group">
+            <label for="CF_consulente">Consulente:</label>
+            <select name="CF_consulente" id="CF_consulente" class="form-control" required>
+                @foreach ($consulenti as $consulente)
+                    <option class="{{ $consulente->codice_officina }}" value="{{ $consulente->CF }}">{{ $consulente->CF }}</option>
                 @endforeach
             </select>
         </div>
@@ -92,4 +92,41 @@
             </ul>
         </div>
     @endif
+    <script>
+        let officinaSelect = document.getElementById('codice_officina');
+        let cfConsulenteSelect = document.getElementById('CF_consulente');
+        let selectedOfficinaId = officinaSelect.value;
+
+        cfConsulenteSelect.querySelectorAll('option').forEach(option => {
+            if (option.classList.contains(selectedOfficinaId)) {
+                option.hidden = false;
+            } else {
+                option.hidden = true;
+            }
+        });
+
+        officinaSelect.addEventListener('change', (event) => {
+            let selectedOfficinaId = event.target.value;
+            first = 0;
+            cfConsulenteSelect.querySelectorAll('option').forEach(option => {
+                if (option.classList.contains(selectedOfficinaId)) {
+                    option.hidden = false;
+                } else {
+                    option.hidden = true;
+                }
+            });
+
+            // set the first option to selected
+
+            cfConsulenteSelect.querySelectorAll('option').forEach(option => {
+                if (option.classList.contains(selectedOfficinaId) && first == 0) {
+                    option.selected = true;
+                    first = 1;
+                }
+            });
+        });
+
+
+
+    </script>
 @endsection

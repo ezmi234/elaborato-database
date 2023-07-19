@@ -33,6 +33,7 @@
                 <th>Codice Fiscale</th>
                 <th>Nome</th>
                 <th>Cognome</th>
+                <th>Officina di appartenenza</th>
                 <th>Data di nascita</th>
                 <th>Telefono</th>
                 <th>Percentuale Provvigione</th>
@@ -47,6 +48,7 @@
                     <td>{{ $consulente->CF }}</td>
                     <td>{{ $consulente->nome }}</td>
                     <td>{{ $consulente->cognome }}</td>
+                    <td>{{ $consulente->officina->nome }}</td>
                     <td>{{ $consulente->data_nascita }}</td>
                     <td>{{ $consulente->telefono }}</td>
                     <td>{{ $consulente->percentuale_provvigione }}</td>
