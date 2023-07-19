@@ -15,18 +15,13 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->decimal('importo', 10, 2);
-            $table->date('data');
             $table->string('CF_meccanico')->nullable();
             $table->string('CF_consulente')->nullable();
-            $table->unsignedBigInteger('codice_officina');
 
             $table->foreign('CF_meccanico')->references('CF')
                 ->on('meccanici')->onDelete('cascade');
             $table->foreign('CF_consulente')->references('CF')
                 ->on('consulenti')->onDelete('cascade');
-            $table->foreign('codice_officina')->references('codice_officina')
-                ->on('officine')->onDelete('cascade');
-
 
         });
     }

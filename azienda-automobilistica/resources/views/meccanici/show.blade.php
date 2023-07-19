@@ -28,6 +28,34 @@
     </form>
 </div>
 
+<div class="card mt-2">
+    <div class="card-header">
+        <h5>Stipendi</h5>
+    </div>
+    <div class="card-body">
+        @if ($meccanico->stipendi->isEmpty())
+            <p>No stipendi found for this meccanico.</p>
+        @else
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Importo</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($meccanico->stipendi as $stipendio)
+                        <tr>
+                            <td>{{ $stipendio->importo }}</td>
+                            <td>{{ $stipendio->created_at }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
+    </div>
+</div>
+
 <!-- Session Messages -->
 @if (session('error'))
     <div class="alert alert-danger mt-4">
