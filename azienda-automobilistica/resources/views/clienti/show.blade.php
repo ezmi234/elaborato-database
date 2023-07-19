@@ -3,11 +3,11 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <h1>Client Details</h1>
+    <h1>Dettagli Cliente</h1>
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Client Information</h5>
+            <h5 class="card-title">Informazioni Cliente</h5>
             <p><strong>CF cliente:</strong> {{ $cliente->CF }}</p>
             <p><strong>Nome Cliente:</strong> {{ $cliente->nome }}</p>
             <p><strong>Cognome Cliente:</strong> {{ $cliente->cognome }}</p>
@@ -18,11 +18,11 @@
     </div>
 
     <div class="mt-3">
-        <a href="{{ route('clienti.edit', $cliente->CF) }}" class="btn btn-success">Edit</a>
+        <a href="{{ route('clienti.edit', $cliente->CF) }}" class="btn btn-success">Modifica</a>
         <form action="{{ route('clienti.destroy', $cliente->CF) }}" method="POST" style="display: inline-block;">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger">Elimina</button>
         </form>
     </div>
 
@@ -32,7 +32,7 @@
         </div>
         <div class="card-body">
             @if ($cliente->acquisti->isEmpty())
-                <p>No acquisti found for this cliente.</p>
+                <p>Nessun acquisto trovato per questo cliente.</p>
             @else
                 <table class="table">
                     <thead>
@@ -42,7 +42,7 @@
                             <th>Metodo di Pagamento</th>
                             <th>Data Acquisto</th>
                             <th>Officina</th>
-                            <th>Actions</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,7 +75,7 @@
         </div>
         <div class="card-body">
             @if ($cliente->interventi->isEmpty())
-                <p>No interventi found for this cliente.</p>
+                <p>Nessun intervento trovato per questo cliente.</p>
             @else
                 <table class="table">
                     <thead>
@@ -88,7 +88,7 @@
                             <th>Data Intervento</th>
                             <th>Officina</th>
                             <th>Numero Telaio</th>
-                            <th>Actions</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -124,7 +124,7 @@
         </div>
         <div class="card-body">
             @if ($cliente->compravendite->isEmpty())
-                <p>No compravendite found for this cliente.</p>
+                <p>Nessuna compravendita trovata per questo cliente.</p>
             @else
                 <table class="table">
                     <thead>
@@ -137,7 +137,7 @@
                             <th>Codice Officina</th>
                             <th>CF consulente</th>
                             <th>Numero Telaio</th>
-                            <th>Actions</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>

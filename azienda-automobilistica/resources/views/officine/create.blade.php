@@ -3,7 +3,7 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <h1>Add Officina</h1>
+    <h1>Aggiungi Officina</h1>
     <form action="{{ route('officine.store') }}" method="POST">
         @csrf
         <div class="form-group" style="margin-bottom: 10px;">
@@ -36,7 +36,7 @@
         <div class="form-group" style="margin-bottom: 10px;">
             <label for="gestita_da">Gestita da</label>
             <select name="gestita_da" id="gestita_da" class="form-control">
-                <option value="">None</option>
+                <option value="">Nessuna</option>
                 @foreach ($officine as $officina)
                     @if ($officina->centrale == 1)
                         <option value="{{ $officina->codice_officina }}">{{ $officina->nome }}</option>
@@ -44,7 +44,7 @@
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Add Officina</button>
+        <button type="submit" class="btn btn-primary">Aggiungi</button>
     </form>
 
     @if ($errors->officine->any())

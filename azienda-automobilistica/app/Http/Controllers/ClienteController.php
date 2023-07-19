@@ -32,7 +32,6 @@ class ClienteController extends Controller
             'cognome' => ['required', 'max:255'],
             'data_nascita' => ['required', 'date', 'before:today', 'after:1900-01-01' , 'date_format:Y-m-d'],
             'telefono' => ['required', 'numeric', 'digits_between:8,10'],
-            'buono_acquisto' => ['required', 'numeric', 'min:0',],
         ]);
 
         try {
@@ -62,7 +61,6 @@ class ClienteController extends Controller
             'cognome' => ['required', 'max:255'],
             'data_nascita' => ['required', 'date', 'before:today', 'after:1900-01-01' , 'date_format:Y-m-d'],
             'telefono' => ['required', 'numeric', 'digits_between:8,10'],
-            'buono_acquisto' => ['required', 'numeric', 'min:0',],
         ]);
 
         try {

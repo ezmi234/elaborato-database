@@ -3,11 +3,11 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <h1>Officina {{ $officina->centrale ? 'Centrale' : 'Secondaria' }} Details</h1>
+    <h1>Officina {{ $officina->centrale ? 'Centrale' : 'Secondaria' }} Dettagli</h1>
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Officina Information</h5>
+            <h5 class="card-title">Informazioni Officina</h5>
             <p><strong>Codice Officina:</strong> {{ $officina->codice_officina }}</p>
             <p><strong>Nome:</strong> {{ $officina->nome }}</p>
             <p><strong>Sede Città:</strong> {{ $officina->sede_città }}</p>
@@ -28,7 +28,7 @@
         <form action="{{ route('officine.destroy', $officina->codice_officina) }}" method="POST" style="display: inline-block;">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger">Elimina Officina</button>
         </form>
     </div>
 
@@ -38,7 +38,7 @@
         </div>
         <div class="card-body">
             @if ($officina->consulenti->isEmpty())
-                <p>No consultants found for this officina.</p>
+                <p>Nessun consulente trovato per questa officina.</p>
             @else
                 <table class="table">
                     <thead>
@@ -47,7 +47,7 @@
                             <th>Nome</th>
                             <th>Cognome</th>
                             <th>Telefono</th>
-                            <th>Actions</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,7 +58,7 @@
                                 <td>{{ $consulente->cognome }}</td>
                                 <td>{{ $consulente->telefono }}</td>
                                 <td>
-                                    <a href="{{ route('consulenti.show', $consulente->CF) }}" class="btn btn-info">View Details</a>
+                                    <a href="{{ route('consulenti.show', $consulente->CF) }}" class="btn btn-info">Vedi Dettagli</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -74,7 +74,7 @@
         </div>
         <div class="card-body">
             @if ($officina->meccanici->isEmpty())
-                <p>No mechanics found for this officina.</p>
+                <p>Nessun meccanico trovato per questa officina.</p>
             @else
                 <table class="table">
                     <thead>
@@ -83,7 +83,7 @@
                             <th>Nome</th>
                             <th>Cognome</th>
                             <th>Telefono</th>
-                            <th>Actions</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,7 +94,7 @@
                                 <td>{{ $meccanico->cognome }}</td>
                                 <td>{{ $meccanico->telefono }}</td>
                                 <td>
-                                    <a href="{{ route('meccanici.show', $meccanico->CF) }}" class="btn btn-info">View Details</a>
+                                    <a href="{{ route('meccanici.show', $meccanico->CF) }}" class="btn btn-info">Vedi Dettagli</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -110,7 +110,7 @@
         </div>
         <div class="card-body">
             @if ($officina->acquisti->isEmpty())
-                <p>No acquisti found for this officina.</p>
+                <p>Nessun acquisto trovato per questa officina.</p>
             @else
                 <table class="table">
                     <thead>
@@ -119,7 +119,7 @@
                             <th>Costo Totale</th>
                             <th>Metodo di Pagamento</th>
                             <th>Data Acquisto</th>
-                            <th>Actions</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,7 +130,7 @@
                                 <td>{{ $acquisto->metodo_pagamento }}</td>
                                 <td>{{ $acquisto->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('acquisti_in_store.show', $acquisto->codice_acquisto) }}" class="btn btn-info">View Details</a>
+                                    <a href="{{ route('acquisti_in_store.show', $acquisto->codice_acquisto) }}" class="btn btn-info">Vedi Dettagli</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -146,7 +146,7 @@
         </div>
         <div class="card-body">
             @if ($officina->interventi->isEmpty())
-                <p>No interventi found for this officina.</p>
+                <p>Nessun intervento trovato per questa officina.</p>
             @else
                 <table class="table">
                     <thead>
@@ -155,7 +155,7 @@
                             <th>Costo Totale</th>
                             <th>Metodo di Pagamento</th>
                             <th>Data Intervento</th>
-                            <th>Actions</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -166,7 +166,7 @@
                                 <td>{{ $intervento->metodo_pagamento }}</td>
                                 <td>{{ $intervento->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('interventi.show', $intervento->codice_intervento) }}" class="btn btn-info">View Details</a>
+                                    <a href="{{ route('interventi.show', $intervento->codice_intervento) }}" class="btn btn-info">Vedi Dettagli</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -182,7 +182,7 @@
         </div>
         <div class="card-body">
             @if ($officina->compravendite->isEmpty())
-                <p>No compravendite found for this officina.</p>
+                <p>Nessuna compravendita trovata per questa officina.</p>
             @else
                 <table class="table">
                     <thead>
@@ -191,7 +191,7 @@
                             <th>Tipo Vendita</th>
                             <th>Costo Totale</th>
                             <th>Metodo di Pagamento</th>
-                            <th>Actions</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -202,7 +202,7 @@
                                 <td>{{ $compra_vendita->costo_totale }}</td>
                                 <td>{{ $compra_vendita->metodo_pagamento }}</td>
                                 <td>
-                                    <a href="{{ route('compra_vendite.show', $compra_vendita->codice_compra_vendita) }}" class="btn btn-info">View Details</a>
+                                    <a href="{{ route('compra_vendite.show', $compra_vendita->codice_compra_vendita) }}" class="btn btn-info">Vedi Dettagli</a>
                                 </td>
                             </tr>
                         @endforeach

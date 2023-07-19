@@ -20,7 +20,6 @@ class ClienteSeeder extends Seeder
                 'cognome' => 'Rossi',
                 'data_nascita' => '2000-01-01',
                 'telefono' => '3331234567',
-                'buono_acquisto' => 0,
             ],
         );
 
@@ -31,7 +30,6 @@ class ClienteSeeder extends Seeder
                 'cognome' => 'Verdi',
                 'data_nascita' => '2000-01-02',
                 'telefono' => '3331234568',
-                'buono_acquisto' => 0,
             ],
         );
 
@@ -42,7 +40,6 @@ class ClienteSeeder extends Seeder
                 'cognome' => 'Bianchi',
                 'data_nascita' => '2000-01-03',
                 'telefono' => '3331234569',
-                'buono_acquisto' => 0,
             ],
         );
 
@@ -53,7 +50,6 @@ class ClienteSeeder extends Seeder
                 'cognome' => 'Blu',
                 'data_nascita' => '2000-01-04',
                 'telefono' => '3331234570',
-                'buono_acquisto' => 0,
             ],
         );
 

@@ -23,7 +23,6 @@ class Meccanico extends Model
         'telefono',
         'paga_oraria',
         'totale_ore_svolte',
-        'bonus_recensione',
         'totale_recensioni',
         'numero_recensioni',
         'media_recensioni',

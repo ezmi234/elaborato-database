@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('telefono', false, true);
             $table->decimal('paga_oraria', 10, 2);
             $table->decimal('totale_ore_svolte', 10, 2)->default(0);
-            $table->decimal('bonus_recensione', 10, 2)->default(0);
             $table->decimal('media_recensioni', 2, 1)->default(0);
             $table->integer('totale_recensioni')->default(0);
             $table->integer('numero_recensioni')->default(0);
