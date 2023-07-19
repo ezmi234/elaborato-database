@@ -8,7 +8,7 @@
     <!-- Filters -->
     <div class="mb-3 form-inline d-flex align-items-center">
         <form action="{{ route('clienti.index') }}" method="GET" class="d-flex align-items-center">
-            <label for="sort_by" style="margin-right: 10px;  width:200px;">Sort by:</label>
+            <label for="sort_by" style="margin-right: 10px;  width:350px;">Ordina per:</label>
             <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
                 <option value="CF" {{ request('sort_by') === 'CF' ? 'selected' : '' }}>CF</option>
                 <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome Cliente</option>
@@ -18,10 +18,10 @@
                 <option value="buono_acquisto" {{ request('sort_by') === 'buono_acquisto' ? 'selected' : '' }}>Buono d'acquisto</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
-                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
-                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Descending</option>
+                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascendente</option>
+                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Discendente</option>
             </select>
-            <button type="submit" class="btn btn-primary">Apply</button>
+            <button type="submit" class="btn btn-primary">Ordina</button>
         </form>
     </div>
 
@@ -37,7 +37,7 @@
                 <th>Data di nascita</th>
                 <th>Telefono</th>
                 <th>Buono d'acquisto</th>
-                <th>Actions</th>
+                <th>Azioni</th>
             </tr>
         </thead>
         <tbody>
@@ -50,13 +50,13 @@
                     <td>{{ $cliente->telefono }}</td>
                     <td>{{ $cliente->buono_acquisto }}</td>
                     <td>
-                        <a href="{{ route('clienti.show', $cliente->CF) }}" class="btn btn-primary">Show</a>
-                        <a href="{{ route('clienti.edit', $cliente->CF) }}" class="btn btn-success">Edit</a>
+                        <a href="{{ route('clienti.show', $cliente->CF) }}" class="btn btn-primary">Vedi</a>
+                        <a href="{{ route('clienti.edit', $cliente->CF) }}" class="btn btn-success">Modifica</a>
                         <form action="{{ route('clienti.destroy', $cliente->CF) }}" method="POST"
                             style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>
                     </td>
                 </tr>
@@ -65,7 +65,7 @@
     </table>
 
     <a href="{{ route('clienti.create') }}" class="btn btn-primary fixed-bottom-right">
-        <i class="fas fa-plus"></i> Add
+        <i class="fas fa-plus"></i> Aggiungi Cliente
     </a>
 
     <!-- Session Messages -->

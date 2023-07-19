@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('cognome');
             $table->date('data_nascita');
             $table->integer('telefono', false, true);
-            $table->decimal('buono_acquisto', 10, 2, true)->default(0.00);
             $table->timestamps();
         });
     }

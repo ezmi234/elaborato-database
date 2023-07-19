@@ -17,7 +17,6 @@ class Cliente extends Model
         'cognome',
         'data_nascita',
         'telefono',
-        'buono_acquisto',
     ];
 
     public function acquisti()
