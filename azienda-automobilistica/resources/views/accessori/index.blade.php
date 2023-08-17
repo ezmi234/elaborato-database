@@ -8,7 +8,7 @@
     <!-- Filters -->
     <div class="mb-3 form-inline d-flex align-items-center">
         <form action="{{ route('accessori.index') }}" method="GET" class="d-flex align-items-center">
-            <label for="sort_by" style="margin-right: 10px; width:200px;">Sort by:</label>
+            <label for="sort_by" style="margin-right: 10px; width:200px;">Ordina per:</label>
             <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
                 <option value="codice_accessorio" {{ request('sort_by') === 'codice_accessorio' ? 'selected' : '' }}>Codice Accessorio</option>
                 <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome Accessorio</option>
@@ -16,10 +16,10 @@
                 <option value="quantita_venduta" {{ request('sort_by') === 'quantita_venduta' ? 'selected' : '' }}>Quantità Venduta</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
-                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
-                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Descending</option>
+                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascendente</option>
+                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Discesendente</option>
             </select>
-            <button type="submit" class="btn btn-primary">Apply</button>
+            <button type="submit" class="btn btn-primary">Ordina</button>
         </form>
     </div>
 
@@ -31,7 +31,7 @@
                 <th>Nome Accessorio</th>
                 <th>Prezzo</th>
                 <th>Quantità Venduta</th>
-                <th>Actions</th>
+                <th>Azioni</th>
             </tr>
         </thead>
         <tbody>
@@ -48,7 +48,7 @@
                             style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>
                     </td>
                 </tr>
@@ -57,7 +57,7 @@
     </table>
 
     <a href="{{ route('accessori.create') }}" class="btn btn-primary fixed-bottom-right">
-        <i class="fas fa-plus"></i> Add
+        <i class="fas fa-plus"></i> Aggiungi
     </a>
 
     <!-- Session Messages -->
