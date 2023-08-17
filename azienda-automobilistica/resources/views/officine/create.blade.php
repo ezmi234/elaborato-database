@@ -30,7 +30,7 @@
             <label for="centrale">Centrale</label>
             <select name="centrale" id="centrale" class="form-control">
                 <option value="0">No</option>
-                <option value="1">Yes</option>
+                <option value="1">Si</option>
             </select>
         </div>
         <div class="form-group" style="margin-bottom: 10px;">
