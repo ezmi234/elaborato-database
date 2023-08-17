@@ -8,17 +8,17 @@
     <!-- Filters -->
     <div class="mb-3 form-inline d-flex align-items-center">
         <form action="{{ route('acquisti_in_store.index') }}" method="GET" class="d-flex align-items-center">
-            <label for="sort_by" style="margin-right: 10px; width: 200px;">Sort by:</label>
+            <label for="sort_by" style="margin-right: 10px;  width:350px;">Ordina per:</label>
             <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
                 <option value="codice_acquisto" {{ request('sort_by') === 'codice_acquisto' ? 'selected' : '' }}>Codice Acquisto</option>
                 <option value="costo_totale" {{ request('sort_by') === 'costo_totale' ? 'selected' : '' }}>Costo Totale</option>
                 <option value="metodo_pagamento" {{ request('sort_by') === 'metodo_pagamento' ? 'selected' : '' }}>Metodo di Pagamento</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
-                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
-                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Descending</option>
+                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascendente</option>
+                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Discendente</option>
             </select>
-            <button type="submit" class="btn btn-primary">Apply</button>
+            <button type="submit" class="btn btn-primary">Ordina</button>
         </form>
     </div>
 
@@ -32,7 +32,7 @@
                 <th>Metodo di Pagamento</th>
                 <th>Cliente</th>
                 <th>Officina</th>
-                <th>Actions</th>
+                <th>Azioni</th>
             </tr>
         </thead>
         <tbody>
@@ -45,11 +45,11 @@
                     <td>{{ $acquisto->cliente->CF }}</td>
                     <td>{{ $acquisto->officina->nome }}</td>
                     <td>
-                        <a href="{{ route('acquisti_in_store.show', $acquisto->codice_acquisto) }}" class="btn btn-primary">Show</a>
+                        <a href="{{ route('acquisti_in_store.show', $acquisto->codice_acquisto) }}" class="btn btn-primary">Vedi</a>
                         <form action="{{ route('acquisti_in_store.destroy', $acquisto->codice_acquisto) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>
                     </td>
                 </tr>
@@ -58,7 +58,7 @@
     </table>
 
     <a href="{{ route('acquisti_in_store.create') }}" class="btn btn-primary fixed-bottom-right">
-        <i class="fas fa-plus"></i> Add
+        <i class="fas fa-plus"></i> Aggiungi
     </a>
 
     <!-- Session Messages -->

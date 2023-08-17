@@ -8,7 +8,7 @@
     <!-- Filters -->
     <div class="mb-3 form-inline d-flex align-items-center">
         <form action="{{ route('meccanici.index') }}" method="GET" class="d-flex align-items-center">
-            <label for="sort_by" style="margin-right: 10px;  width:200px;">Ordina per:</label>
+            <label for="sort_by" style="margin-right: 10px;  width:350px;">Ordina per:</label>
             <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
                 <option value="CF" {{ request('sort_by') === 'CF' ? 'selected' : '' }}>CF</option>
                 <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome Meccanico</option>
