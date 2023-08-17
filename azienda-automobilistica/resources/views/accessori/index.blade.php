@@ -8,7 +8,7 @@
     <!-- Filters -->
     <div class="mb-3 form-inline d-flex align-items-center">
         <form action="{{ route('accessori.index') }}" method="GET" class="d-flex align-items-center">
-            <label for="sort_by" style="margin-right: 10px; width:200px;">Ordina per:</label>
+            <label for="sort_by" style="margin-right: 10px;  width:350px;">Ordina per:</label>
             <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
                 <option value="codice_accessorio" {{ request('sort_by') === 'codice_accessorio' ? 'selected' : '' }}>Codice Accessorio</option>
                 <option value="nome" {{ request('sort_by') === 'nome' ? 'selected' : '' }}>Nome Accessorio</option>
