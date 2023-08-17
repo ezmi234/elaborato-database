@@ -25,4 +25,14 @@ class Recensione extends Model
         return $this->belongsTo(AcquistoInStore::class, 'codice_acquisto', 'codice_acquisto');
     }
 
+    public function intervento()
+    {
+        return $this->belongsTo(Intervento::class, 'codice_intervento', 'codice_intervento');
+    }
+
+    public function compraVendita()
+    {
+        return $this->belongsTo(CompraVendita::class, 'codice_compra_vendita', 'codice_compra_vendita');
+    }
+
 }
