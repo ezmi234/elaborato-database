@@ -34,7 +34,7 @@
     </div>
     <div class="card-body">
         @if ($meccanico->stipendi->isEmpty())
-            <p>No stipendi found for this meccanico.</p>
+            <p>Nessuno stipendio presente</p>
         @else
             <table class="table">
                 <thead>

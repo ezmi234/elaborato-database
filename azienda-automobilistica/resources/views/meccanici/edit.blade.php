@@ -2,7 +2,7 @@
 @extends('layouts.sidebar')
 @section('content')
 
-<h1>Aggiungi Meccanico</h1>
+<h1>Modifica Meccanico</h1>
 <form action="{{ route('meccanici.store') }}" method="POST">
     @csrf
     <div class="form-group" style="margin-bottom: 10px;">
@@ -41,7 +41,7 @@
         <label for="media_recensione">Media Recensione</label>
         <input type="number" name="media_recensione" id="media_recensione" class="form-control" placeholder="Media Recensione" aria-describedby="helpId">
     </div>
-    <button type="submit" class="btn btn-primary">Aggiungi Meccanico</button>
+    <button type="submit" class="btn btn-primary">Aggiorna Meccanico</button>
 </form>
 
 @if ($errors->meccanici->any())
