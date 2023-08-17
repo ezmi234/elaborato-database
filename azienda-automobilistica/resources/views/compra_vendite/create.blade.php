@@ -3,7 +3,7 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <h1>Create Compra Vendita Auto</h1>
+    <h1>Aggiungi Compra Vendita Auto</h1>
 
     <form action="{{ route('compra_vendite.store') }}" method="POST">
         @csrf
