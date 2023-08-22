@@ -15,11 +15,11 @@ class ConsulenteSeeder extends Seeder
     {
         Consulente::create(
             [
-                'CF' => 'RSSMRA00A00A000A',
-                'nome' => 'Mario',
-                'cognome' => 'Rossi',
+                'CF' => 'LMBMRA00A00A000A',
+                'nome' => 'Marco',
+                'cognome' => 'Lombardi',
                 'data_nascita' => '2000-01-01',
-                'telefono' => '3331234567',
+                'telefono' => '3351234567',
                 'percentuale_provvigione' => 0.12,
                 'totale_provvigione' => 0,
                 'codice_officina' => '1',
@@ -28,11 +28,11 @@ class ConsulenteSeeder extends Seeder
 
         Consulente::create(
             [
-                'CF' => 'VRDGPP00A00A000A',
-                'nome' => 'Giuseppe',
-                'cognome' => 'Verdi',
-                'data_nascita' => '2000-01-01',
-                'telefono' => '3331234467',
+                'CF' => 'MRNLCU00A00A000A',
+                'nome' => 'Lucia',
+                'cognome' => 'Marini',
+                'data_nascita' => '2000-01-02',
+                'telefono' => '3351234568',
                 'percentuale_provvigione' => 0.10,
                 'totale_provvigione' => 0,
                 'codice_officina' => '1',
@@ -41,11 +41,11 @@ class ConsulenteSeeder extends Seeder
 
         Consulente::create(
             [
-                'CF' => 'BNCLCA00A00A000A',
-                'nome' => 'Carlo',
-                'cognome' => 'Bianchi',
-                'data_nascita' => '2000-01-01',
-                'telefono' => '3331214567',
+                'CF' => 'MRNLCU00A00A000B',
+                'nome' => 'Luca',
+                'cognome' => 'Marini',
+                'data_nascita' => '2000-01-03',
+                'telefono' => '3351234569',
                 'percentuale_provvigione' => 0.15,
                 'totale_provvigione' => 0,
                 'codice_officina' => '1',
