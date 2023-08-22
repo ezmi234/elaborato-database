@@ -17,7 +17,7 @@ class PezzoDiRicambioSeeder extends Seeder
             [
                 'codice_pezzo' => '1234567890',
                 'nome' => 'Pneumatico',
-                'prezzo' => 12.03,
+                'prezzo' => 150,
                 'modello' => 'Pirelli PZero',
             ],
         );
@@ -26,7 +26,7 @@ class PezzoDiRicambioSeeder extends Seeder
             [
                 'codice_pezzo' => '0987654321',
                 'nome' => 'Pneumatico',
-                'prezzo' => 10.03,
+                'prezzo' => 175.50,
                 'modello' => 'Michelin Pilot Sport 4',
             ],
         );
@@ -35,7 +35,7 @@ class PezzoDiRicambioSeeder extends Seeder
             [
                 'codice_pezzo' => '1234567812',
                 'nome' => 'Pneumatico',
-                'prezzo' => 11.03,
+                'prezzo' => 200,
                 'modello' => 'Pirelli PZero',
             ],
         );
@@ -44,7 +44,7 @@ class PezzoDiRicambioSeeder extends Seeder
             [
                 'codice_pezzo' => '0987654342',
                 'nome' => 'Candela',
-                'prezzo' => 13.54,
+                'prezzo' => 17.99,
                 'modello' => 'Valvoline 1234',
             ],
         );
@@ -53,7 +53,7 @@ class PezzoDiRicambioSeeder extends Seeder
             [
                 'codice_pezzo' => '1234567820',
                 'nome' => 'pistone',
-                'prezzo' => 12.56,
+                'prezzo' => 150,
                 'modello' => 'Pistone 1234',
             ],
         );

@@ -35,6 +35,29 @@
                 <p><strong>Metodo di Pagamento:</strong> {{ $recensione->acquisto->metodo_pagamento }}</p>
             </div>
         </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Dettagli cliente</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>CF Cliente:</strong> {{ $recensione->acquisto->cliente->CF }}</p>
+                <p><strong>Nome Cliente:</strong> {{ $recensione->acquisto->cliente->nome }}</p>
+                <p><strong>Cognome Cliente:</strong> {{ $recensione->acquisto->cliente->cognome }}</p>
+                <p><strong>Data di Nascita:</strong> {{ $recensione->acquisto->cliente->data_nascita }}</p>
+                <p><strong>Telefono:</strong> {{ $recensione->acquisto->cliente->telefono }}</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Dettagli Officina</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Nome Officina:</strong> {{ $recensione->acquisto->officina->nome }}</p>
+                <p><strong>Città:</strong> {{ $recensione->acquisto->officina->sede_città }}</p>
+                <p><strong>Indirizzo:</strong> {{ $recensione->acquisto->officina->sede_via }}  {{ $recensione->acquisto->officina->sede_civico }}</p>
+            </div>
+        </div>
     @elseif ($recensione->codice_intervento)
         <div class="card mb-4">
             <div class="card-header">
@@ -44,6 +67,18 @@
                 <p><strong>Codice Intervento:</strong> {{ $recensione->intervento->codice_intervento }}</p>
                 <p><strong>Costo Totale:</strong> {{ $recensione->intervento->costo_totale }}</p>
                 <p><strong>Metodo di Pagamento:</strong> {{ $recensione->intervento->metodo_pagamento }}</p>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Dettagli cliente</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>CF Cliente:</strong> {{ $recensione->intervento->cliente->CF }}</p>
+                <p><strong>Nome Cliente:</strong> {{ $recensione->intervento->cliente->nome }}</p>
+                <p><strong>Cognome Cliente:</strong> {{ $recensione->intervento->cliente->cognome }}</p>
+                <p><strong>Data di Nascita:</strong> {{ $recensione->intervento->cliente->data_nascita }}</p>
+                <p><strong>Telefono:</strong> {{ $recensione->intervento->cliente->telefono }}</p>
             </div>
         </div>
     @elseif ($recensione->codice_compra_vendita)
@@ -57,31 +92,19 @@
                 <p><strong>Metodo di Pagamento:</strong> {{ $recensione->compraVendita->metodo_pagamento }}</p>
             </div>
         </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Dettagli cliente</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>CF Cliente:</strong> {{ $recensione->compraVendita->cliente->CF }}</p>
+                <p><strong>Nome Cliente:</strong> {{ $recensione->compraVendita->cliente->nome }}</p>
+                <p><strong>Cognome Cliente:</strong> {{ $recensione->compraVendita->cliente->cognome }}</p>
+                <p><strong>Data di Nascita:</strong> {{ $recensione->compraVendita->cliente->data_nascita }}</p>
+                <p><strong>Telefono:</strong> {{ $recensione->compraVendita->cliente->telefono }}</p>
+            </div>
+        </div>
     @endif
-
-    <div class="card mb-4">
-        <div class="card-header">
-            <h5>Dettagli cliente</h5>
-        </div>
-        <div class="card-body">
-            <p><strong>CF Cliente:</strong> {{ $recensione->acquisto->cliente->CF }}</p>
-            <p><strong>Nome Cliente:</strong> {{ $recensione->acquisto->cliente->nome }}</p>
-            <p><strong>Cognome Cliente:</strong> {{ $recensione->acquisto->cliente->cognome }}</p>
-            <p><strong>Data di Nascita:</strong> {{ $recensione->acquisto->cliente->data_nascita }}</p>
-            <p><strong>Telefono:</strong> {{ $recensione->acquisto->cliente->telefono }}</p>
-        </div>
-    </div>
-
-    <div class="card mb-4">
-        <div class="card-header">
-            <h5>Dettagli Officina</h5>
-        </div>
-        <div class="card-body">
-            <p><strong>Nome Officina:</strong> {{ $recensione->acquisto->officina->nome }}</p>
-            <p><strong>Città:</strong> {{ $recensione->acquisto->officina->sede_città }}</p>
-            <p><strong>Indirizzo:</strong> {{ $recensione->acquisto->officina->sede_via }}  {{ $recensione->acquisto->officina->sede_civico }}</p>
-        </div>
-    </div>
 
 
 @endsection

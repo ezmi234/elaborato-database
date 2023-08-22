@@ -15,20 +15,32 @@ class AccessorioSeeder extends Seeder
     {
         Accessorio::create(
             [
-                'nome' => 'Cerchi in lega',
-                'prezzo' => 1000,
-            ],
-        );
-        Accessorio::create(
-            [
-                'nome' => 'Climatizzatore',
-                'prezzo' => 500,
-            ],
-        );
-        Accessorio::create(
-            [
                 'nome' => 'Coprivolante',
                 'prezzo' => 15.50,
+            ],
+        );
+        Accessorio::create(
+            [
+                'nome' => 'Tappetini',
+                'prezzo' => 20.00,
+            ],
+        );
+        Accessorio::create(
+            [
+                'nome' => 'Cuscino',
+                'prezzo' => 8.50,
+            ],
+        );
+        Accessorio::create(
+            [
+                'nome' => 'Cintura',
+                'prezzo' => 5.00,
+            ],
+        );
+        Accessorio::create(
+            [
+                'nome' => 'Cappello F1',
+                'prezzo' => 10.00,
             ],
         );
     }

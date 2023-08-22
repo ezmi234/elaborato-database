@@ -15,8 +15,8 @@ class MeccanicoSeeder extends Seeder
     {
         Meccanico::create(
             [
-                'CF' => 'RSSMRA00A00A000A',
-                'nome' => 'Mario',
+                'CF' => 'RSSRNS00A00A000A',
+                'nome' => 'Ernesto',
                 'cognome' => 'Rossi',
                 'data_nascita' => '2000-01-01',
                 'telefono' => '3331234567',
@@ -28,11 +28,11 @@ class MeccanicoSeeder extends Seeder
 
         Meccanico::create(
             [
-                'CF' => 'VRDGPP00A00A000A',
-                'nome' => 'Giuseppe',
+                'CF' => 'VQSDGPP00A00A000',
+                'nome' => 'Tiziano',
                 'cognome' => 'Verdi',
-                'data_nascita' => '2000-01-01',
-                'telefono' => '3331234567',
+                'data_nascita' => '2000-01-02',
+                'telefono' => '3384234568',
                 'paga_oraria' => 10,
                 'totale_ore_svolte' => 0,
                 'codice_officina' => '1',
