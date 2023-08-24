@@ -4,11 +4,11 @@
 
 @section('content')
     <div class="container">
-        <h1>Intervento Details</h1>
+        <h1>Dettagli Intervento</h1>
 
         <div class="row">
             <div class="col-md-6">
-                <h3>General Information</h3>
+                <h3>Informazioni Intervento</h3>
                 <ul class="list-group">
                     <li class="list-group-item"><strong>Cliente:</strong> {{ $intervento->cliente->CF }}</li>
                     <li class="list-group-item"><strong>Officina:</strong> {{ $intervento->officina->nome }}</li>
@@ -29,9 +29,13 @@
             <div class="col-md-6">
                 <h3>Pezzi di ricambio</h3>
                 <ul class="list-group">
-                    @foreach ($intervento->pezzi_di_ricambio as $pezzo)
-                        <li class="list-group-item">{{ $pezzo->nome }} - Prezzo: {{ $pezzo->prezzo }} - Quantità: {{ $pezzo->pivot->quantita }}</li>
-                    @endforeach
+                    @if($intervento->pezzi_di_ricambio->count() == 0)
+                        <p>Non sono stati usati pezzi di ricambio</p>
+                    @else
+                        @foreach ($intervento->pezzi_di_ricambio as $pezzo)
+                            <li class="list-group-item">{{ $pezzo->nome }} - Prezzo: {{ $pezzo->prezzo }} - Quantità: {{ $pezzo->pivot->quantita }}</li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
 
@@ -71,7 +75,7 @@
                 <form action="{{ route('interventi.destroy', $intervento->codice_intervento) }}" method="POST" style="display: inline-block">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete Intervento</button>
+                    <button type="submit" class="btn btn-danger">Elimina Intervento</button>
                 </form>
             </div>
         </div>

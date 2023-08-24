@@ -8,7 +8,7 @@
     <!-- Filters -->
     <div class="mb-3 form-inline d-flex align-items-center">
         <form action="{{ route('compra_vendite.index') }}" method="GET" class="d-flex align-items-center">
-            <label for="sort_by" style="margin-right: 10px; width: 200px;">Sort by:</label>
+            <label for="sort_by" style="margin-right: 10px;  width:350px;">Ordina per:</label>
             <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
                 <option value="tipo_vendita" {{ request('sort_by') === 'tipo_vendita' ? 'selected' : '' }}>Tipo Vendita</option>
                 <option value="costo_totale" {{ request('sort_by') === 'costo_totale' ? 'selected' : '' }}>Costo Totale</option>
@@ -19,10 +19,10 @@
                 <option value="numero_telaio" {{ request('sort_by') === 'numero_telaio' ? 'selected' : '' }}>Numero Telaio</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
-                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
-                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Descending</option>
+                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascendente</option>
+                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Discendente</option>
             </select>
-            <button type="submit" class="btn btn-primary">Apply</button>
+            <button type="submit" class="btn btn-primary">Ordina</button>
         </form>
     </div>
 
@@ -39,7 +39,7 @@
                 <th>Codice Officina</th>
                 <th>CF Consulente</th>
                 <th>Numero Telaio</th>
-                <th>Actions</th>
+                <th>Azioni</th>
             </tr>
         </thead>
         <tbody>
@@ -54,12 +54,12 @@
                     <td>{{ $compra_vendita->CF_consulente }}</td>
                     <td>{{ $compra_vendita->numero_telaio }}</td>
                     <td>
-                        <a href="{{ route('compra_vendite.show', $compra_vendita->codice_compra_vendita) }}" class="btn btn-primary">Show</a>
+                        <a href="{{ route('compra_vendite.show', $compra_vendita->codice_compra_vendita) }}" class="btn btn-primary">Vedi</a>
                         <form action="{{ route('compra_vendite.destroy', $compra_vendita->codice_compra_vendita) }}" method="POST"
                             style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>
                     </td>
                 </tr>
@@ -68,7 +68,7 @@
     </table>
 
     <a href="{{ route('compra_vendite.create') }}" class="btn btn-primary fixed-bottom-right">
-        <i class="fas fa-plus"></i> Add
+        <i class="fas fa-plus"></i> Aggiungi
     </a>
 
     <!-- Session Messages -->

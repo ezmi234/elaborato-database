@@ -8,7 +8,6 @@
 
         <div class="row">
             <div class="col-md-6">
-                <h3>General Information</h3>
                 <ul class="list-group">
                     <li class="list-group-item"><strong>Codice Compra Vendita:</strong> {{ $compra_vendita->codice_compra_vendita }}</li>
                     <li class="list-group-item"><strong>Data e Ora:</strong> {{ $compra_vendita->created_at }}</li>
@@ -99,13 +98,13 @@
 
 
         <!-- Actions -->
-        <a href="{{ route('compra_vendite.index') }}" class="btn btn-primary mt-2">Back to List</a>
+        <a href="{{ route('compra_vendite.index') }}" class="btn btn-primary mt-2">Torna Indietro</a>
 
         <!-- Delete Form -->
         <form action="{{ route('compra_vendite.destroy', $compra_vendita) }}" method="POST" style="display: inline-block;">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger mt-2">Delete</button>
+            <button type="submit" class="btn btn-danger mt-2">Elimina</button>
         </form>
     </div>
 @endsection

@@ -3,7 +3,7 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <h1>Create Acquisto in Store</h1>
+    <h1>Aggiungi Acquisto in Store</h1>
 
     <form action="{{ route('acquisti_in_store.storeAccessori') }}" method="POST">
         @csrf

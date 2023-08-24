@@ -2,7 +2,7 @@
 
 @extends('layouts.sidebar')
 @section('content')
-    <h1>Add Accessorio</h1>
+    <h1>Aggiungi Accessorio</h1>
     <form action="{{ route('accessori.store') }}" method="POST">
         @csrf
         <div class="form-group" style="margin-bottom: 10px;">
