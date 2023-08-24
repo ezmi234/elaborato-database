@@ -3,7 +3,7 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <h1>Create Recensione</h1>
+    <h1>Aggiungi Recensione</h1>
 
     <form action="{{ route('recensioni.store') }}" method="POST">
         @csrf
@@ -28,6 +28,6 @@
         @elseif ($compra_vendita)
             <input type="hidden" name="codice_compra_vendita" value="{{ $compra_vendita->codice_compra_vendita }}">
         @endif
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        <button type="submit" class="btn btn-primary mt-2">Aggiungi</button>
     </form>
 @endsection

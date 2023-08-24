@@ -3,7 +3,7 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    <h1>Create Interventi</h1>
+    <h1>Aggiungi Intervento</h1>
 
     <form action="{{ route('interventi.store') }}" method="POST">
         @csrf

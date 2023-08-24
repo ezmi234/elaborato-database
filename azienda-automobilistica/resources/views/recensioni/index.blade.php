@@ -8,17 +8,17 @@
     <!-- Filters -->
     <div class="mb-3 form-inline d-flex align-items-center">
         <form action="{{ route('recensioni.index') }}" method="GET" class="d-flex align-items-center">
-            <label for="sort_by" style="margin-right: 10px; width:200px;">Sort by:</label>
+            <label for="sort_by" style="margin-right: 10px; width: 350px;">Ordina per:</label>
             <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
                 <option value="codice_recensione" {{ request('sort_by') === 'codice_recensione' ? 'selected' : '' }}>Codice Recensione</option>
                 <option value="voto" {{ request('sort_by') === 'voto' ? 'selected' : '' }}>Voto</option>
                 <option value="messaggio" {{ request('sort_by') === 'messaggio' ? 'selected' : '' }}>Messaggio</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
-                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
-                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Descending</option>
+                <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascendente</option>
+                <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Discendente</option>
             </select>
-            <button type="submit" class="btn btn-primary">Apply</button>
+            <button type="submit" class="btn btn-primary">Ordina</button>
         </form>
     </div>
 
@@ -30,7 +30,7 @@
                 <th>Voto</th>
                 <th>Messaggio</th>
                 <th>Tipo</th>
-                <th>Actions</th>
+                <th>Azioni</th>
             </tr>
         </thead>
         <tbody>
@@ -49,12 +49,12 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('recensioni.show', $recensione->codice_recensione) }}" class="btn btn-primary">Show</a>
+                        <a href="{{ route('recensioni.show', $recensione->codice_recensione) }}" class="btn btn-primary">Vedi</a>
                         <form action="{{ route('recensioni.destroy', $recensione->codice_recensione) }}" method="POST"
                             style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>
                     </td>
                 </tr>

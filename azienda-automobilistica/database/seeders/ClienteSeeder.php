@@ -47,7 +47,7 @@ class ClienteSeeder extends Seeder
             [
                 'CF' => 'GMCLCC00A00A000B',
                 'nome' => 'GMatteo',
-                'cognome' => 'Blu',
+                'cognome' => 'Valentini',
                 'data_nascita' => '2000-01-04',
                 'telefono' => '3331234570',
             ],

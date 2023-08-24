@@ -68,13 +68,13 @@
     </div>
 
     <!-- Actions -->
-    <a href="{{ route('acquisti_in_store.index') }}" class="btn btn-primary mt-2">Back to List</a>
+    <a href="{{ route('acquisti_in_store.index') }}" class="btn btn-primary mt-2">Torna Indietro</a>
 
     <!-- Delete Form -->
     <form action="{{ route('acquisti_in_store.destroy', $acquisto) }}" method="POST" style="display: inline-block;">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-danger mt-2">Delete</button>
+        <button type="submit" class="btn btn-danger mt-2">Elimina</button>
     </form>
 
 @endsection

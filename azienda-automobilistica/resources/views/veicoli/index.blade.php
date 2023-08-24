@@ -9,7 +9,7 @@
     <!-- Filters -->
 <div class="mb-3 form-inline d-flex align-items-center">
     <form action="{{ route('veicoli.index') }}" method="GET" class="d-flex align-items-center">
-        <label for="sort_by" style="margin-right: 10px;  width:200px;">Sort by:</label>
+        <label for="sort_by" style="margin-right: 10px; width: 350px;">Ordina per:</label>
         <select name="sort_by" id="sort_by" class="form-control" style="margin-right: 10px;">
             <option value="numero_telaio" {{ request('sort_by') === 'numero_telaio' ? 'selected' : '' }}>Numero Telaio</option>
             <option value="marca" {{ request('sort_by') === 'marca' ? 'selected' : '' }}>Marca</option>
@@ -19,10 +19,10 @@
             <option value="colore" {{ request('sort_by') === 'colore' ? 'selected' : '' }}>Colore</option>
         </select>
         <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
-            <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascending</option>
-            <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Descending</option>
+            <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascendente</option>
+            <option value="desc" {{ request('sort_order') === 'desc' ? 'selected' : '' }}>Discendente</option>
         </select>
-        <button type="submit" class="btn btn-primary">Apply</button>
+        <button type="submit" class="btn btn-primary">Ordina</button>
     </form>
 </div>
 
@@ -37,7 +37,7 @@
                 <th>Targa</th>
                 <th>Anno Immatricolazione</th>
                 <th>Colore</th>
-                <th>Actions</th>
+                <th>Azioni</th>
             </tr>
         </thead>
         <tbody>
@@ -50,12 +50,12 @@
                     <td>{{ $veicolo->anno_immatricolazione }}</td>
                     <td>{{ $veicolo->colore }}</td>
                     <td>
-                        <a href="{{ route('veicoli.edit', $veicolo->numero_telaio) }}" class="btn btn-success">Edit</a>
+                        <a href="{{ route('veicoli.edit', $veicolo->numero_telaio) }}" class="btn btn-success">Modifica</a>
                         <form action="{{ route('veicoli.destroy', $veicolo->numero_telaio) }}" method="POST"
                             style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>
                     </td>
                 </tr>
@@ -64,7 +64,7 @@
     </table>
 
     <a href="{{ route('veicoli.create') }}" class="btn btn-primary fixed-bottom-right">
-        <i class="fas fa-plus"></i> Add
+        <i class="fas fa-plus"></i> Aggiungi Veicolo
     </a>
 
     <!-- Session Messages -->
