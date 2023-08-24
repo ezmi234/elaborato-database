@@ -25,10 +25,6 @@
         <label for="telefono">Telefono</label>
         <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono" aria-describedby="helpId">
     </div>
-    <div class="form-group" style="margin-bottom: 10px;">
-        <label for="buono_acquisto">Buono d'acquisto</label>
-        <input type="number" name="buono_acquisto" id="buono_acquisto" class="form-control" placeholder="Buono d'acquisto" aria-describedby="helpId">
-    </div>
     <button type="submit" class="btn btn-primary">Aggiungi Cliente</button>
 </form>
 

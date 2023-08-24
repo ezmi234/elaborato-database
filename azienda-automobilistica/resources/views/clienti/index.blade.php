@@ -15,7 +15,6 @@
                 <option value="cognome" {{ request('sort_by') === 'cognome' ? 'selected' : '' }}>Cognome Cliente</option>
                 <option value="data_nascita" {{ request('sort_by') === 'data_nascita' ? 'selected' : '' }}>Data di nascita</option>
                 <option value="telefono" {{ request('sort_by') === 'telefono' ? 'selected' : '' }}>Telefono</option>
-                <option value="buono_acquisto" {{ request('sort_by') === 'buono_acquisto' ? 'selected' : '' }}>Buono d'acquisto</option>
             </select>
             <select name="sort_order" id="sort_order" class="form-control" style="margin-right: 10px;">
                 <option value="asc" {{ request('sort_order') === 'asc' ? 'selected' : '' }}>Ascendente</option>
@@ -36,7 +35,6 @@
                 <th>Cognome Cliente</th>
                 <th>Data di nascita</th>
                 <th>Telefono</th>
-                <th>Buono d'acquisto</th>
                 <th>Azioni</th>
             </tr>
         </thead>
@@ -48,7 +46,6 @@
                     <td>{{ $cliente->cognome }}</td>
                     <td>{{ $cliente->data_nascita }}</td>
                     <td>{{ $cliente->telefono }}</td>
-                    <td>{{ $cliente->buono_acquisto }}</td>
                     <td>
                         <a href="{{ route('clienti.show', $cliente->CF) }}" class="btn btn-primary">Vedi</a>
                         <a href="{{ route('clienti.edit', $cliente->CF) }}" class="btn btn-success">Modifica</a>
